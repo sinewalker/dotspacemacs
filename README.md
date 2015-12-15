@@ -1,17 +1,15 @@
-# dotspacemacs
-
 Personal Spacemacs configuration
 ====
 
 This is my [Spacemacs](https://github.com/syl20bnr/spacemacs) configuration.
 
-I've been an [Emacs](https://www.gnu.org/software/emacs/) user for about 2 decades. and I've been keeping my emacs configuration ever since February 2000 when it was just a simple .emacsrc until it evolved over time to something quite complex and hairy. In recent months it's developed a will of its own, to the point where I cannot easily maintain it: if I make a change to something, three other things will unexpectedly break.
+I've been an [Emacs](https://www.gnu.org/software/emacs/) user for about 2 decades and I've been keeping my emacs configuration ever since February 2000 when it was just a simple `.emacsrc` until it evolved over time to something quite complex and hairy. In recent months it's developed a will of its own, to the point where I cannot easily maintain it: if I make a change to something, three other things will unexpectedly break.
 
 So, I have declared Emacs Configuration Bankruptcy.
 
 I recently discovered [use-package](https://github.com/jwiegley/use-package), which offers a way to replace my own ELPA-wrangling code (based off the [Emacs Starter Kit, version 2](https://github.com/technomancy/emacs-starter-kit/tree/v2)) with something much more sensible and simple.  It's great, but I would still need to write many package configurations to tidy up what I've accumulated over the years and make it all make sense and work.
 
-Then I discovered ***Spacemacs***, which uses `use-package` and comes with batteries included in the form of Layers. Wow, this is so elegant -- and importantly, much of the package configurations I've been doing on my own are already done for me (by people with much more skill than I). So, I'm getting in on it!
+Then I discovered ***Spacemacs***, which uses `use-package` and comes with batteries included in the form of *Layers*. Wow, this is so elegant &mdash; and importantly, much of the package installations/configurations I've been doing on my own are already done for me (by people with much more skill than I). So, I'm getting in on it!
 
 Of course it still needs tweaking to personal taste (there's no accounting for personal taste), and that is what this project is for.
 
