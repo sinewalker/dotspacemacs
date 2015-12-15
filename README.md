@@ -1,0 +1,2 @@
+# dotspacemacs
+Personal Spacemacs configuration
