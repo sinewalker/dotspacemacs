@@ -1,0 +1,21 @@
+#name : 24x7-report
+# --
+To: 24x7-support-monitor@squiz.net
+Subject: 24x7 Activity Report - `(format-time-string "%d/%m/%Y")`
+----
+Hi all,
+
+*Outages*:
+
+Client: $0
+Ticket:
+Notes:
+
+*Reporting Anomalies (verified as not an outage)*: 
+
+Client:
+Ticket:
+Notes:
+
+Cheers,
+Mike

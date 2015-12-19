@@ -1,0 +1,22 @@
+#name : source-header
+# --
+`(insert-char (string-to-char (substring comment-start 0 1)) 80)`
+`comment-start`
+`comment-start`  File:       `(if buffer-file-name (insert (file-name-base buffer-file-name) (file-name-extension buffer-file-name t)))`
+`comment-start`  Created:    `(format-time-string "%Y-%m-%d")`
+`comment-start`  Language:   `mode-name`
+`comment-start`  Time-stamp: `(insert "<")``(insert ">")`
+`comment-start`  Platform:   $1
+`comment-start`  OS:         $2
+`comment-start`  Author:     [MJL] Michael J. Lockhart (`user-mail-address`)
+`comment-start`
+`comment-start`  Rights:     Copyright © `(format-time-string "%Y")` Michael James Lockhart, B.App.Comp(HONS)
+`comment-start`
+`comment-start`  PURPOSE:    $3
+`comment-start`
+`comment-start`      $0
+`comment-start`
+`comment-start`  HISTORY
+`comment-start`
+`comment-start`  `(mjl/insert-date-stamp)` - Created
+`comment-start`

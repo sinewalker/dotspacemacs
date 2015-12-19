@@ -1,0 +1,31 @@
+#name : emacs-source-header
+# --
+`(insert-char ?; 70)`
+;;
+;;  File:       `(if buffer-file-name (insert (file-name-base buffer-file-name) (file-name-extension buffer-file-name t)))`
+;;  Created:    `(format-time-string "%Y-%m-%d")`
+;;  Language:   `mode-name`
+;;  Time-stamp: `(insert "<")``(insert ">")`
+;;  Platform:   Emacs
+;;  OS:         N/A
+;;  Author:     [MJL] Michael J. Lockhart (`user-mail-address`)
+;;
+;;  Rights:     Copyright © `(format-time-string "%Y")` Michael James Lockhart, B.App.Comp(HONS)
+;;
+;;  PURPOSE:    $3
+;;
+`(insert-char ?; 70)`
+;;
+;;; Commentary:
+;;
+;;      $0
+;;
+`(insert-char ?; 70)`
+;;
+;;; Change Log:
+;;
+;;  `(mjl/insert-date-stamp)` - Created
+;;
+`(insert-char ?; 70)`
+;;
+;;; Code:

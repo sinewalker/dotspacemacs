@@ -1,0 +1,38 @@
+#name : this-week-support
+# --
+To: support-team@squiz.com.au
+Cc: sdm@squiz.com.au
+Subject: This Week in Support `(format-time-string "%d/%m/%Y")` - `(format-time-string "%d/%m/%Y" (time-add (current-time) (seconds-to-time 518400)))q`
+----
+Good morning everybody,
+ 
+For the week commencing Monday `(format-time-string "%d %B %Y")`:
+ 
+*Leave*
+ ${1:None}
+ 
+*Upgrades*
+ | *Client* | *Who* | *Start* | *End* |
+ |----------+-------+---------+-------|
+ | $0         |       |         |       |
+ 
+*Scheduled Work*
+ | *Detail* | *Date* |
+ |----------+--------|
+ |          |        |
+ 
+*Meetings*
+  ${2:None}
+
+*Triage:*
+  Morning: $3
+  Evening: $4
+
+*Week-ends:*
+  Saturday: $5
+  Sunday:   $6
+  SCRU:     $7
+
+*Other Notes:*
+  ${8:None}
+

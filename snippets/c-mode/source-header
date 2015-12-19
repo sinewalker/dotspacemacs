@@ -1,0 +1,23 @@
+#name : C-source-header
+# --
+/*`(insert-char ?* 78)`
+ *
+ *  File:       `(if buffer-file-name (insert (file-name-base buffer-file-name) (file-name-extension buffer-file-name t)))`
+ *  Created:    `(format-time-string "%Y-%m-%d")`
+ *  Language:   `mode-name`
+ *  Time-stamp: `(insert "<")``(insert ">")`
+ *  Platform:   $1
+ *  OS:         $2
+ *  Author:     [MJL] Michael J. Lockhart (`user-mail-address`)
+ *
+ *  Rights:     Copyright © `(format-time-string "%Y")` Michael James Lockhart, B.App.Comp(HONS)
+ *
+ *  PURPOSE:    $3
+ *
+ *      $0
+ *
+ *  HISTORY
+ *
+ *  `(mjl/insert-date-stamp)` - Created
+ *
+ */
