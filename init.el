@@ -42,8 +42,7 @@ values."
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      (mu4e-mike :variables
                 mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
-     ;;php ;; <-- this causes load errors for spacemacs, because one of the
-     ;;           quelpa packages isn't building/loading for me
+     php 
      python
      javascript
      erc
@@ -54,7 +53,9 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+                                    php-extras ; MJL20151220 compilation errors
+                                    )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
