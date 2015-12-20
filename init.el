@@ -112,7 +112,7 @@ values."
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-emacs-leader-key "s-SPC" ;"M-m"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
@@ -235,6 +235,7 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
  '(fringe-mode nil nil (fringe))
+ '(org-support-shift-select t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
