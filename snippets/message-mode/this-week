@@ -12,10 +12,11 @@ For the week commencing Monday `(format-time-string "%d %B %Y")`:
  ${1:None}
  
 *Upgrades*
+
  | *Client* | *Who* | *Start* | *End* |
  |----------+-------+---------+-------|
  | $0         |       |         |       |
- 
+
 *Scheduled Work*
  | *Detail* | *Date* |
  |----------+--------|
@@ -32,6 +33,11 @@ For the week commencing Monday `(format-time-string "%d %B %Y")`:
   Saturday: $5
   Sunday:   $6
   SCRU:     $7
+
+*RDOs:**
+
+  Mon/Tue:  $8
+  Thu/Fri:  $9
 
 *Other Notes:*
   ${8:None}
