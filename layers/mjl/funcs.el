@@ -83,6 +83,7 @@
 ;;               - removed functions no longer required in spacemacs
 ;;               - adopted Spacemacs naming convention for "private",
 ;;                 non-command functions (two slashes)
+;;   MJL20151222 - Use Nyan Cat rainbow colours for the cyberpunk cursor
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -337,7 +338,7 @@ root. Probably only works for local files"
 ;; Cyberpunk cursor http://www.emacswiki.org/emacs/Zarza
 
 ;(defvar blink-cursor-colors (list  "#92c48f" "#6785c5" "#be369c" "#d9ca65")
-(defvar blink-cursor-colors (list "#ff0000" "#ff8c00" "#ffd700" "#ffff00" "#7cfc00" "#00ff00" "#00ff7f" "#00fa9a" "#00ffff" "#00bfff" "#0000ff" "#9400d3" "#8b008b" "#ff00ff" "#8b0000")
+(defvar blink-cursor-colors (list "#381d30" "#79171b" "#9c2a14" "#a95f1b" "#ae7d20" "#ac9c25" "#848b1f" "#416b16" "#328b24" "#2d904f" "#1f758a" "#265da0" "#40399c" "#3f2e89" "#202860")
   "On each blink the cursor will cycle to the next color in this list.")
 
 (setq blink-cursor-count 0)
