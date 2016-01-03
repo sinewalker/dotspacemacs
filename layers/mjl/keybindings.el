@@ -46,6 +46,9 @@
 ;;  MJL20151220 - Created, copied from osx layer, then imported much from my own
 ;;                mjl/boot/bindings.el
 ;;  MJL20151222 - Added rest of Sun keys and my F-keys
+;;  MJL20160102 - bind font scaling to C-+/- as well (easy to type, doesn't
+;;                break much)
+;;  MJL20160104 - Swap F2 and F3 to better match physical key labels
 ;;
 ;;
 
@@ -85,6 +88,9 @@
 
   ;;;;;;;;;;;;;;;;;;;;
   ;; Mike's additions (common bindings in other programs)
+  (global-set-key (kbd "C-+") 'spacemacs/scale-up-font)
+  (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
+
   (global-set-key (kbd "s-o") 'ido-find-file)
   (global-set-key (kbd "s-f") 'isearch-forward)
   (global-set-key (kbd "M-s-f") 'mjl/isearch-other-window)
@@ -147,58 +153,70 @@
   ;;;;;;;;;;;;;;;;;;;;
   ;;; MJL20140722 - New F-key bindings
 
-  ;; F1: shells
-  ;(global-set-key [f1]                  'shell) ;help is Ctl-H or <help>
+  ;; F1: shells (TEK F1=Home, Mac=Dimmer)
+  ;; f1 set by Spacemacs for Helm stuff. Leave it for now.
+  ;global-set-key [f1]                  'shell) ;help is Ctl-H or <help>
   ;(global-set-key [(control f1)]        'ansi-term)
   ;(global-set-key [(meta f1)]           'eshell)
-  ;; F2: buffer switching
-  (global-set-key [f2]                  'ido-switch-buffer)
-  (global-set-key [(control f2)]        'ibuffer)
-  (global-set-key [(meta f2)]           'list-bookmarks)
-  ;; F3: apps
-  (global-set-key [f3]                  'mu4e)
-  (global-set-key [(control f3)]        'calc)
+
+  ;; F2: apps () (TEK F2=email, Mac=Brighter)
+  (global-set-key [f2]                   'mu4e)
+  (global-set-key [(control f2)]         'calc)
+  (global-set-key [(meta f2)]            'ediff-directories)
+
+  ;; F3: buffer switching (F3 TEK = Find, Mac = Exposé)
+  (global-set-key [f3]                   'ido-switch-buffer)
+  (global-set-key [(control f3)]         'ibuffer)
   ;; meta-f3 masked by OS
-  (global-set-key [(shift f3)]          'ediff-directories)
+  (global-set-key [(shift f3)]           'list-bookmarks)
+
+
   ;; F4: evaluate ? (alt-f4 delete-frame seems sensible)
+  ;; (or maybe dired? TEK=folder, Mac=Spaces)
   (global-set-key [f4]                  'eval-last-sexp)
   (global-set-key [(control f4)]        'eval-region)
   (global-set-key [(meta f4)]           'delete-frame)
 
-  ;; F5: revert/refresh functions
+  ;; F5: revert/refresh functions (TEK Calc)
   (global-set-key [f5]                  'revert-buffer)
   (global-set-key [(control f5)]        'mjl/diff-buffer-with-file)
   (global-set-key [(meta f5)]           'vc-revert)
-  ;; F6: Differences
+
+  ;; F6: Differences (TEK Media)
   (global-set-key [f6]                  'ediff-buffers)
   (global-set-key [(meta f6)]           'ediff-revision)
-  ;; F7: mark
+
+  ;; F7: mark (TEK/Mac=Prev track)
   (global-set-key [f7]                  'transient-mark-mode)
   (global-set-key [(control f7)]        'mark-work)
   (global-set-key [(meta f7)]           'mark-paragraph)
   (global-set-key [(shift f7)]          'mark-defun)
-  ;; F8: search/highlight
-  ;; f8 (set by ergoemacs - leave alone)
+
+  ;; F8: search/highlight (TEK/Mac=Pause)
   (global-set-key [(control f8)]        'hl-line-mode)
   (global-set-key [(meta f8)]           'global-hl-line-mode)
   (global-set-key [(shift f8)]          'idle-highlight-mode)
-  ;; F9: macros
+
+  ;; F9: macros (TEK/Mac=Next track)
   (global-set-key [f9]                  'kmacro-call-macro)
   (global-set-key [(control f9)]        'kmacro-start-macro)
   (global-set-key [(meta f9)]           'kmacro-end-macro)
   (global-set-key [(shift f9)]          'kmacro-name-last-macro)
-  ;; F10: Menu/GUI control
+
+  ;; F10: Menu/GUI control (TEK/Mac=Mute)
   ;; f10 (leave it)
   ;(global-set-key [(control f10)]       'mjl/toggle-rulers)
   ;(global-set-key [(meta f10)]          'mjl/toggle-gui)
-  ;; F11 date/time insertion  (these might be done better as leaders?)
+
+  ;; F11 date/time insertion  (these might be done better as leaders?) (TEK/Mac=Quieter)
   (global-set-key [f11]                 'mjl/insert-date-stamp)
   (global-set-key [(control f11)]       'mjl/insert-timestamp-org)
   (global-set-key [(meta f11)]          'mjl/insert-date-work)
   (global-set-key [(shift f11)]         'mjl/insert-date-iso)
   (global-set-key [(control shift f11)] 'mjl/insert-log-entry-org)
   (global-set-key [(super f11)]         'mjl/insert-date-dow)
-  ;; F12 org capture/agenda
+
+  ;; F12 org capture/agenda (TEK/Mac=Louder)
   (global-set-key [f12]                 'org-capture)
   (global-set-key [(meta f12)]          'org-agenda)
   (global-set-key [(shift f12)]         'org-ctrl-c-ctrl-c)
