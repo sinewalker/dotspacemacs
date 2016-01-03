@@ -3,29 +3,33 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <>
+;;  Time-stamp: <2016-01-04 09:26:22 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
 ;;
-;;  Rights:     Copyright © 2015 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015, 2016 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Keybindings for my personal layer "mjl"
 ;;
-;;      Using the `osx' layer from Spacemacs as a starting point, this sets
-;;      global keybindings for the Super key (which SHOULD NOT be clobbered by
-;;      emacs modes). Also including bindings for special keys from the Sun Type
-;;      6, and some f-key bindings (though I'm still debating if these belong in
-;;      this layer, or under special configs for specific Emacs applications)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;      So there are 3 global keymap groupings here:
+;;; Commentary:
 ;;
-;;        - Modern/Common bindings, on Super-shifted keys (e.g. Cut/Copy/Paste)
-;;        - Function Keys F1-F12 for my personal high-use functions/commands
-;;        - Sun Keys Help, Attn/Open/Undo etc to make use of my Type 6
+;;    Using the `osx' layer from Spacemacs as a starting point, this sets global
+;;    keybindings for the Super key (which SHOULD NOT be clobbered by emacs
+;;    modes). Also including bindings for special keys from the Sun Type 6, and
+;;    some f-key bindings (though I'm still debating if these belong in this
+;;    layer, or under special configs for specific Emacs applications)
 ;;
-;;      All have been designed so as not to conflict with Spacemacs or Emacs
-;;      bindings. Some keys might be masked by the operating system.
+;;    So there are 3 global keymap groupings here:
+;;
+;;      - Modern/Common bindings, on Super-shifted keys (e.g. Cut/Copy/Paste)
+;;      - Function Keys F1-F12 for my personal high-use functions/commands
+;;      - Sun Keys Help, Attn/Open/Undo etc to make use of my Type 6
+;;
+;;    All have been designed so as not to conflict with Spacemacs or Emacs
+;;    bindings. Some keys might be masked by the operating system.
 ;;
 ;;  HISTORY
 ;;
@@ -35,23 +39,50 @@
 ;;  in for. There were hooks and tricks and other pieces of cruft which I don't
 ;;  think warrant including into this Layer's configuration.
 ;;
-;;  For this layer, I'm adopting the philosophy that I will go with Spacemacs'
-;;  use of Helm for many things, and just use global key-binding for the "basic"
-;;  editing functions we all know and love, plus Function Keys (being the F-keys
-;;  on the top of most keyboards, as well as the special keys on some keyboards,
-;;  like the Sun Type 6). All global settings should work for a "vanilla" other
-;;  than functions defined in this layer.
+;;  Then, in 2014 when I did my major emacs config overhaul, I looked at my
+;;  global bindings with a view to make sense of them, especially for the
+;;  F-keys, but also in light of all the munging that ergoemacs did to the
+;;  control keys. It was a major mess again (in code, as well as the bindings
+;;  themselves).
 ;;
+;;  Part of my motivation to move to Spacemacs in late 2015/early 2016 was to
+;;  ditch ergoemacs and return to some sort of sanity in the code, while still
+;;  having the global bindings I want, with an opportunity for "modern"-style
+;;  keys bound on the Super modifier.
+;;
+;;  For this layer, I'm adopting the philosophy that I will go with Spacemacs'
+;;  use of Helm for many things, and just use global key-bindings for the "basic"
+;;  editing functions that I know and love, plus Function Keys (being the F-keys
+;;  on the top of most keyboards, as well as the special keys on some keyboards,
+;;  like the Sun Type 6). All global settings should work for a "vanilla"
+;;  Spacemacs other than functions defined in this layer.
+;;
+;;
+;;  BUGS
+;;
+;;  MJL20160104 - The "vanilla" rule is broken for some of my old personal "tools.el"
+;;  functions, which I've not yet imported into this layer.
+;;
+;;  MJL20160104 - The date functions which I bound to F11 might work better with
+;;  a leader key, rather than modifiers to F11. Jury is still out: I've been
+;;  using F11 for date stamps since 2003...
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
 ;;
 ;;  MJL20151220 - Created, copied from osx layer, then imported much from my own
-;;                mjl/boot/bindings.el
+;;                ~/.emacs.d/mjl/boot/bindings.el
 ;;  MJL20151222 - Added rest of Sun keys and my F-keys
 ;;  MJL20160102 - bind font scaling to C-+/- as well (easy to type, doesn't
 ;;                break much)
 ;;  MJL20160104 - Swap F2 and F3 to better match physical key labels
+;;              - bind font scaling to s-\ and s-] as well (these are in roughly
+;;                traditional places on the TEK 209)
 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-
+;;; Code:
 
 ;; this is only applicable to GUI mode
 (when (display-graphic-p)
@@ -90,6 +121,8 @@
   ;; Mike's additions (common bindings in other programs)
   (global-set-key (kbd "C-+") 'spacemacs/scale-up-font)
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
+  (global-set-key (kbd "s-\\") 'spacemacs/scale-down-font)
+  (global-set-key (kbd "s-]") 'spacemacs/scale-up-font)
 
   (global-set-key (kbd "s-o") 'ido-find-file)
   (global-set-key (kbd "s-f") 'isearch-forward)
@@ -204,7 +237,7 @@
   (global-set-key [(shift f9)]          'kmacro-name-last-macro)
 
   ;; F10: Menu/GUI control (TEK/Mac=Mute)
-  ;; f10 (leave it)
+  ;; (Spacemacs does things with f10, leave it for now)
   ;(global-set-key [(control f10)]       'mjl/toggle-rulers)
   ;(global-set-key [(meta f10)]          'mjl/toggle-gui)
 

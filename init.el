@@ -1,6 +1,49 @@
 ;; -*- mode: emacs-lisp -*-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;  File:       ~/.spacemacs.d/init.el
+;;  Created:    2015-12-15
+;;  Language:   Emacs-Lisp
+;;  Time-stamp: <2016-01-04 09:09:09 mjl>
+;;  Platform:   Emacs (Spacemacs)
+;;  OS:         N/A
+;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
+;;
+;;  Rights:     Copyright © 2015, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;
+;;  PURPOSE:    Personal Spacemacs configuration file
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
 ;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
+;; It must be stored in one of these locations:
+;;
+;;  - in your home directory as ~/.spacemacs
+;;  - in ~/.spacemacs.d/init.el
+;;  - in $SPACEMACSDIR/init.el if that environment variable is set
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
+;;  MJL20151215 - Created, all user config done in `dotspacemacs/user-config' to
+;;                begin with
+;;  MJL20151220 - Added personal snippets - not working
+;;              - moved mu4e config out to a `required' feature file
+;;              - load the PHP layer, but without the `php-extras' package,
+;;                which is having Quelpa compilation issues
+;;  MJL20151220 - tidy variables declarations in layers list
+;;  MJL20151221 - added my personal layer `mjl' to the layers list
+;;  MJL20160104 - source code header added, with change log
+;;              - added `time-stamp' and `copyright-update'to 'before-save-hook
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
+
+
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -225,6 +268,9 @@ layers configuration. You are free to put any user code."
   (push "~/.spacemacs.d/config/" load-path)
   (require 'mu4e-config nil t)
 
+  (add-hook 'before-save-hook 'time-stamp)
+  (setq copyright-limit 1024)
+  (add-hook 'before-save-hook 'copyright-update)
   )
 
 

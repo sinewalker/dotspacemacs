@@ -1,14 +1,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  File:       layers/mjl/funcs.el
-;;  Created:    2000-02
+;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2015-01-06 08:28:19 mjl>
+;;  Time-stamp: <2016-01-04 09:26:36 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
 ;;
-;;  Rights:     Copyright © 2000-2015 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2000-2016 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    GNU Emacs functions
 ;;
