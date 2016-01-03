@@ -338,7 +338,9 @@ root. Probably only works for local files"
 ;; Cyberpunk cursor http://www.emacswiki.org/emacs/Zarza
 
 ;(defvar blink-cursor-colors (list  "#92c48f" "#6785c5" "#be369c" "#d9ca65")
-(defvar blink-cursor-colors (list "#381d30" "#79171b" "#9c2a14" "#a95f1b" "#ae7d20" "#ac9c25" "#848b1f" "#416b16" "#328b24" "#2d904f" "#1f758a" "#265da0" "#40399c" "#3f2e89" "#202860")
+(defvar blink-cursor-colors
+;  (list "#381d30" "#79171b" "#9c2a14" "#a95f1b" "#ae7d20" "#ac9c25" "#848b1f" "#416b16" "#328b24" "#2d904f" "#1f758a" "#265da0" "#40399c" "#3f2e89" "#202860")
+  (list "#9c2a14" "#a95f1b" "#ac9c25" "#328b24" "#1f758a" "#265da0" "#40399c")
   "On each blink the cursor will cycle to the next color in this list.")
 
 (setq blink-cursor-count 0)
