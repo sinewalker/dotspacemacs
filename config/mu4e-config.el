@@ -1,5 +1,19 @@
 ;;; personal Mu 4 Emacs settings.
 
+;; note:- this is not all the configuration for emails.  I also have account details:
+;;
+;;  - IMAP sync (mbsync) in ~/.mbsyncrc
+;;  - IMAP password in ~/keys/password.imap
+;;  - SMTP:  in ~/.authinfo
+;;  - Signature:  in ~/.signature
+;;
+;;    the two password/auth files MUST be protected at the operating system
+;;    level (i.e. owner-only file access) and MUST NOT be added to revision
+;;    control.
+;;
+
+
+
 ;  (when (fboundp imagemagick-register-types)
 ;    (imagemagick-register-types))
 
