@@ -1,4 +1,4 @@
-#+TITLE: OSX contribution layer for Spacemacs
+#+TITLE: Mike's customisation layer for Spacemacs
 
 [[file:img/icon-milo.png]]
 
@@ -72,7 +72,7 @@ To get =gls= install coreutils homebrew:
 | ~⌘ n~       | New frame         |
 | ~⌘ z~       | Undo              |
 | ~⌘ Z~       | Redo              |
-| ~⌃ ⌘ f~     | Toggle fullscreen |
+| ~Ctrl ⌘ f~  | Toggle fullscreen |
 
 * Future Work
 
