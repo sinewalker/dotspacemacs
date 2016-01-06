@@ -14,6 +14,10 @@
 
 * Description
 
+TODO: this was copied from the =osx= layer. It needs rewriting for my own
+documentation
+
+
 Spacemacs is not just emacs+vim. It can have OSX keybindings too! 
 This layer globally defines common OSX keybindings. ~⌘~ is set to
 ~super~ and ~⌥~ is set to ~meta~. Aside from that, there's nothing
