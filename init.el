@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-06 12:13:27 mjl>
+;;  Time-stamp: <2016-01-06 12:54:14 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -38,6 +38,7 @@
 ;;  MJL20151221 - added my personal layer `mjl' to the layers list
 ;;  MJL20160104 - source code header added, with change log
 ;;              - added `time-stamp' and `copyright-update'to 'before-save-hook
+;;  MJL20160106 - use the `mu4e' layer from Spacemacs, rather than my own.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -84,8 +85,8 @@ values."
      (colors :variables
              colors-enable-rainbow-identifiers nil
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     (mu4e-mike :variables
-                mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
+     (mu4e :variables
+           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
      php 
      python
      javascript
