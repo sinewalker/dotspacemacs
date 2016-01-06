@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-04 09:09:09 mjl>
+;;  Time-stamp: <2016-01-06 12:13:27 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -265,12 +265,12 @@ layers configuration. You are free to put any user code."
   (display-time-mode t)
   (setq indicate-unused-lines t)
 
-  (push "~/.spacemacs.d/config/" load-path)
-  (require 'mu4e-config nil t)
-
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
   (add-hook 'before-save-hook 'copyright-update)
+
+  (push "~/.spacemacs.d/config/" load-path)
+  (require 'mu4e-config nil t)
   )
 
 
