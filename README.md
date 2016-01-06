@@ -3,7 +3,7 @@ Personal Spacemacs configuration
 
 This is my [Spacemacs](https://github.com/syl20bnr/spacemacs) configuration.
 
-I've been an [Emacs](https://www.gnu.org/software/emacs/) user for about 2 decades and I've been keeping my emacs configuration ever since February 2000 when it was just a simple `.emacsrc` until it evolved over time to something quite complex and hairy. In recent months it's developed a will of its own, to the point where I cannot easily maintain it: if I make a change to something, three other things will unexpectedly break.
+I've been an [Emacs](https://www.gnu.org/software/emacs/) user since the late 1990s and I've been keeping my emacs configuration ever since February 2000 when it was just a simple `.emacsrc` until it evolved over time to something quite complex and hairy. In recent months it's developed a will of its own, to the point where I cannot easily maintain it: if I make a change to something, three other things will unexpectedly break.
 
 So, I have declared Emacs Configuration Bankruptcy.
 
@@ -13,7 +13,7 @@ Then I discovered ***Spacemacs***, which uses `use-package` and comes with batte
 
 Of course it still needs tweaking to personal taste (there's no accounting for personal taste), and that is what this project is for.
 
-I've made it Public because I will probably be blogging as I go along. My main aims in configuring Spacemacs are:
+I've made it Public because I will probably be [blogging as I go along](http://milosophical.me/tags/spacemacs.html). My main aims in configuring Spacemacs are:
 
 * Make it less like vim (I know, people tell me vim is great but I don't agree)
 * Add my personal utility `defun`s, where still required (in a Layer, probably)
