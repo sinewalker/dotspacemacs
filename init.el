@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-06 12:54:14 mjl>
+;;  Time-stamp: <2016-01-07 09:28:03 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -39,6 +39,7 @@
 ;;  MJL20160104 - source code header added, with change log
 ;;              - added `time-stamp' and `copyright-update'to 'before-save-hook
 ;;  MJL20160106 - use the `mu4e' layer from Spacemacs, rather than my own.
+;;; MJL20160107 - added xkcd layer
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -93,6 +94,7 @@ values."
      erc
 
      mjl
+     xkcd
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
