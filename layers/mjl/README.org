@@ -8,28 +8,34 @@
  - [[#install][Install]]
    - [[#layer][Layer]]
      - [[#use-with-non-us-keyboard-layouts][Use with non-US keyboard layouts]]
-   - [[#coreutils][Coreutils]]
+   - [[#mac-os-x-gnu-coreutils][Mac OS X GNU Coreutils]]
  - [[#key-bindings][Key Bindings]]
- - [[#future-work][Future Work]]
+ - [[#future-work-todo][Future Work (TODO)]]
 
 * Description
 
-TODO: this was copied from the =osx= layer. It needs rewriting for my own
-documentation
+Spacemacs is not just emacs+vim. It can have modern keybindings too! This layer
+globally defines common OSX/GUI keybindings, as well as making use of the
+extended function and edit keys on a [[http://deskthority.net/wiki/Sun_Type_6][Sun Type 6]] keyboard.
 
-
-Spacemacs is not just emacs+vim. It can have OSX keybindings too! 
-This layer globally defines common OSX keybindings. ~⌘~ is set to
-~super~ and ~⌥~ is set to ~meta~. Aside from that, there's nothing
-much, really.
-
-While in =dired= this layer will try to use =gls= instead of =ls=.
+It also includes Mike's personal Emacs functions from over 15 years of
+customising emacs.
 
 * Philosophy
 
-While this layer enables common OSX bindings, it does not implement
-OSX navigation keybindings. Spacemacs is meant to be used with evil,
-and we encourage you to do so :)
+While this layer enables common GUI-style bindings, it does not implement OSX
+navigation keybindings. Spacemacs is meant to be used with evil and helm.
+
+The layer should work stand-alone without other layers. Any non-standard
+functions which are bound to global keys must be defined in this layer, or in
+packages which this layer installs (for instance this precludes putting
+keybindings for application modes such as dired-ex, which should be done in a
+layer that installs and configures that package, and related packages).
+
+This layer was based on the Spacemacs built-in layer =osx= and copies that
+layer's functionality. As of early 2016 it has not been tested together with
+that layer and will probably clash. I should use this layer in preference to
+=osx=, even on a Mac. =osx= also switches to use gls instead of ls in dired.
 
 * Install
 
@@ -38,21 +44,21 @@ and we encourage you to do so :)
 To use this configuration layer, add it to your =~/.spacemacs=
 
 #+BEGIN_SRC emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(osx))
+  (setq-default dotspacemacs-configuration-layers '(mjl))
 #+END_SRC
 
 *** Use with non-US keyboard layouts
 
 If you need the ~⌥~ key to type common characters such as `{[]}~` which is usual
 for e.g. Finnish and Swedish keyboard layouts, you'll probably want to leave the
-~⌥~ key unchanged by setting the =osx-use-option-as-meta= variable to =nil=:
+~⌥~ key unchanged by setting the =mjl-use-option-as-meta= variable to =nil=:
 
 #+BEGIN_SRC emacs-lisp
   (setq-default dotspacemacs-configuration-layers '(
-     (osx :variables osx-use-option-as-meta nil)))
+     (mjl :variables mjl-use-option-as-meta nil)))
 #+END_SRC
 
-** Coreutils
+** Mac OS X GNU Coreutils
 
 To get =gls= install coreutils homebrew:
 
@@ -61,6 +67,10 @@ To get =gls= install coreutils homebrew:
 #+END_SRC
 
 * Key Bindings
+
+(Super is denoted by ~⌘~ in the table below, though the actual modifier key to
+hold will be dependant on the operating system, and the value of
+=mjl-use-option-as-meta= on a Mac)
 
 | Key Binding | Description       |
 |-------------+-------------------|
@@ -78,8 +88,10 @@ To get =gls= install coreutils homebrew:
 | ~⌘ Z~       | Redo              |
 | ~Ctrl ⌘ f~  | Toggle fullscreen |
 
-* Future Work
+* Future Work (TODO)
 
-- Allow user to choose from either ~hyper~ or ~super~ as ~⌘~. This is an option
-  that is supported cross-platform.
-- Configurable option to keep the OSX and spacemacs clipboards separate
+- Install and configure [[http://ergoemacs.org/emacs/xmsi-math-symbols-input.html][xah-math-input]] minor mode
+- explore the use of emacs abbrev for inserting common symbols
+- explore a modifier layer for common repeat-symbols
+- review the F-key bindings some more
+- finish documentation for this =mjl= layer (keybindings list).
