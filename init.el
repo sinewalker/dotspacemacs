@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-07 09:28:03 mjl>
+;;  Time-stamp: <2016-01-11 10:06:08 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -39,7 +39,9 @@
 ;;  MJL20160104 - source code header added, with change log
 ;;              - added `time-stamp' and `copyright-update'to 'before-save-hook
 ;;  MJL20160106 - use the `mu4e' layer from Spacemacs, rather than my own.
-;;; MJL20160107 - added xkcd layer
+;;  MJL20160107 - added xkcd layer
+;;  MJL20160111 - turned off display-time-mode because it doesn't always appear,
+;;                and it stops the HUD from showing on the far right.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -265,7 +267,6 @@ layers configuration. You are free to put any user code."
         mouse-autoselect-window t
         display-time-24hr-format t)
   (blink-cursor-mode t)
-  (display-time-mode t)
   (setq indicate-unused-lines t)
 
   (add-hook 'before-save-hook 'time-stamp)
