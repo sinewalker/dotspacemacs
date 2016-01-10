@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-04 09:26:22 mjl>
+;;  Time-stamp: <2016-01-11 10:08:45 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -79,6 +79,8 @@
 ;;  MJL20160104 - Swap F2 and F3 to better match physical key labels
 ;;              - bind font scaling to s-\ and s-] as well (these are in roughly
 ;;                traditional places on the TEK 209)
+;;  MJL20160111 - bind `helm-M-x' to the <menu>/<apps> key, it's better, now I
+;;                know how to use it.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -130,6 +132,9 @@
   (global-set-key (kbd "s-r") 'isearch-backward)
   (global-set-key (kbd "s-g") 'go-to-line)
   (global-set-key (kbd "s-l") 'mjl/copy-line)
+
+  (global-set-key (kbd "<menu>") 'helm-M-x)
+  (global-set-key (kbd "<apps>") 'helm-M-x)
 
   ; cannot use the kbd macro for these keys
   (global-set-key [(super left)]        'windmove-left)
