@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-24 13:02:53 mjl>
+;;  Time-stamp: <2016-01-28 12:52:33 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -43,6 +43,8 @@
 ;;  MJL20160111 - turned off display-time-mode because it doesn't always appear,
 ;;                and it stops the HUD from showing on the far right.
 ;;  MJL20160124 - Updated to spacemacs-0.105.9 : new variables
+;;  MJL20160125 - clojure layer
+;;  MJL20160128 - configure inferior shells, and rename mue4e-config
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -98,6 +100,7 @@ values."
 
      mjl
      xkcd
+     (clojure :variables clojure-enable-fancify-symbols t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -320,8 +323,10 @@ layers configuration. You are free to put any user code."
   (setq copyright-limit 1024)
   (add-hook 'before-save-hook 'copyright-update)
 
+  ;; simple configs. Try to keep short and sweet, if it's complex, make a Layer.
   (push "~/.spacemacs.d/config/" load-path)
-  (require 'mu4e-config nil t)
+  (require 'mjl-mu4e-config nil t)
+  (require 'mjl-inferior-config nil t)
   )
 
 

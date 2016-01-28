@@ -87,4 +87,4 @@
             ("subject:This Week in Support" "This Week in Support" ?7)
             ("to:jokes@squiz.com.au OR to:jokes@squiz.net" "Squiz jokes" ?J)))
 
-(provide 'mu4e-config)
+(provide 'mjl-mu4e-config)

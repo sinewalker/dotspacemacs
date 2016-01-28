@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-11 11:49:41 mjl>
+;;  Time-stamp: <2016-01-18 09:07:51 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -83,6 +83,7 @@
 ;;                know how to use it.
 ;;              - map s-f, s-r, <next> and <prior> within isearch-mode-map
 ;;              - remove C-z binding: it causes more trouble than it's worth
+;;  MJL20160118 - C-z and C-v: make them modern bindings: I don't use the defaults
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -123,7 +124,12 @@
 
   ;;;;;;;;;;;;;;;;;;;;
   ;; Mike's additions (common bindings in other programs)
-  (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in in a terminal 
+  (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in in a terminal
+  (global-unset-key (kbd "C-v"))  ;; this binding is silly anyway, use <next>
+
+  (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
+  (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
+
   (global-set-key (kbd "C-+") 'spacemacs/scale-up-font)
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-\\") 'spacemacs/scale-down-font)
