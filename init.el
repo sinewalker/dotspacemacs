@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 14:04:34 mjl>
+;;  Time-stamp: <2016-01-29 14:25:46 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -46,6 +46,10 @@
 ;;  MJL20160125 - clojure layer
 ;;  MJL20160128 - configure inferior shells, and rename mue4e-config
 ;;  MJL20160129 - squiz layer (just shove it in the variable for now)
+;;              - Re-order the Layers list so that host-specific stuff is at the end.
+;;                TODO: make adding to the list programmed by hostname or some
+;;                      other means, so that layers are not added where not
+;;                      wanted/needed
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -88,21 +92,24 @@ values."
      syntax-checking
      version-control
 
-
      (colors :variables
              colors-enable-rainbow-identifiers nil
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     (mu4e :variables
-           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
      php 
      python
      javascript
      erc
+     xkcd
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
 
      mjl
-     (squiz :variables squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
-     xkcd
-     (clojure :variables clojure-enable-fancify-symbols t)
+     ;; TODO these layers should only be added to this list where appropriate
+     (squiz :variables
+            squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
+     (mu4e  :variables
+            mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
+
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
