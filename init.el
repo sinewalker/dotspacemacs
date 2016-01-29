@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-28 12:52:33 mjl>
+;;  Time-stamp: <2016-01-29 14:04:34 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -45,6 +45,7 @@
 ;;  MJL20160124 - Updated to spacemacs-0.105.9 : new variables
 ;;  MJL20160125 - clojure layer
 ;;  MJL20160128 - configure inferior shells, and rename mue4e-config
+;;  MJL20160129 - squiz layer (just shove it in the variable for now)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -99,6 +100,7 @@ values."
      erc
 
      mjl
+     (squiz :variables squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
      xkcd
      (clojure :variables clojure-enable-fancify-symbols t)
      )

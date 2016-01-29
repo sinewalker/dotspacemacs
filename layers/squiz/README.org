@@ -1,0 +1,53 @@
+#+TITLE: Squiz customisation layer for Spacemacs
+
+[[file:img/squiz.png]]
+
+* Table of Contents                                                   :TOC@4:
+ - [[#description][Description]]
+ - [[#install][Install]]
+   - [[#why-is-it-down][Why is it Down]]
+   - [[#layer][Layer]]
+ - [[#key-bindings][Key Bindings]]
+ - [[#future-work-todo][Future Work (TODO)]]
+
+* Description
+
+Squiz-specific functions and customisations
+
+* Install
+
+** Why is it Down
+This is a custom squiz script used to check why services are broken. Install it
+by checking out the master repo from the Squiz gitlab.
+https://gitlab.squiz.net/cru/whyisitdown
+
+You'll need to note where you clone it to. For instance I typically clone to
+=~/Squiz/git/whyisitdown=
+
+** Layer
+
+To use this configuration layer, add it to your =~/.spacemacs=
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(squiz))
+#+END_SRC
+
+If you cloned the whyisitdown script elsewhere, set the variable (below example
+is the default value):
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(
+     (squiz :variables squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")))
+#+END_SRC
+
+* Key Bindings
+
+(None yet.  When/if I make some, add them here)
+
+
+| Key Binding | Description       |
+|-------------+-------------------|
+
+* Future Work (TODO)
+
+Review old Emacs config to see if anything else is Squiz-specific (apart from mail).
