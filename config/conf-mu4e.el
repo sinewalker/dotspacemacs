@@ -1,18 +1,45 @@
-;;; personal Mu 4 Emacs settings.
-
-;; note:- this is not all the configuration for emails.  I also have account details:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  - IMAP sync (mbsync) in ~/.mbsyncrc
-;;  - IMAP password in ~/keys/password.imap
-;;  - SMTP:  in ~/.authinfo
-;;  - Signature:  in ~/.signature
+;;  File:       conf-mu4e.el
+;;  Created:    2015-12-20
+;;  Language:   Emacs-Lisp
+;;  Time-stamp: <2016-01-29 15:19:11 mjl>
+;;  Platform:   Emacs
+;;  OS:         N/A
+;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
+;;
+;;  Rights:     Copyright © 2015-2016 Michael James Lockhart, B.App.Comp(HONS)
+;;
+;;  PURPOSE:    Personal Mu 4 Emacs settings
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;;      This sets up mu4e for my email (currently for Squiz only)
+;;
+;;   note:- this is not all the configuration for emails. I also have account
+;;          details:
+;;
+;;    - IMAP sync (mbsync) in ~/.mbsyncrc
+;;    - IMAP password in ~/keys/password.imap
+;;    - SMTP:  in ~/.authinfo
+;;    - Signature:  in ~/.signature
 ;;
 ;;    the two password/auth files MUST be protected at the operating system
 ;;    level (i.e. owner-only file access) and MUST NOT be added to revision
 ;;    control.
 ;;
-
-
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;
+;;  MJL20151210 - Created
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
 
 ;  (when (fboundp imagemagick-register-types)
 ;    (imagemagick-register-types))
@@ -87,4 +114,4 @@
             ("subject:This Week in Support" "This Week in Support" ?7)
             ("to:jokes@squiz.com.au OR to:jokes@squiz.net" "Squiz jokes" ?J)))
 
-(provide 'mjl-mu4e-config)
+(provide 'conf-mu4e)

@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  File:       mjl-inferior-config.el
+;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-28 15:26:11 mjl>
+;;  Time-stamp: <2016-01-29 15:11:14 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -18,6 +18,8 @@
 ;;  HISTORY
 ;;
 ;;  MJL20160128 - Created
+;;  MJL20160129 - Renamed: mjl not really necessary. "conf" isn't either in the
+;;                filename, except to make it match the feature name
 ;;
 
 (setq inferior-lisp-program "clisp"
@@ -32,6 +34,8 @@ program cannot be found, then just exit with a message."
       (run-python interpreter dedicated show)
     (message (format "No %s interpreter found" interpreter))))
 
+
+;; I'm deliberately mimicking the naming of `run-python' here
 
 (defun run-ipython3 ()
   "Runs ipython3 as the inferior python shell"
@@ -59,4 +63,4 @@ program cannot be found, then just exit with a message."
   (interactive)
   (mjl//run-some-python "python2" nil t))
 
-(provide 'mjl-inferior-config)
+(provide 'conf-inferior)

@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 14:25:46 mjl>
+;;  Time-stamp: <2016-01-29 15:33:45 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -334,8 +334,9 @@ layers configuration. You are free to put any user code."
 
   ;; simple configs. Try to keep short and sweet, if it's complex, make a Layer.
   (push "~/.spacemacs.d/config/" load-path)
-  (require 'mjl-mu4e-config nil t)
-  (require 'mjl-inferior-config nil t)
+  (require 'conf-mu4e nil t)
+  (require 'conf-inferior nil t)
+  (require 'conf-org nil t)
   )
 
 
