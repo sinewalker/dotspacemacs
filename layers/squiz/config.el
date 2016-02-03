@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/config.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 13:51:38 mjl>
+;;  Time-stamp: <2016-02-03 12:57:53 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -26,6 +26,7 @@
 ;;; Change Log:
 ;;
 ;;  MJL20160129 - Created, from old `squiz-funcs.el'
+;;  MJL20160203 - Emacs metadata
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,3 +37,9 @@
   "~/Squiz/git/whyisitdown/whyisitdown"
   "how to find the whyisitdown script")
 
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***
