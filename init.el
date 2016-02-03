@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 15:33:45 mjl>
+;;  Time-stamp: <2016-02-03 17:51:22 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -50,6 +50,7 @@
 ;;                TODO: make adding to the list programmed by hostname or some
 ;;                      other means, so that layers are not added where not
 ;;                      wanted/needed
+;;  MJL20160130 - Put shells on top (also left/right will work...)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -86,8 +87,8 @@ values."
      markdown
      org
      (shell :variables
-            shell-default-height 24
-            shell-default-position 'bottom)
+            ;;shell-default-height 24
+            shell-default-position 'top)
      spell-checking
      syntax-checking
      version-control
@@ -119,6 +120,7 @@ values."
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     php-extras ; MJL20151220 compilation errors
+                                    vi-tilde-fringe ; prefer emacs fringe, please
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
