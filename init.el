@@ -4,7 +4,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 15:33:45 mjl>
+;;  Time-stamp: <2016-02-01 09:43:55 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -50,6 +50,7 @@
 ;;                TODO: make adding to the list programmed by hostname or some
 ;;                      other means, so that layers are not added where not
 ;;                      wanted/needed
+;;  MJL20160201 - Fixed the ugly ~ in the fringe
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -324,7 +325,9 @@ layers configuration. You are free to put any user code."
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
-        display-time-24hr-format t)
+        display-time-24hr-format t
+        vi-tilde-fringe-bitmap-array [16 40 84 170 84 40 16 0 0 0]
+        )
   (blink-cursor-mode t)
   (setq indicate-unused-lines t)
 
