@@ -3,7 +3,7 @@
 ;;  File:       conf-org.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 15:25:11 mjl>
+;;  Time-stamp: <2016-02-03 12:54:09 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -28,6 +28,7 @@
 ;;; Change Log:
 ;;
 ;;  MJL20160129 - Created
+;;  MJL20160203 - Emacs metadata
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,3 +42,10 @@
   )
 
 (provide 'conf-org)
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***
+

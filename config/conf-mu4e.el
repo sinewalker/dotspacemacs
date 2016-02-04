@@ -3,7 +3,7 @@
 ;;  File:       conf-mu4e.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 15:19:11 mjl>
+;;  Time-stamp: <2016-02-03 12:56:02 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -36,6 +36,7 @@
 ;;; Change Log:
 ;;
 ;;  MJL20151210 - Created
+;;  MJL20160203 - Emacs metadata
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -115,3 +116,9 @@
             ("to:jokes@squiz.com.au OR to:jokes@squiz.net" "Squiz jokes" ?J)))
 
 (provide 'conf-mu4e)
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***

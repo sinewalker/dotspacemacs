@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-18 09:07:51 mjl>
+;;  Time-stamp: <2016-02-03 12:57:24 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -84,6 +84,7 @@
 ;;              - map s-f, s-r, <next> and <prior> within isearch-mode-map
 ;;              - remove C-z binding: it causes more trouble than it's worth
 ;;  MJL20160118 - C-z and C-v: make them modern bindings: I don't use the defaults
+;;  MJL20160203 - Emacs metadata
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -274,3 +275,9 @@
   (global-set-key [(shift f12)]         'org-ctrl-c-ctrl-c)
 
   )
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***

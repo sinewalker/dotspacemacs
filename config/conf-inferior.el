@@ -3,7 +3,7 @@
 ;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 15:11:14 mjl>
+;;  Time-stamp: <2016-02-03 12:55:52 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -20,6 +20,7 @@
 ;;  MJL20160128 - Created
 ;;  MJL20160129 - Renamed: mjl not really necessary. "conf" isn't either in the
 ;;                filename, except to make it match the feature name
+;;  MJL20160203 - Emacs metadata
 ;;
 
 (setq inferior-lisp-program "clisp"
@@ -64,3 +65,9 @@ program cannot be found, then just exit with a message."
   (mjl//run-some-python "python2" nil t))
 
 (provide 'conf-inferior)
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***

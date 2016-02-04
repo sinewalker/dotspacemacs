@@ -1,10 +1,9 @@
-;; -*- mode: emacs-lisp -*-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 17:51:22 mjl>
+;;  Time-stamp: <>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -51,6 +50,9 @@
 ;;                      other means, so that layers are not added where not
 ;;                      wanted/needed
 ;;  MJL20160130 - Put shells on top (also left/right will work...)
+;;  MJL20160201 - Fixed the ugly ~ in the fringe
+;;  MJL20160203 - moved Emacs metadata (after ^L at bottom)
+;;              - right-shift the fringe bits one bit to better space for vsplit
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -326,7 +328,9 @@ layers configuration. You are free to put any user code."
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
-        display-time-24hr-format t)
+        display-time-24hr-format t
+        vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
+        )
   (blink-cursor-mode t)
   (setq indicate-unused-lines t)
 
@@ -360,3 +364,10 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***

@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/funcs.el
 ;;  Created:    2014-07-03
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-29 13:55:21 mjl>
+;;  Time-stamp: <2016-02-03 13:00:53 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -29,6 +29,7 @@
 ;;  MJL20160129 - Moved into a Spacemacs Layer "squiz"
 ;;              - Changed the namespace to `squiz-` from `mjl/', per Spacemacs
 ;;                practice, and the naming to - | / | //
+;;  MJL20160203 - Emacs metadata
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -59,3 +60,10 @@ asynchronously, for COUNTRY and CLIENT-ID"
 
 (defalias 'wiid-uk 'squiz/wiid-uk)
 (defalias 'yuk 'squiz/wiid-uk)
+
+
+;;; Local Variables: ***
+;;; mode:Emacs-lisp ***
+;;; fill-column: 79 ***
+;;; comment-column: 0 ***
+;;; End: ***
