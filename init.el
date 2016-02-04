@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <>
+;;  Time-stamp: <2016-02-04 20:26:35 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -53,6 +53,7 @@
 ;;  MJL20160201 - Fixed the ugly ~ in the fringe
 ;;  MJL20160203 - moved Emacs metadata (after ^L at bottom)
 ;;              - right-shift the fringe bits one bit to better space for vsplit
+;;              - set scroll-bar-mode left (but don't turn it on)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -330,6 +331,7 @@ layers configuration. You are free to put any user code."
         mouse-autoselect-window t
         display-time-24hr-format t
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
+        scroll-bar-mode 'left
         )
   (blink-cursor-mode t)
   (setq indicate-unused-lines t)
