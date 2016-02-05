@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 09:36:06 mjl>
+;;  Time-stamp: <2016-02-06 09:43:29 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -46,6 +46,7 @@
 ;;  MJL20160128 - configure inferior shells, and rename mue4e-config
 ;;  MJL20160129 - squiz layer (just shove it in the variable for now)
 ;;              - Re-order the Layers list with host-specific stuff at the end
+;;  MJL20160130 - Put shells on top (also left/right will work...)
 ;;  MJL20160201 - Fixed the ugly ~ in the fringe
 ;;  MJL20160203 - moved Emacs metadata (after ^L at bottom)
 ;;              - right-shift the fringe bits one bit to better space for vsplit
@@ -92,8 +93,8 @@ values."
      markdown
      org
      (shell :variables
-            shell-default-height 24
-            shell-default-position 'bottom)
+            ;;shell-default-height 24
+            shell-default-position 'top)
      spell-checking
      syntax-checking
      version-control
