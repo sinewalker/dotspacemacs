@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 14:43:55 mjl>
+;;  Time-stamp: <2016-02-06 09:36:06 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -45,14 +45,16 @@
 ;;  MJL20160125 - clojure layer
 ;;  MJL20160128 - configure inferior shells, and rename mue4e-config
 ;;  MJL20160129 - squiz layer (just shove it in the variable for now)
-;;              - Re-order the Layers list so that host-specific stuff is at the end.
-;;                TODO: make adding to the list programmed by hostname or some
-;;                      other means, so that layers are not added where not
-;;                      wanted/needed
+;;              - Re-order the Layers list with host-specific stuff at the end
 ;;  MJL20160201 - Fixed the ugly ~ in the fringe
 ;;  MJL20160203 - moved Emacs metadata (after ^L at bottom)
 ;;              - right-shift the fringe bits one bit to better space for vsplit
 ;;              - set scroll-bar-mode left (but don't turn it on)
+;;  MJL20160205 - Maximize at startup
+;;  MJL20160206 - Customize `dotspacemacs-configuration-layers' by
+;;                `system-type' and `system-name'
+;;              - Group `dotspacemacs/user-config' variables logically
+;;              - only require simple config code if relevant Layer is loaded
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -72,14 +74,15 @@ values."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers")
-   ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers
+   ;; List of configuration layers to load. This is not the spacemacs
+   ;; config variable. Instead I'll build up my own list and copy after.
+   mjl-layers
    '(
      ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
+     ;; List of useful layers to have in Spacemacs. This should only list
+     ;; layers that to be loaded on every system I install Spacemacs to. If a
+     ;; layer should be loaded everywhere but configured differently, then it
+     ;; belongs in one of the other lists which follow.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
@@ -98,22 +101,73 @@ values."
      (colors :variables
              colors-enable-rainbow-identifiers nil
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     php 
+     php
      python
      javascript
      erc
      xkcd
      (clojure :variables
               clojure-enable-fancify-symbols t)
+     )
+   )
 
-     mjl
-     ;; TODO these layers should only be added to this list where appropriate
+  (setq
+   ;; ----------------------------------------------------------------
+   ;; These list layers to load on specific platforms or systems
+   ;; ----------------------------------------------------------------
+   ;; Layers to be loaded only on Microsoft Windows
+   mjl-windows-layers
+   '(
+     (mjl :variables
+          mjl-bind-osx-keys t
+          mjl-bind-unix-keys nil) ; don't work in Windows
+     )
+   ;; Layers to be loaded only on Macintosh
+   mjl-darwin-layers
+   '(osx
+     (mjl :variables
+          mjl-bind-osx-keys nil ; bound by osx layer
+          mjl-bind-unix-keys nil) ; don't exist on a Mac
+     )
+   ;; Layers to be loaded only on GNU/Linux
+   mjl-gnu/linux-layers
+   '(
+     (mjl :variables
+          mjl-bind-osx-keys t
+          mjl-bind-unix-keys t)
+     )
+   ;; Layers to be loaded only on Work computers
+   mjl-work-layers
+   '(
      (squiz :variables
             squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
      (mu4e  :variables
             mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
-
      )
+   ;; A list of system-names I use at work
+   ;; Whenever I install spacemacs to a new system, add it's `system-name'
+   mjl-work-systems
+    '("milo.local")
+   )
+  ;; ----------------------------------------------------------------
+  ;; now append the layers lists depending on what the system is
+  ;; ----------------------------------------------------------------
+  (cond ((eq system-type 'windows-nt)
+         (setq mjl-layers (append mjl-layers mjl-windows-layers)))
+        ((eq system-type 'darwin)
+         (setq mjl-layers (append mjl-layers mjl-darwin-layers)))
+        ((eq system-type 'gnu/linux)
+         (setq mjl-layers (append mjl-layers mjl-gnu/linux-layers))))
+  (when (member system-name mjl-work-systems)
+    (setq mjl-layers (append mjl-layers mjl-work-layers)))
+
+  (setq-default
+   ;; List of configuration layers to load. If it is the symbol `all' instead
+   ;; of a list then all discovered layers will be installed.
+   ;; ----------------------------------------------------------------
+   ;; I'm just setting this to the `mjl-layers' list appended above
+   ;; ----------------------------------------------------------------
+   dotspacemacs-configuration-layers mjl-layers
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -195,7 +249,7 @@ values."
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "s-SPC" ;"M-m"
+   dotspacemacs-emacs-leader-key "s-SPC"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
@@ -268,7 +322,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -329,10 +383,10 @@ layers configuration. You are free to put any user code."
         mouse-autoselect-window t
         display-time-24hr-format t
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
+        indicate-unused-lines t
         scroll-bar-mode 'left
         )
   (blink-cursor-mode t)
-  (setq indicate-unused-lines t)
 
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
@@ -340,12 +394,19 @@ layers configuration. You are free to put any user code."
 
   ;; simple configs. Try to keep short and sweet, if it's complex, make a Layer.
   (push "~/.spacemacs.d/config/" load-path)
-  (require 'conf-mu4e nil t)
-  (require 'conf-inferior nil t)
-  (require 'conf-org nil t)
+  (when (member 'mu4e dotspacemacs-configuration-layers)
+    (require 'conf-mu4e nil t))
+  (when (member 'python dotspacemacs-configuration-layers)
+    (require 'conf-inferior nil t))
+  ;; TODO I think my own Org config belongs in a separate layer to add more
+  ;;      packages as well as to set my own preferences
+  (when (member 'org dotspacemacs-configuration-layers)
+    (require 'conf-org nil t))
   )
 
-
+;; MJL20160206 - I don't remember setting these?
+;; TODO I should review it periodically and move into
+;;      `dotspacemacs/user-config' when I understand what they do
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables

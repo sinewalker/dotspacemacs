@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/config.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:56:41 mjl>
+;;  Time-stamp: <2016-02-06 09:09:54 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -28,15 +28,19 @@
 ;;  MJL20151220 - Created
 ;;  MJL20160104 - Added source code header with change log.
 ;;  MJL20160203 - Emacs metadata
+;;  MJL20160206 - variables to switch keybinding groups off
+;;              - remove the Mac option/meta/super switch
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
 ;;
 
-(defvar mjl-use-option-as-meta t
-  "If non nil the option key is mapped to meta. Set to `nil` if you need the
-  option key to type common characters.")
+(defvar mjl-bind-osx-keys t
+  "If non nill the OS X style keys will be bound to their usual functions")
+
+(defvar mjl-bind-unix-keys t
+  "If non nill, the Unix/Sun keys will be bound to useful functions")
 
 
 ;;; Local Variables: ***

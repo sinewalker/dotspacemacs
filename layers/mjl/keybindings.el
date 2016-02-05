@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:57:24 mjl>
+;;  Time-stamp: <2016-02-06 08:31:13 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -85,6 +85,9 @@
 ;;              - remove C-z binding: it causes more trouble than it's worth
 ;;  MJL20160118 - C-z and C-v: make them modern bindings: I don't use the defaults
 ;;  MJL20160203 - Emacs metadata
+;;  MJL20160206 - variables control whether to bind key groupings
+;;              - take out the Mac meta/option/super stuff -- osx layer can better
+;;                handle this, and now I'm not conflicting the bindings
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -92,36 +95,28 @@
 
 ;; this is only applicable to GUI mode
 (when (display-graphic-p)
-  ;; Treat command as super
-  (setq mac-command-key-is-meta nil)
-  (setq mac-command-modifier 'super)
 
-  (when mjl-use-option-as-meta
-    ;; Treat option as meta
-    (setq mac-option-key-is-meta t)
-    (setq mac-option-modifier 'meta))
-
-  ;; Keybindings (OS-X)
-  (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
-  (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
-  (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
-  (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
-  (global-set-key (kbd "s-v") 'yank)
-  (global-set-key (kbd "s-c") 'evil-yank)
-  (global-set-key (kbd "s-a") 'mark-whole-buffer)
-  (global-set-key (kbd "s-x") 'kill-region)
-  (global-set-key (kbd "s-w") 'delete-window)
-  (global-set-key (kbd "s-W") 'delete-frame)
-  (global-set-key (kbd "s-n") 'make-frame)
-  (global-set-key (kbd "s-s")  ; note:- this is shadowed by KDE Plasma Desktop
-                  (lambda ()   ;        Shell "Stop Current Activity" default
-                    (interactive)  ;    global shortcut.  Remap that
-                    (call-interactively (key-binding "\C-x\C-s")))) 
-  (global-set-key (kbd "s-z") 'undo-tree-undo)
-  (global-set-key (kbd "s-Z") 'undo-tree-redo)
-  (global-set-key (kbd "C-s-f") 'spacemacs/toggle-frame-fullscreen)
-  ;; Emacs sometimes registers C-s-f as this weird keycode
-  (global-set-key (kbd "<C-s-268632070>") 'spacemacs/toggle-frame-fullscreen)
+  ;; Keybindings (from OS-X)
+  (when mjl-bind-osx-keys
+    (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
+    (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
+    (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
+    (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
+    (global-set-key (kbd "s-v") 'yank)
+    (global-set-key (kbd "s-c") 'evil-yank)
+    (global-set-key (kbd "s-a") 'mark-whole-buffer)
+    (global-set-key (kbd "s-x") 'kill-region)
+    (global-set-key (kbd "s-w") 'delete-window)
+    (global-set-key (kbd "s-W") 'delete-frame)
+    (global-set-key (kbd "s-n") 'make-frame)
+    (global-set-key (kbd "s-s")  ; note:- this is shadowed by KDE Plasma Desktop
+                    (lambda ()   ;        Shell "Stop Current Activity" default
+                      (interactive)  ;    global shortcut.  Remap that
+                      (call-interactively (key-binding "\C-x\C-s")))) 
+    (global-set-key (kbd "s-z") 'undo-tree-undo)
+    (global-set-key (kbd "s-Z") 'undo-tree-redo)
+    (global-set-key (kbd "C-s-f") 'spacemacs/toggle-frame-fullscreen)
+    )
 
   ;;;;;;;;;;;;;;;;;;;;
   ;; Mike's additions (common bindings in other programs)
@@ -135,8 +130,12 @@
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-\\") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-]") 'spacemacs/scale-up-font)
+  (global-set-key (kbd "s-o") ;; why this is not in osx? - Do what C-x C-f does
+                  (lambda ()
+                    (interactive)
+                    (call-interactively (key-binding "\C-x\C-f"))))
 
-  (global-set-key (kbd "s-o") 'ido-find-file)
+  ;; When Mastering Emacs, one learns no navigate by searching
   (global-set-key (kbd "s-f") 'isearch-forward)
   (define-key isearch-mode-map (kbd "s-f")    'isearch-repeat-forward)
   (define-key isearch-mode-map (kbd "<next>") 'isearch-repeat-forward)
@@ -148,10 +147,12 @@
   (global-set-key (kbd "s-g") 'go-to-line)
   (global-set-key (kbd "s-l") 'mjl/copy-line)
 
-  (global-set-key (kbd "<menu>") 'helm-M-x)
-  (global-set-key (kbd "<apps>") 'helm-M-x)
+  ;; Meta-x
+  (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
+  (global-set-key (kbd "<apps>") 'helm-M-x) ;; Windows
+  ;(global-set-key [f15]          'help-M-x) ;; Mac???
 
-  ; cannot use the kbd macro for these keys
+  ; cannot use the kbd macro for these keys?
   (global-set-key [(super left)]        'windmove-left)
   (global-set-key [(super right)]       'windmove-right)
   (global-set-key [(super up)]          'windmove-up)
@@ -163,46 +164,47 @@
   ;;;;;;;;;;;;;;;;;;;;
   ;; Sun Type 6
 
-  ; (help) is bound to helm-help  by default                               ; Help
-  (global-set-key [(meta help)]         'woman)                            ; M-Help
-  (global-set-key [(control help)]      'info)                             ; C-Help
+  (when mjl-bind-unix-keys
+    ;; (help) is bound to helm-help  by default                              ; Help
+    (global-set-key [(meta help)]         'woman)                            ; M-Help
+    (global-set-key [(control help)]      'info)                             ; C-Help
 
-  (global-set-key [(cancel)]            'keyboard-quit)                    ; Stop
-  (global-set-key [(meta cancel)]       'keyboard-quit)                    ; M-Stop
-  (global-set-key [(control cancel)]    'save-buffers-kill-terminal)       ; C-Stop
+    (global-set-key [(cancel)]            'keyboard-quit)                    ; Stop
+    (global-set-key [(meta cancel)]       'keyboard-quit)                    ; M-Stop
+    (global-set-key [(control cancel)]    'save-buffers-kill-terminal)       ; C-Stop
 
-  (global-set-key [(SupProps)]          'spacemacs/describe-char)          ; Props
+    (global-set-key [(SupProps)]          'spacemacs/describe-char)          ; Props
 
-  (global-set-key [(SunFront)]          'spacemacs/next-useful-buffer)     ; Front
-  (global-set-key [(meta SunFront)]     'spacemacs/previous-useful-buffer) ; M-Front
-  (global-set-key [(control SunFront)]  'ibuffer)                          ; C-Front
+    (global-set-key [(SunFront)]          'spacemacs/next-useful-buffer)     ; Front
+    (global-set-key [(meta SunFront)]     'spacemacs/previous-useful-buffer) ; M-Front
+    (global-set-key [(control SunFront)]  'ibuffer)                          ; C-Front
 
-  (global-set-key [(SunOpen)]           'find-file)                        ; Open
-  (global-set-key [(XF86Open)]          'find-file)
-  (global-set-key [(meta SunOpen)]      'kill-buffer)                      ; M-Open
-  (global-set-key [(meta XF86Open)]     'kill-buffer)                      ; M-Open
-  (global-set-key [(control SunOpen)]   'save-buffer)                      ; C-Open
-  (global-set-key [(control XF86Open)]  'save-buffer)                      ; C-Open
+    (global-set-key [(SunOpen)]           'find-file)                        ; Open
+    (global-set-key [(XF86Open)]          'find-file)
+    (global-set-key [(meta SunOpen)]      'kill-buffer)                      ; M-Open
+    (global-set-key [(meta XF86Open)]     'kill-buffer)                      ; M-Open
+    (global-set-key [(control SunOpen)]   'save-buffer)                      ; C-Open
+    (global-set-key [(control XF86Open)]  'save-buffer)                      ; C-Open
 
-  (global-set-key [(find)]              'isearch-forward)                  ; Find
-  (global-set-key [(meta find)]         'isearch-backward)                 ; M-Find
-  (global-set-key [(control find)]      'isearch-forward-regexp)           ; C-Find
+    (global-set-key [(find)]              'isearch-forward)                  ; Find
+    (global-set-key [(meta find)]         'isearch-backward)                 ; M-Find
+    (global-set-key [(control find)]      'isearch-forward-regexp)           ; C-Find
 
 
-  ;;  (redo) is bound to 'repeat-complex-command by default                ; Redo
-  ;;  (undo) is bound to undo by default                                   ; Undo
-  (global-set-key [(meta undo)]         'redo)                             ; M-Undo
+    ;;  (redo) is bound to 'repeat-complex-command by default                ; Redo
+    ;;  (undo) is bound to undo by default                                   ; Undo
+    (global-set-key [(meta undo)]         'redo)                             ; M-Undo
 
-  (global-set-key [(XF86Copy)]          'kill-ring-save)                   ; Copy
-  (global-set-key [(meta XF86Copy)]     'mjl/copy-line)                    ; M-Copy
+    (global-set-key [(XF86Copy)]          'kill-ring-save)                   ; Copy
+    (global-set-key [(meta XF86Copy)]     'mjl/copy-line)                    ; M-Copy
 
-  (global-set-key [(XF86Paste)]         'yank)                             ; Paste
-  (global-set-key [(meta XF86Paste)]    'yank-pop)                         ; M-Paste
+    (global-set-key [(XF86Paste)]         'yank)                             ; Paste
+    (global-set-key [(meta XF86Paste)]    'yank-pop)                         ; M-Paste
 
-  (global-set-key [(XF86Cut)]           'kill-region)                      ; Cut
-  (global-set-key [(meta XF86Cut)]      'kill-line)                        ; M-Cut
-  (global-set-key [(control XF86Cut)]   'kill-sexp)                        ; C-Cut
-
+    (global-set-key [(XF86Cut)]           'kill-region)                      ; Cut
+    (global-set-key [(meta XF86Cut)]      'kill-line)                        ; M-Cut
+    (global-set-key [(control XF86Cut)]   'kill-sexp)                        ; C-Cut
+    )
   ;;;;;;;;;;;;;;;;;;;;
   ;;; MJL20140722 - New F-key bindings
 
