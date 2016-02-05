@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/funcs.el
 ;;  Created:    2014-07-03
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 13:00:53 mjl>
+;;  Time-stamp: <2016-02-05 08:58:07 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -30,26 +30,27 @@
 ;;              - Changed the namespace to `squiz-` from `mjl/', per Spacemacs
 ;;                practice, and the naming to - | / | //
 ;;  MJL20160203 - Emacs metadata
+;;  MJL20160205 - Whitespace
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
 
 (defun squiz//wiid (country client-id)
-  "runs the whyisitdown script (defined by `squiz-wiid-script') 
+  "runs the whyisitdown script (defined by `squiz-wiid-script')
 asynchronously, for COUNTRY and CLIENT-ID"
   (shell-command (concat squiz-wiid-script " " country " \"" client-id "\"&"))
   (save-window-excursion
     (switch-to-buffer "*Async Shell Command*")
-    (rename-buffer (format-time-string 
-                    (concat "*WIID-%H:%M-" country "-" 
+    (rename-buffer (format-time-string
+                    (concat "*WIID-%H:%M-" country "-"
                             (upcase client-id) "*")))))
 
 (defun squiz/wiid-au (client-id)
   "runs `squiz//wiid' for Australian CLIENT-ID"
   (interactive "sAU client: ")
   (squiz//wiid "AU" client-id))
-  
+
 (defalias 'wiid-au 'squiz/wiid-au)
 (defalias 'yau 'squiz/wiid-au)
 
