@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 09:43:29 mjl>
+;;  Time-stamp: <2016-02-07 18:27:19 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -56,6 +56,9 @@
 ;;                `system-type' and `system-name'
 ;;              - Group `dotspacemacs/user-config' variables logically
 ;;              - only require simple config code if relevant Layer is loaded
+;;  MJL20160207 - Fix smooth-scroll (`dotspacemacs-smooth-scrolling' didn't?)
+;;              - Set `global-prettify-symbols-mode' for lambda etc.
+;;              - Load Clojure layer only on Linux and Mac
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -81,9 +84,9 @@ values."
    '(
      ;; ----------------------------------------------------------------
      ;; List of useful layers to have in Spacemacs. This should only list
-     ;; layers that to be loaded on every system I install Spacemacs to. If a
-     ;; layer should be loaded everywhere but configured differently, then it
-     ;; belongs in one of the other lists which follow.
+     ;; layers to be loaded on every system I install Spacemacs to. If a layer
+     ;; should be loaded everywhere but configured differently, then it belongs
+     ;; in one of the other lists which follow.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
@@ -98,7 +101,6 @@ values."
      spell-checking
      syntax-checking
      version-control
-
      (colors :variables
              colors-enable-rainbow-identifiers nil
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
@@ -107,15 +109,13 @@ values."
      javascript
      erc
      xkcd
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
      )
    )
 
+  ;; ----------------------------------------------------------------
+  ;; These list layers to load on specific platforms or systems
+  ;; ----------------------------------------------------------------
   (setq
-   ;; ----------------------------------------------------------------
-   ;; These list layers to load on specific platforms or systems
-   ;; ----------------------------------------------------------------
    ;; Layers to be loaded only on Microsoft Windows
    mjl-windows-layers
    '(
@@ -125,10 +125,13 @@ values."
      )
    ;; Layers to be loaded only on Macintosh
    mjl-darwin-layers
-   '(osx
+   '(
+     osx
      (mjl :variables
           mjl-bind-osx-keys nil ; bound by osx layer
           mjl-bind-unix-keys nil) ; don't exist on a Mac
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      )
    ;; Layers to be loaded only on GNU/Linux
    mjl-gnu/linux-layers
@@ -136,6 +139,8 @@ values."
      (mjl :variables
           mjl-bind-osx-keys t
           mjl-bind-unix-keys t)
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      )
    ;; Layers to be loaded only on Work computers
    mjl-work-layers
@@ -386,8 +391,10 @@ layers configuration. You are free to put any user code."
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
         indicate-unused-lines t
         scroll-bar-mode 'left
+        scroll-conservatively 10000 ; MJL20160206 this should be set, not sure why it's not
         )
   (blink-cursor-mode t)
+  (global-prettify-symbols-mode t)
 
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
