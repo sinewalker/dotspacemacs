@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 09:43:29 mjl>
+;;  Time-stamp: <2016-02-08 09:13:01 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -56,6 +56,10 @@
 ;;                `system-type' and `system-name'
 ;;              - Group `dotspacemacs/user-config' variables logically
 ;;              - only require simple config code if relevant Layer is loaded
+;;  MJL20160207 - Fix smooth-scroll (`dotspacemacs-smooth-scrolling' didn't?)
+;;              - Set `global-prettify-symbols-mode' for lambda etc.
+;;              - Load Clojure layer only on Linux and Mac
+;;  MJL20160208 - use Spacemacs naming convention for private variables
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -77,13 +81,13 @@ values."
    dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers")
    ;; List of configuration layers to load. This is not the spacemacs
    ;; config variable. Instead I'll build up my own list and copy after.
-   mjl-layers
+   mjl--layers
    '(
      ;; ----------------------------------------------------------------
      ;; List of useful layers to have in Spacemacs. This should only list
-     ;; layers that to be loaded on every system I install Spacemacs to. If a
-     ;; layer should be loaded everywhere but configured differently, then it
-     ;; belongs in one of the other lists which follow.
+     ;; layers to be loaded on every system I install Spacemacs to. If a layer
+     ;; should be loaded everywhere but configured differently, then it belongs
+     ;; in one of the other lists which follow.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
@@ -98,7 +102,6 @@ values."
      spell-checking
      syntax-checking
      version-control
-
      (colors :variables
              colors-enable-rainbow-identifiers nil
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
@@ -107,38 +110,41 @@ values."
      javascript
      erc
      xkcd
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
      )
    )
 
+  ;; ----------------------------------------------------------------
+  ;; These list layers to load on specific platforms or systems
+  ;; ----------------------------------------------------------------
   (setq
-   ;; ----------------------------------------------------------------
-   ;; These list layers to load on specific platforms or systems
-   ;; ----------------------------------------------------------------
    ;; Layers to be loaded only on Microsoft Windows
-   mjl-windows-layers
+   mjl--windows-layers
    '(
      (mjl :variables
           mjl-bind-osx-keys t
           mjl-bind-unix-keys nil) ; don't work in Windows
      )
    ;; Layers to be loaded only on Macintosh
-   mjl-darwin-layers
-   '(osx
+   mjl--darwin-layers
+   '(
+     osx
      (mjl :variables
           mjl-bind-osx-keys nil ; bound by osx layer
           mjl-bind-unix-keys nil) ; don't exist on a Mac
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      )
    ;; Layers to be loaded only on GNU/Linux
-   mjl-gnu/linux-layers
+   mjl--gnu/linux-layers
    '(
      (mjl :variables
           mjl-bind-osx-keys t
           mjl-bind-unix-keys t)
+     (clojure :variables
+              clojure-enable-fancify-symbols t)
      )
    ;; Layers to be loaded only on Work computers
-   mjl-work-layers
+   mjl--work-layers
    '(
      (squiz :variables
             squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
@@ -147,20 +153,20 @@ values."
      )
    ;; A list of system-names I use at work
    ;; Whenever I install spacemacs to a new system, add it's `system-name'
-   mjl-work-systems
+   mjl--work-systems
     '("milo.local")
    )
   ;; ----------------------------------------------------------------
   ;; now append the layers lists depending on what the system is
   ;; ----------------------------------------------------------------
   (cond ((eq system-type 'windows-nt)
-         (setq mjl-layers (append mjl-layers mjl-windows-layers)))
+         (setq mjl--layers (append mjl--layers mjl--windows-layers)))
         ((eq system-type 'darwin)
-         (setq mjl-layers (append mjl-layers mjl-darwin-layers)))
+         (setq mjl--layers (append mjl--layers mjl--darwin-layers)))
         ((eq system-type 'gnu/linux)
-         (setq mjl-layers (append mjl-layers mjl-gnu/linux-layers))))
-  (when (member system-name mjl-work-systems)
-    (setq mjl-layers (append mjl-layers mjl-work-layers)))
+         (setq mjl--layers (append mjl--layers mjl--gnu/linux-layers))))
+  (when (member system-name mjl--work-systems)
+    (setq mjl--layers (append mjl--layers mjl--work-layers)))
 
   (setq-default
    ;; List of configuration layers to load. If it is the symbol `all' instead
@@ -168,7 +174,7 @@ values."
    ;; ----------------------------------------------------------------
    ;; I'm just setting this to the `mjl-layers' list appended above
    ;; ----------------------------------------------------------------
-   dotspacemacs-configuration-layers mjl-layers
+   dotspacemacs-configuration-layers mjl--layers
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -386,8 +392,10 @@ layers configuration. You are free to put any user code."
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
         indicate-unused-lines t
         scroll-bar-mode 'left
+        scroll-conservatively 10000 ; MJL20160206 this should be set, not sure why it's not
         )
   (blink-cursor-mode t)
+  (global-prettify-symbols-mode t)
 
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
@@ -418,6 +426,7 @@ layers configuration. You are free to put any user code."
  '(delete-selection-mode nil)
  '(fringe-mode nil nil (fringe))
  '(org-support-shift-select t)
+ '(paradox-github-token t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
