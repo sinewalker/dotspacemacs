@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 09:43:29 mjl>
+;;  Time-stamp: <2016-02-06 21:24:36 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -416,7 +416,6 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(delete-selection-mode nil)
- '(fringe-mode nil nil (fringe))
  '(org-support-shift-select t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
