@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-08 09:13:01 mjl>
+;;  Time-stamp: <2016-02-10 22:09:52 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -60,6 +60,9 @@
 ;;              - Set `global-prettify-symbols-mode' for lambda etc.
 ;;              - Load Clojure layer only on Linux and Mac
 ;;  MJL20160208 - use Spacemacs naming convention for private variables
+;;  MJL20160210 - require the mu4e config for work systems, rather than test
+;;                for the layer, because my layer config is a list
+;;              - UI tweeks (emacs-leader-key, whitespace, powerline, Customize)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -262,7 +265,7 @@ values."
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m)
-   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-major-mode-emacs-leader-key "M-s-m"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -371,7 +374,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'changed
    ))
 
 (defun dotspacemacs/user-init ()
@@ -393,22 +396,25 @@ layers configuration. You are free to put any user code."
         indicate-unused-lines t
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 this should be set, not sure why it's not
+        powerline-default-separator 'zigzag
+        org-support-shift-select t
         )
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
+  (delete-selection-mode t)
 
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
   (add-hook 'before-save-hook 'copyright-update)
 
-  ;; simple configs. Try to keep short and sweet, if it's complex, make a Layer.
+  ;; simple configs. Try to keep short and sweet. If it's complex, use
+  ;; `with-eval-after-load', or make a separate Layer.
   (push "~/.spacemacs.d/config/" load-path)
-  (when (member 'mu4e dotspacemacs-configuration-layers)
+  (when (member system-name mjl--work-systems)
     (require 'conf-mu4e nil t))
   (when (member 'python dotspacemacs-configuration-layers)
     (require 'conf-inferior nil t))
-  ;; TODO I think my own Org config belongs in a separate layer to add more
-  ;;      packages as well as to set my own preferences
+  ;; TODO make a separate layer for org config/packages
   (when (member 'org dotspacemacs-configuration-layers)
     (require 'conf-org nil t))
   )
@@ -423,9 +429,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(delete-selection-mode nil)
- '(fringe-mode nil nil (fringe))
- '(org-support-shift-select t)
  '(paradox-github-token t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
