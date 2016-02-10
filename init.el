@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-10 22:09:52 mjl>
+;;  Time-stamp: <2016-02-10 22:49:57 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -105,9 +105,7 @@ values."
      spell-checking
      syntax-checking
      version-control
-     (colors :variables
-             colors-enable-rainbow-identifiers nil
-             colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     colors
      php
      python
      javascript
