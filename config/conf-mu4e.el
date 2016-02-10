@@ -3,7 +3,7 @@
 ;;  File:       conf-mu4e.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:56:02 mjl>
+;;  Time-stamp: <2016-02-10 10:06:48 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -37,10 +37,13 @@
 ;;
 ;;  MJL20151210 - Created
 ;;  MJL20160203 - Emacs metadata
+;;  MJL20160210 - eval after loading the mu4e package
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
+
+(with-eval-after-load 'mu4e
 
 ;  (when (fboundp imagemagick-register-types)
 ;    (imagemagick-register-types))
@@ -114,6 +117,7 @@
             ("to:mlockhart AND NOT from:support AND NOT from:nagios AND NOT from:service-requests AND NOT subject:Zendesk end-user removal notice AND NOT subject:[JIRA]* AND NOT subject:24x7 Activity*" "to ME" ?m)
             ("subject:This Week in Support" "This Week in Support" ?7)
             ("to:jokes@squiz.com.au OR to:jokes@squiz.net" "Squiz jokes" ?J)))
+  )
 
 (provide 'conf-mu4e)
 
