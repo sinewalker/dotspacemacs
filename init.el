@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-10 22:49:57 mjl>
+;;  Time-stamp: <2016-02-10 22:56:56 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -93,14 +93,15 @@ values."
      ;; in one of the other lists which follow.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
+                      auto-completion-private-snippets-directory
+                      "~/.spacemacs.d/snippets/")
      better-defaults
      emacs-lisp
      git
      markdown
      org
      (shell :variables
-            ;;shell-default-height 24
+            shell-default-height 16
             shell-default-position 'top)
      spell-checking
      syntax-checking
@@ -393,7 +394,7 @@ layers configuration. You are free to put any user code."
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
         indicate-unused-lines t
         scroll-bar-mode 'left
-        scroll-conservatively 10000 ; MJL20160206 this should be set, not sure why it's not
+        scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
         powerline-default-separator 'zigzag
         org-support-shift-select t
         )
@@ -427,7 +428,6 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(paradox-github-token t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
