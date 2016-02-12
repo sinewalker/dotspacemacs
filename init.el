@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-10 22:56:56 mjl>
+;;  Time-stamp: <2016-02-12 16:20:36 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -63,6 +63,8 @@
 ;;  MJL20160210 - require the mu4e config for work systems, rather than test
 ;;                for the layer, because my layer config is a list
 ;;              - UI tweeks (emacs-leader-key, whitespace, powerline, Customize)
+;;  MJL20160212 - weirdly after I moved the `squiz' later, I have to expand the
+;;                script filename myself now for my $HOME 
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -149,7 +151,8 @@ values."
    mjl--work-layers
    '(
      (squiz :variables
-            squiz-wiid-script "~/Squiz/git/whyisitdown/whyisitdown")
+            squiz-wiid-script (expand-file-name
+                               "~/Squiz/git/whyisitdown/whyisitdown"))
      (mu4e  :variables
             mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
      )
@@ -366,7 +369,7 @@ values."
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
-   ;; Not used for now. (default nil)
+qqq   ;; Not used for now. (default nil)
    dotspacemacs-default-package-repository nil
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
