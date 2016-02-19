@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-20 07:27:54 mjl>
+;;  Time-stamp: <2016-02-20 07:41:17 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -64,7 +64,8 @@
 ;;                for the layer, because my layer config is a list
 ;;              - UI tweeks (emacs-leader-key, whitespace, powerline, Customize)
 ;;  MJL20160212 - weirdly after I moved the `squiz' later, I have to expand the
-;;                script filename myself now for my $HOME 
+;;                script filename myself now for my $HOME
+;;  MJL20160220 - Org-mode configured as a Layer
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -114,6 +115,7 @@ values."
      javascript
      erc
      xkcd
+     mjl-org
      )
    )
 
@@ -416,9 +418,6 @@ layers configuration. You are free to put any user code."
     (require 'conf-mail nil t))
   (when (member 'python dotspacemacs-configuration-layers)
     (require 'conf-inferior nil t))
-  ;; TODO make a separate layer for org config/packages
-  (when (member 'org dotspacemacs-configuration-layers)
-    (require 'conf-org nil t))
   )
 
 ;; MJL20160206 - I don't remember setting these?

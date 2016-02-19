@@ -1,0 +1,64 @@
+#+TITLE: mjl-org layer
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+
+[[file:img/mjl-org.png]]
+
+* Table of Contents                                        :TOC_4_org:noexport:
+ - [[Description][Description]]
+   - [[Philosophy][Philosophy]]
+ - [[Install][Install]]
+ - [[Key bindings][Key bindings]]
+ - [[Work in progress][Work in progress]]
+ - [[All the things][All the things]]
+
+* Description
+This layer configures org mode on top of what is included in the built-in layer
+=org=. You should also enable the =org= layer, which is a great general base to
+start from but doesn't set or impose any preferences. That's what this layer
+does.
+
+  - Personal preferences (this layer is /not/ intended for contribution to
+    Spacemacs core)
+  - Org Agenda
+  - MobileOrg
+  - org-gcal sync between Org calendar and Google Calendar
+  - calfw to display the calendar nicely
+
+It'd also be nice to sync TODO items with one of the Google tasks tools (either
+Tasks, or Keep). But this is low priority because I can use MobileOrg for now to
+view, and manually recapture from Keep (Keep is great for capturing late-night
+thoughts)
+
+** Philosophy
+This layer is for personal preferences only, not to be contributed to Spacemacs
+itself. It is shared on a public repository though, so there MUST NOT be any
+secrets in it.
+
+While it's specific to me, I want to keep my settings as simple and general as
+possible. Any setup or preference that is for certain record types SHOULD be
+configured within the individual org files, using =#+STARTUP=, =#+TAGS=,
+=#+PROPERTY= or simila (except where it can't, such as faces for tags). So
+especially this means the =#+SEQ_TODO= states, which might be different for
+Tasks, Projects, Tickets etc.
+
+I also have a thing I want to do to sync/capture Ticket details from work's
+ticketing system, but that really belongs in a separate layer so that I only
+enable it on work computers.
+
+
+* Install
+To use this contribution add it to your =~/.spacemacs=
+
+#+begin_src emacs-lisp
+  (setq-default dotspacemacs-configuration-layers '(mjl-org-conf))
+#+end_src
+
+* Key bindings
+
+| Key Binding     | Description    |
+|-----------------+----------------|
+| ~<SPC> x x x~   | Does thing01   |
+
+* Work in progress
+* TODO All the things
+Nothing has been implemented yet
