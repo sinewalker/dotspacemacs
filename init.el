@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-17 08:15:39 mjl>
+;;  Time-stamp: <2016-02-20 07:27:54 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -413,7 +413,7 @@ layers configuration. You are free to put any user code."
   ;; `with-eval-after-load', or make a separate Layer.
   (push "~/.spacemacs.d/config/" load-path)
   (when (member system-name mjl--work-systems)
-    (require 'conf-mu4e nil t))
+    (require 'conf-mail nil t))
   (when (member 'python dotspacemacs-configuration-layers)
     (require 'conf-inferior nil t))
   ;; TODO make a separate layer for org config/packages

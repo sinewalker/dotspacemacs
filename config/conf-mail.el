@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  File:       conf-mu4e.el
+;;  File:       conf-mail.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-10 10:06:48 mjl>
+;;  Time-stamp: <2016-02-20 07:27:46 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -38,6 +38,9 @@
 ;;  MJL20151210 - Created
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160210 - eval after loading the mu4e package
+;;  MJL20160220 - Renamed to conf-mail
+;;              - hide the updates in minibuffer
+;;              - handle html emails better
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -68,8 +71,14 @@
           ("/INBOX"       . ?i)
           ("/INBOX.team"  . ?t)
           ("/sent"        . ?s))
-        mu4e-html2text-command "html2text -utf8 -width 72"
+
+
+        ;;mu4e-html2text-command "html2text -utf8 -width 72"
+        mu4e-html2text-command "w3m -dump -T text/html"
         mu4e-show-images t
+        mu4e-view-show-images t
+        mu4e-view-prefer-html t
+        mu4e-use-fancy-chars t
 
 
         mu4e-user-mail-address-list '("mlockhart@squiz.net"
@@ -78,6 +87,7 @@
 
         mu4e-get-mail-command "mbsync -a"
         mu4e-update-interval 300
+        mu4e-hide-index-messages t
 
 
         mail-user-agent 'mu4e-user-agent
@@ -119,7 +129,7 @@
             ("to:jokes@squiz.com.au OR to:jokes@squiz.net" "Squiz jokes" ?J)))
   )
 
-(provide 'conf-mu4e)
+(provide 'conf-mail)
 
 ;;; Local Variables: ***
 ;;; mode:Emacs-lisp ***
