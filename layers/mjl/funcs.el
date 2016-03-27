@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-01-04 09:26:36 mjl>
+;;  Time-stamp: <2016-03-18 10:53:22 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -84,6 +84,7 @@
 ;;               - adopted Spacemacs naming convention for "private",
 ;;                 non-command functions (two slashes)
 ;;   MJL20151222 - Use Nyan Cat rainbow colours for the cyberpunk cursor
+;;   MJL20160318 - `mjl/pretty-print-xml-region' from old =tools.el=
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -518,7 +519,20 @@ this in my init.el but it's not sticking for daemons"
     (mouse-wheel-mode t)
     (setq frame-title-format '(buffer-file-name "%f" ("%b")))))
 
-
+(defun mjl/pretty-print-xml-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this.  The function inserts linebreaks to separate tags that have
+nothing but whitespace between them.  It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+    (nxml-mode)
+    (goto-char begin)
+    (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+      (backward-char) (insert "\n"))
+    (indent-region begin end))
+  (message "Ah, much better!"))
 
 ;;; Local Variables: ***
 ;;; mode:Emacs-lisp ***
