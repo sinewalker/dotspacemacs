@@ -42,15 +42,13 @@
 ;;              - hide the updates in minibuffer
 ;;              - handle html emails better
 ;;  MJL20160301 - Show thread-subject headers
+;;  MJL20160308 - ImageMagick register types
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
 
 (with-eval-after-load 'mu4e
-
-;  (when (fboundp imagemagick-register-types)
-;    (imagemagick-register-types))
 
   (setq mu4e-headers-include-related t
         mu4e-headers-skip-duplicates t
@@ -103,6 +101,9 @@
         smtpmail-smtp-service 587
         smtpmail-stream-type 'starttls
         smtpmail-debug-info t)
+
+  (when (fboundp 'imagemagick-register-types)
+    (imagemagick-register-types))
 
   ;; note the magic numbers: these are the ASCII codes for the bookmark
   ;; shortcuts, I think, set by Emacs Customize when I created the bookmarks on
