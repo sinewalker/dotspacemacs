@@ -70,6 +70,7 @@
 ;;  MJL20160226 - I've got a new workstation - a MacBook Air called mutsu
 ;;  MJL20160301 - mu4e location for brew on Mac. Not ideal
 ;;  MJL20160313 - turn line numbers on
+;;  MJL20160319 - deft note taking
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -120,6 +121,7 @@ values."
      erc
      xkcd
      mjl-org
+     deft
      )
    )
 
@@ -408,6 +410,7 @@ layers configuration. You are free to put any user code."
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
         powerline-default-separator 'zigzag
         org-support-shift-select t
+        deft-directory "~/notes"
         )
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
