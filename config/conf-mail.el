@@ -43,6 +43,7 @@
 ;;              - handle html emails better
 ;;  MJL20160301 - Show thread-subject headers
 ;;  MJL20160308 - ImageMagick register types
+;;              - remove INBOX.team shortcut
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -68,7 +69,6 @@
         mu4e-maildir-shortcuts
         '(("/archive"     . ?a)
           ("/INBOX"       . ?i)
-          ("/INBOX.team"  . ?t)
           ("/sent"        . ?s))
 
 
