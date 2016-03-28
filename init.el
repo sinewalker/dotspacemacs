@@ -67,6 +67,8 @@
 ;;                script filename myself now for my $HOME
 ;;  MJL20160220 - Org-mode configured as a Layer
 ;;              - Updated to spacemacs-0.105.10: nothing new
+;;  MJL20160226 - I've got a new workstation - a MacBook Air called mutsu
+;;  MJL20160301 - mu4e location for brew on Mac. Not ideal
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -157,12 +159,14 @@ values."
             squiz-wiid-script (expand-file-name
                                "~/Squiz/git/whyisitdown/whyisitdown"))
      (mu4e  :variables
-            mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu4e")
+            mu4e-installation-path
+            "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e")
      )
    ;; A list of system-names I use at work
    ;; Whenever I install spacemacs to a new system, add it's `system-name'
    mjl--work-systems
-    '("milo.local")
+   '("milo.local"
+     "mutsu")
    )
   ;; ----------------------------------------------------------------
   ;; now append the layers lists depending on what the system is
