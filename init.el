@@ -69,6 +69,7 @@
 ;;              - Updated to spacemacs-0.105.10: nothing new
 ;;  MJL20160226 - I've got a new workstation - a MacBook Air called mutsu
 ;;  MJL20160301 - mu4e location for brew on Mac. Not ideal
+;;  MJL20160313 - turn line numbers on
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -359,7 +360,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
