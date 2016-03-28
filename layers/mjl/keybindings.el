@@ -88,6 +88,7 @@
 ;;  MJL20160206 - variables control whether to bind key groupings
 ;;              - take out the Mac meta/option/super stuff -- osx layer can better
 ;;                handle this, and now I'm not conflicting the bindings
+;;  MJL20160316 - (temporary hack) `wdired-change-to-wdired-mode' binding
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -146,6 +147,11 @@
   (define-key isearch-mode-map (kbd "<prior>") 'isearch-repeat-backward)
   (global-set-key (kbd "s-g") 'go-to-line)
   (global-set-key (kbd "s-l") 'mjl/copy-line)
+
+  ;; TODO move this to my dired-plus layer, when I make one...
+  (with-eval-after-load 'dired
+     (define-key dired-mode-map (kbd "E") 'wdired-change-to-wdired-mode)
+     )
 
   ;; Meta-x
   (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
