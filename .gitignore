@@ -1,0 +1,4 @@
+# Ignore KDE/Mac/Windows meta files
+.directory
+.DS_Store
+Thumbs.db
