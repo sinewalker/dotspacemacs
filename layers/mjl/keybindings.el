@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 08:31:13 mjl>
+;;  Time-stamp: <2016-03-28 10:16:34 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -89,6 +89,8 @@
 ;;              - take out the Mac meta/option/super stuff -- osx layer can better
 ;;                handle this, and now I'm not conflicting the bindings
 ;;  MJL20160316 - (temporary hack) `wdired-change-to-wdired-mode' binding
+;;  MJL20160318 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac
+;;  MJL20160319 - M-n and M-p for paging with a Mac
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -124,6 +126,9 @@
   (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in in a terminal
   (global-unset-key (kbd "C-v"))  ;; this binding is silly anyway, use <next>
 
+  (global-set-key (kbd "M-n") 'scroll-up-command)     ;; however, Macs don't have
+  (global-set-key (kbd "M-p") 'scroll-down-command)   ;; <next> or <prev> keys!
+
   (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
   (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
 
@@ -156,7 +161,7 @@
   ;; Meta-x
   (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
   (global-set-key (kbd "<apps>") 'helm-M-x) ;; Windows
-  ;(global-set-key [f15]          'help-M-x) ;; Mac???
+  (global-set-key (kbd "C-j")    'helm-M-x) ;; Mac: <menu> key maps to C-j
 
   ; cannot use the kbd macro for these keys?
   (global-set-key [(super left)]        'windmove-left)
