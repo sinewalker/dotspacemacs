@@ -41,6 +41,7 @@
 ;;  MJL20160220 - Renamed to conf-mail
 ;;              - hide the updates in minibuffer
 ;;              - handle html emails better
+;;  MJL20160301 - Show thread-subject headers
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,7 +62,7 @@
         '( (:date          .  25)
            (:flags         .   6)
            (:from          .  22)
-           (:subject       .  nil))
+           (:thread-subject       .  nil))
         mu4e-sent-folder   "/sent"
         mu4e-drafts-folder "/drafts"
         mu4e-trash-folder  "/trash"
