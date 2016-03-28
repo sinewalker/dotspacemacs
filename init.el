@@ -71,6 +71,7 @@
 ;;  MJL20160301 - mu4e location for brew on Mac. Not ideal
 ;;  MJL20160313 - turn line numbers on
 ;;  MJL20160319 - deft note taking
+;;  MJL20160323 - Puppet layer
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -122,6 +123,7 @@ values."
      xkcd
      mjl-org
      deft
+     puppet
      )
    )
 
