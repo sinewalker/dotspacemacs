@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-03-28 17:12:20 mjl>
+;;  Time-stamp: <2016-04-12 19:31:53 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -73,6 +73,7 @@
 ;;  MJL20160319 - deft note taking
 ;;  MJL20160323 - Puppet layer
 ;;  MJL20160328 - Updated to spacemacs-0.105.14: template comments
+;;  MJL20160412 - default shell height 66%
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -111,7 +112,7 @@ values."
      markdown
      org
      (shell :variables
-            shell-default-height 16
+            shell-default-height 66
             shell-default-position 'top)
      spell-checking
      syntax-checking
