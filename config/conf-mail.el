@@ -3,7 +3,7 @@
 ;;  File:       conf-mail.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-03-28 12:21:21 mjl>
+;;  Time-stamp: <2016-04-15 22:06:53 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -45,6 +45,7 @@
 ;;  MJL20160308 - ImageMagick register types
 ;;              - remove INBOX.team shortcut
 ;;  MJL20160316 - Mac Brew has no mbsync, use offlineimap to get mail
+;;  MJL20160415 - get mail less often, since it's so slow to clean up
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -87,7 +88,7 @@
 
         mu4e-get-mail-command "offlineimap"
 ;        mu4e-get-mail-command "true" ; TODO: determine a faster way to index
-        mu4e-update-interval 300
+        mu4e-update-interval 600
         mu4e-hide-index-messages t
 
 
