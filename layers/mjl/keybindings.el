@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-03-28 10:16:34 mjl>
+;;  Time-stamp: <2016-04-20 09:47:19 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -89,8 +89,9 @@
 ;;              - take out the Mac meta/option/super stuff -- osx layer can better
 ;;                handle this, and now I'm not conflicting the bindings
 ;;  MJL20160316 - (temporary hack) `wdired-change-to-wdired-mode' binding
-;;  MJL20160318 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac
+;;  MJL20160318 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Air
 ;;  MJL20160319 - M-n and M-p for paging with a Mac
+;;  MJL20160420 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Pro
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -161,7 +162,7 @@
   ;; Meta-x
   (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
   (global-set-key (kbd "<apps>") 'helm-M-x) ;; Windows
-  (global-set-key (kbd "C-j")    'helm-M-x) ;; Mac: <menu> key maps to C-j
+  (global-set-key (kbd "C-p")    'helm-M-x) ;; Mac: <menu> key maps to C-j on and Air, but C-p on a Pro?
 
   ; cannot use the kbd macro for these keys?
   (global-set-key [(super left)]        'windmove-left)

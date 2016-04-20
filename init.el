@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-04-12 19:31:53 mjl>
+;;  Time-stamp: <2016-04-20 11:21:34 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -74,6 +74,7 @@
 ;;  MJL20160323 - Puppet layer
 ;;  MJL20160328 - Updated to spacemacs-0.105.14: template comments
 ;;  MJL20160412 - default shell height 66%
+;;  MJL20160419 - Enable menu-bar-mode on a Mac
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -428,6 +429,9 @@ you should place you code here."
   (add-hook 'before-save-hook 'time-stamp)
   (setq copyright-limit 1024)
   (add-hook 'before-save-hook 'copyright-update)
+
+  (when (eq system-type 'darwin)
+    (menu-bar-mode))
 
   ;; simple configs. Try to keep short and sweet. If it's complex, use
   ;; `with-eval-after-load', or make a separate Layer.
