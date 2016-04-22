@@ -75,6 +75,7 @@
 ;;  MJL20160328 - Updated to spacemacs-0.105.14: template comments
 ;;  MJL20160412 - default shell height 66%
 ;;  MJL20160419 - Enable menu-bar-mode on a Mac
+;;  MJL20160422 - Updated to spacemacs-0.105.19: template comments
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -409,7 +410,7 @@ This function is called at the very end of Spacemacs initialization after
 layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
-you should place you code here."
+you should place your code here."
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
