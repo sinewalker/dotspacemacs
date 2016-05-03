@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-04-22 21:57:27 mjl>
+;;  Time-stamp: <2016-05-04 07:25:03 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -77,6 +77,8 @@
 ;;  MJL20160419 - Enable menu-bar-mode on a Mac
 ;;  MJL20160422 - Updated to spacemacs-0.105.19: template comments
 ;;              - Experimenting with M-s-Space for the leader key
+;;  MJL20160427 - csv-mode package (no layer)
+;;  MJL20160504 - automatically copy mouse selection to kill ring
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -201,7 +203,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      csv-mode
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     php-extras ; MJL20151220 compilation errors
@@ -423,6 +427,7 @@ you should place your code here."
         powerline-default-separator 'zigzag
         org-support-shift-select t
         deft-directory "~/notes"
+        mouse-drag-copy-region t
         )
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
