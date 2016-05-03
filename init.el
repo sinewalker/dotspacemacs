@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-05-04 07:25:03 mjl>
+;;  Time-stamp: <2016-05-04 07:30:44 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -79,6 +79,7 @@
 ;;              - Experimenting with M-s-Space for the leader key
 ;;  MJL20160427 - csv-mode package (no layer)
 ;;  MJL20160504 - automatically copy mouse selection to kill ring
+;;              - M-s-Space as leader is not good, back to s-Space
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -282,7 +283,7 @@ values."
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "M-s-SPC"
+   dotspacemacs-emacs-leader-key "s-SPC"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
