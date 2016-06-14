@@ -3,7 +3,7 @@
 ;;  File:       conf-mail.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-04-15 22:06:53 mjl>
+;;  Time-stamp: <2016-06-14 13:13:43 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -46,6 +46,7 @@
 ;;              - remove INBOX.team shortcut
 ;;  MJL20160316 - Mac Brew has no mbsync, use offlineimap to get mail
 ;;  MJL20160415 - get mail less often, since it's so slow to clean up
+;;  MJL20160614 - Going all-google for Work. No more imap/index step
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -71,7 +72,8 @@
         mu4e-maildir-shortcuts
         '(("/archive"     . ?a)
           ("/INBOX"       . ?i)
-          ("/sent"        . ?s))
+          ("/sent"        . ?s)
+          ("/oldmail"     . ?o))
 
 
         ;;mu4e-html2text-command "html2text -utf8 -width 72"
@@ -86,10 +88,10 @@
                                       "lockhart.mic@gmail.com")
         mu4e-reply-to-address "mlockhart@squiz.net"
 
-        mu4e-get-mail-command "offlineimap"
+;       mu4e-get-mail-command "offlineimap"
 ;        mu4e-get-mail-command "true" ; TODO: determine a faster way to index
-        mu4e-update-interval 600
-        mu4e-hide-index-messages t
+;        mu4e-update-interval 600
+;        mu4e-hide-index-messages t
 
 
         mail-user-agent 'mu4e-user-agent
