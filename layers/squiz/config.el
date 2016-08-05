@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/config.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:57:53 mjl>
+;;  Time-stamp: <2016-08-05 17:26:58 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -27,6 +27,8 @@
 ;;
 ;;  MJL20160129 - Created, from old `squiz-funcs.el'
 ;;  MJL20160203 - Emacs metadata
+;;  MJL20160805 - location of Pingdom Keys file.
+;;              - change the default directory location
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,8 +36,12 @@
 ;;
 
 (defvar squiz-wiid-script
-  "~/Squiz/git/whyisitdown/whyisitdown"
+  "~/Work/git/whyisitdown/whyisitdown"
   "how to find the whyisitdown script")
+
+(defvar squiz-wiid-keys
+  "~/Work/git/whyisitdown/keys"
+  "where are the Pingdom keys")
 
 
 ;;; Local Variables: ***

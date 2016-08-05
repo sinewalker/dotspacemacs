@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/funcs.el
 ;;  Created:    2014-07-03
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-05 08:58:07 mjl>
+;;  Time-stamp: <2016-08-05 17:28:33 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -37,9 +37,10 @@
 ;;; Code:
 
 (defun squiz//wiid (country client-id)
-  "runs the whyisitdown script (defined by `squiz-wiid-script')
-asynchronously, for COUNTRY and CLIENT-ID"
-  (shell-command (concat squiz-wiid-script " " country " \"" client-id "\"&"))
+  "runs the whyisitdown script (defined by `squiz-wiid-script').
+asynchronously, for COUNTRY and CLIENT-ID. It logs into Pingdom
+by sourcing the bash script at `squiz-wiid-keys'."
+  (shell-command (concat "source " squiz-wiid-keys "; " squiz-wiid-script " " country " \"" client-id "\"&"))
   (save-window-excursion
     (switch-to-buffer "*Async Shell Command*")
     (rename-buffer (format-time-string
