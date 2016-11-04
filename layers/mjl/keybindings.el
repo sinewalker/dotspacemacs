@@ -97,6 +97,7 @@
 ;;                (heh, almost exactly 16 years later, still fixing home/end)
 ;;  MJL20160911 - super-shift-S Save-As
 ;;              - super-shift-O Open directory
+;;  MJL20161014 - window split bindings like my iTerm2
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -184,6 +185,15 @@
   ;;  s-down/up bottom/top (I currently bind them to window movement below)
   ;;  s-T open term at file's directory (atom's atom-terminal plugin, non-core, spacemacs already has SPC ' )
   ;;  M-T open term at Project's root directory
+
+  ;; splits windows like my iTerm2
+
+  (global-set-key (kbd "S-s-<backspace>") 'split-window-right)
+  (global-set-key (kbd "s-_") 'split-window-below)
+  (global-set-key (kbd "S-s-<return>") 'spacemacs/toggle-maximize-buffer)
+
+  ;; mode-specific mappings
+  ;; TODO move these to layers, when I make them, probably...
   (with-eval-after-load 'dired
      (define-key dired-mode-map (kbd "E") 'wdired-change-to-wdired-mode)
      )
