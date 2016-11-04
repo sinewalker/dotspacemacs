@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-04-20 09:47:19 mjl>
+;;  Time-stamp: <2016-10-14 10:04:20 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -95,6 +95,8 @@
 ;;  MJL20160729 - bind org-toggle-checkbox in Markdown mode too, since it works.
 ;;  MJL20160808 - Bind <home> and <end> to whatever C-a and C-e are bound to
 ;;                (heh, almost exactly 16 years later, still fixing home/end)
+;;  MJL20160911 - super-shift-S Save-As
+;;              - super-shift-O Open directory
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -119,7 +121,7 @@
     (global-set-key (kbd "s-s")  ; note:- this is shadowed by KDE Plasma Desktop
                     (lambda ()   ;        Shell "Stop Current Activity" default
                       (interactive)  ;    global shortcut.  Remap that
-                      (call-interactively (key-binding "\C-x\C-s")))) 
+                      (call-interactively (key-binding "\C-x\C-s"))))
     (global-set-key (kbd "s-z") 'undo-tree-undo)
     (global-set-key (kbd "s-Z") 'undo-tree-redo)
     (global-set-key (kbd "C-s-f") 'spacemacs/toggle-frame-fullscreen)
@@ -161,10 +163,27 @@
   (global-set-key (kbd "s-r") 'isearch-backward)
   (define-key isearch-mode-map (kbd "s-r")     'isearch-repeat-backward)
   (define-key isearch-mode-map (kbd "<prior>") 'isearch-repeat-backward)
-  (global-set-key (kbd "s-g") 'go-to-line)
-  (global-set-key (kbd "s-l") 'mjl/copy-line)
 
-  ;; TODO move this to my dired-plus layer, when I make one...
+  ;; ideas from Atom
+  (global-set-key (kbd "s-O") 'ido-dired)             ;; open dir
+  (global-set-key (kbd "s-S") 'ido-write-file)        ;; save-as
+  (global-set-key (kbd "s-b") 'helm-mini)             ;; browse buffers
+
+  (global-set-key (kbd "s-g") 'goto-line)
+  (global-set-key (kbd "s-l") 'mjl/copy-line) ;; in Atom: select line hdk
+  (global-set-key (kbd "s-/") 'comment-dwim) ;; default M-; gets shadowed
+  (global-set-key (kbd "s-\\") 'neotree-toggle)
+
+  ;; TODO: some others from Atom.  E.g.
+  ;;  M-s-[/]{/} fold/unfold/all
+  ;;  M-s-s Save All
+  ;;  M-s-z git checkout head
+  ;;  s-j join lines
+  ;; and consider:
+  ;;  s-<return> new line below
+  ;;  s-down/up bottom/top (I currently bind them to window movement below)
+  ;;  s-T open term at file's directory (atom's atom-terminal plugin, non-core, spacemacs already has SPC ' )
+  ;;  M-T open term at Project's root directory
   (with-eval-after-load 'dired
      (define-key dired-mode-map (kbd "E") 'wdired-change-to-wdired-mode)
      )
@@ -231,6 +250,7 @@
     (global-set-key [(meta XF86Cut)]      'kill-line)                        ; M-Cut
     (global-set-key [(control XF86Cut)]   'kill-sexp)                        ; C-Cut
     )
+
   ;;;;;;;;;;;;;;;;;;;;
   ;;; MJL20140722 - New F-key bindings
 
