@@ -93,6 +93,8 @@
 ;;  MJL20160319 - M-n and M-p for paging with a Mac
 ;;  MJL20160420 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Pro
 ;;  MJL20160729 - bind org-toggle-checkbox in Markdown mode too, since it works.
+;;  MJL20160808 - Bind <home> and <end> to whatever C-a and C-e are bound to
+;;                (heh, almost exactly 16 years later, still fixing home/end)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -130,6 +132,13 @@
 
   (global-set-key (kbd "M-n") 'scroll-up-command)     ;; however, Macs don't have
   (global-set-key (kbd "M-p") 'scroll-down-command)   ;; <next> or <prev> keys!
+
+  ;don't know if this is a Mac thing or not, but <home>/<end> do beginning /
+  ;end of buffer instead of line? Make them do what C-a and C-e do...
+  (global-set-key (kbd "<home>") (lambda () (interactive)
+                                   (call-interactively (key-binding "\C-a"))))
+  (global-set-key (kbd "<end>") (lambda () (interactive)
+                                  (call-interactively (key-binding "\C-e"))))
 
   (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
   (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
