@@ -3,7 +3,7 @@
 ;;  File:       layers/squiz/funcs.el
 ;;  Created:    2014-07-03
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-08-05 17:28:33 mjl>
+;;  Time-stamp: <2016-10-20 08:08:37 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -31,6 +31,8 @@
 ;;                practice, and the naming to - | / | //
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160205 - Whitespace
+;;  MJL20160805 - source the Pingdom keys before calling the script
+;;  MJL20161013 - delete other windows, since I'm always doing that manually
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,12 +42,14 @@
   "runs the whyisitdown script (defined by `squiz-wiid-script').
 asynchronously, for COUNTRY and CLIENT-ID. It logs into Pingdom
 by sourcing the bash script at `squiz-wiid-keys'."
-  (shell-command (concat "source " squiz-wiid-keys "; " squiz-wiid-script " " country " \"" client-id "\"&"))
-  (save-window-excursion
-    (switch-to-buffer "*Async Shell Command*")
-    (rename-buffer (format-time-string
-                    (concat "*WIID-%H:%M-" country "-"
-                            (upcase client-id) "*")))))
+  (shell-command (concat "source " squiz-wiid-keys "; "
+                         squiz-wiid-script " " country
+                         " \"" client-id "\"&"))
+  (switch-to-buffer "*Async Shell Command*")
+  (delete-other-windows)
+  (rename-buffer (format-time-string
+                  (concat "*WIID-%H:%M-" country "-"
+                          (upcase client-id) "*"))))
 
 (defun squiz/wiid-au (client-id)
   "runs `squiz//wiid' for Australian CLIENT-ID"
