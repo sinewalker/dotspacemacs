@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-05-04 07:30:44 mjl>
+;;  Time-stamp: <2016-11-04 22:54:54 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -137,6 +137,9 @@ values."
      mjl-org
      deft
      puppet
+     lua
+     vagrant
+     emoji
      org-journal
      )
    )
@@ -457,7 +460,7 @@ you should place your code here."
   ;; `with-eval-after-load', or make a separate Layer.
   (push "~/.spacemacs.d/config/" load-path)
   (when (member system-name mjl--work-systems)
-    (require 'conf-mail nil t))
+    (require 'conf-mail nil t)
     (when (require 'edit-server nil t)
       (edit-server-start))
     (append yas-snippet-dirs "/Users/mjl/Work/git/fieldnotes/snippets"))
@@ -475,6 +478,7 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-emoji-insert-unicode t)
  '(safe-local-variable-values (quote ((org-tags-match-list-sublevels . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
