@@ -84,6 +84,7 @@
 ;;  MJL20160512 - Google Chrome edit-server extension code
 ;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
 ;;  MJL20160616 - install `request' because it's not loading in latest update?
+;;  MJL20160701 - org-journal
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -135,6 +136,7 @@ values."
      mjl-org
      deft
      puppet
+     org-journal
      )
    )
 
@@ -436,6 +438,8 @@ you should place your code here."
         org-support-shift-select t
         deft-directory "~/notes"
         mouse-drag-copy-region t
+        org-journal-dir "~/MEGA/private/journal"
+        org-journal-date-format "%A, %Y-%m-%d"
         )
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
