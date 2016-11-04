@@ -85,6 +85,7 @@
 ;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
 ;;  MJL20160616 - install `request' because it's not loading in latest update?
 ;;  MJL20160701 - org-journal
+;;  MJL20160808 - use a random ASCII banner
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -259,7 +260,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 'random
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
