@@ -81,6 +81,7 @@
 ;;  MJL20160504 - automatically copy mouse selection to kill ring
 ;;              - M-s-Space as leader is not good, back to s-Space
 ;;              - minimap package (no layer)
+;;  MJL20160512 - Google Chrome edit-server extension code
 ;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -450,6 +451,9 @@ you should place your code here."
   (push "~/.spacemacs.d/config/" load-path)
   (when (member system-name mjl--work-systems)
     (require 'conf-mail nil t))
+    (when (require 'edit-server nil t)
+      (edit-server-start))
+    (append yas-snippet-dirs "/Users/mjl/Work/git/fieldnotes/snippets"))
   (when (member 'python dotspacemacs-configuration-layers)
     (require 'conf-inferior nil t))
   )
