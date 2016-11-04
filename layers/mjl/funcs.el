@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-03-18 10:53:22 mjl>
+;;  Time-stamp: <2016-08-15 07:35:41 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -85,6 +85,7 @@
 ;;                 non-command functions (two slashes)
 ;;   MJL20151222 - Use Nyan Cat rainbow colours for the cyberpunk cursor
 ;;   MJL20160318 - `mjl/pretty-print-xml-region' from old =tools.el=
+;;   MJL20160811 - `split-window-prefer-horizontally'
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -355,6 +356,25 @@ This one changes the cursor color on each blink. Define colors in `blink-cursor-
     (set-cursor-color (nth blink-cursor-count blink-cursor-colors))
     (setq blink-cursor-count (1+ blink-cursor-count)))
   (internal-show-cursor nil (not (internal-show-cursor-p))))
+
+;; see https://www.emacswiki.org/emacs/HorizontalSplitting
+(defun mjl/split-window-prefer-horizonally (window)
+  "If there's only one window (excluding any possibly active
+         minibuffer), then split the current window horizontally."
+  (if (one-window-p t);(and (one-window-p t)
+      ;     (not (active-minibuffer-window)))
+      (let ((split-height-threshold nil))
+        (split-window-horizontally window))
+    (split-window-sensibly window)))
+
+;(setq split-window-preferred-function 'split-window-horizonally)
+
+(defun mjl/split-horizontally-for-temp-buffers ()
+  "Split the window horizontally for temp buffers."
+  (when (one-window-p t)
+    (split-window-horizontally)))
+
+;(add-hook 'temp-buffer-setup-hook 'split-window-horizontally)
 
 ;; org stuff
 
