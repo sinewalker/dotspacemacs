@@ -83,6 +83,7 @@
 ;;              - minimap package (no layer)
 ;;  MJL20160512 - Google Chrome edit-server extension code
 ;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
+;;  MJL20160616 - install `request' because it's not loading in latest update?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -211,6 +212,7 @@ values."
    dotspacemacs-additional-packages '(
                                       csv-mode
                                       minimap
+                                      request ; MJL20160616 because it's not loading in latest update?
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
