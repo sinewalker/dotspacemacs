@@ -92,6 +92,7 @@
 ;;  MJL20160318 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Air
 ;;  MJL20160319 - M-n and M-p for paging with a Mac
 ;;  MJL20160420 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Pro
+;;  MJL20160729 - bind org-toggle-checkbox in Markdown mode too, since it works.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -158,6 +159,10 @@
   (with-eval-after-load 'dired
      (define-key dired-mode-map (kbd "E") 'wdired-change-to-wdired-mode)
      )
+  (with-eval-after-load 'markdown
+    (require 'org) ;; gotta load it now if it's not already
+    (define-key markdown-mode-map (kbd "s-t") 'org-toggle-checkbox)
+    )
 
   ;; Meta-x
   (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
