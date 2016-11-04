@@ -80,7 +80,7 @@
 ;;  MJL20160427 - csv-mode package (no layer)
 ;;  MJL20160504 - automatically copy mouse selection to kill ring
 ;;              - M-s-Space as leader is not good, back to s-Space
-;;
+;;              - minimap package (no layer)
 ;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -209,6 +209,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       csv-mode
+                                      minimap
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
