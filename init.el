@@ -81,6 +81,7 @@
 ;;  MJL20160504 - automatically copy mouse selection to kill ring
 ;;              - M-s-Space as leader is not good, back to s-Space
 ;;
+;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -170,7 +171,9 @@ values."
    '(
      (squiz :variables
             squiz-wiid-script (expand-file-name
-                               "~/Squiz/git/whyisitdown/whyisitdown"))
+                               "~/Work/lab/whyisitdown/whyisitdown")
+            squiz-wiid-keys (expand-file-name
+                             "~/Work/lab/whyisitdown/keys"))
      (mu4e  :variables
             mu4e-installation-path
             "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e")
