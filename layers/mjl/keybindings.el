@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-10-14 10:04:20 mjl>
+;;  Time-stamp: <2016-11-04 22:41:05 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -98,6 +98,7 @@
 ;;  MJL20160911 - super-shift-S Save-As
 ;;              - super-shift-O Open directory
 ;;  MJL20161014 - window split bindings like my iTerm2
+;;  MJL20161104 - different <menu>-keys bound to M-x, for different OS
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -203,9 +204,13 @@
     )
 
   ;; Meta-x
-  (global-set-key (kbd "<menu>") 'helm-M-x) ;; Unix
-  (global-set-key (kbd "<apps>") 'helm-M-x) ;; Windows
-  (global-set-key (kbd "C-p")    'helm-M-x) ;; Mac: <menu> key maps to C-j on and Air, but C-p on a Pro?
+  (cond ((eq system-type 'windows-nt)
+         (global-set-key (kbd "<apps>") 'helm-M-x))
+        ((eq system-type 'darwin) ;; on Mac, <menu> key maps to different keys:
+         (global-set-key (kbd "C-j")    'helm-M-x)) ;;  Railwaycat emacs-mac,
+        ;(global-set-key (kbd "C-p")    'helm-M-x)) ;;  vanilla brew emacs
+        ((t)
+         (global-set-key (kbd "<menu>") 'helm-M-x)))
 
   ; cannot use the kbd macro for these keys?
   (global-set-key [(super left)]        'windmove-left)
