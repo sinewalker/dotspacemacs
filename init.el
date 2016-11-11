@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  File:       ~/.spacemacs.d/init.el
+;;  File:       spacemacs/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-11-05 10:13:23 mjl>
+;;  Time-stamp: <2016-11-11 17:34:26 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -87,6 +87,8 @@
 ;;  MJL20160701 - org-journal
 ;;  MJL20160808 - use a random ASCII banner
 ;;  MJL20161105 - Upgraded to spacemacs-0.200.5: new/replaced variables
+;;  MJL20161111 - Move spacemacs configuration into ~/lib/spacemacs
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -98,6 +100,10 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
+   ;; Base spacemacs configuration directory
+   ;;  This is a work-around for my issue where my spacemacs layers are being
+   ;;  defined twice if located in ~/.spacemacs.d/layers
+   mjl--spacemacs-base "~/lib/spacemacs"
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
@@ -118,7 +124,8 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers")
+   dotspacemacs-configuration-layer-path (
+	list (expand-file-name "layers/" mjl--spacemacs-base))
    ;; List of configuration layers to load. This is not the spacemacs
    ;; config variable. Instead I'll build up my own list and copy after.
    mjl--layers
@@ -131,7 +138,7 @@ values."
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory
-                      "~/.spacemacs.d/snippets/")
+                      (expand-file-name "snippets/"  mjl--spacemacs-base))
      better-defaults
      emacs-lisp
      git
@@ -488,7 +495,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
-        mouse-autoselect-window t
+        ≈mouse-autoselect-window t
         display-time-24hr-format t
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
         indicate-unused-lines t
@@ -514,7 +521,7 @@ you should place your code here."
 
   ;; simple configs. Try to keep short and sweet. If it's complex, use
   ;; `with-eval-after-load', or make a separate Layer.
-  (push "~/.spacemacs.d/config/" load-path)
+  (push (expand-file-name "config/"  mjl--spacemacs-base) load-path)
   (when (member system-name mjl--work-systems)
     (require 'conf-mail nil t)
     (when (require 'edit-server nil t)
