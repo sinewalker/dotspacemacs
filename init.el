@@ -496,9 +496,9 @@ you should place your code here."
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
         powerline-default-separator 'zigzag
         org-support-shift-select t
-        deft-directory "~/notes"
+        deft-directory "~/net/notes"
         mouse-drag-copy-region t
-        org-journal-dir "~/MEGA/private/journal"
+        org-journal-dir "~/net/private/journal"
         org-journal-date-format "%A, %Y-%m-%d"
         )
   (blink-cursor-mode t)
