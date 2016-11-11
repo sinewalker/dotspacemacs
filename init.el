@@ -3,7 +3,7 @@
 ;;  File:       spacemacs/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-11-11 17:34:26 mjl>
+;;  Time-stamp: <2016-11-12 10:24:32 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -495,7 +495,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
-        ≈mouse-autoselect-window t
+        mouse-autoselect-window t
         display-time-24hr-format t
         vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
         indicate-unused-lines t
