@@ -3,7 +3,7 @@
 ;;  File:       spacemacs/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-11-12 10:24:32 mjl>
+;;  Time-stamp: <2016-11-17 11:47:25 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -88,6 +88,7 @@
 ;;  MJL20160808 - use a random ASCII banner
 ;;  MJL20161105 - Upgraded to spacemacs-0.200.5: new/replaced variables
 ;;  MJL20161111 - Move spacemacs configuration into ~/lib/spacemacs
+;;  MJL20161117 - imenu-list
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -241,6 +242,7 @@ values."
                                       csv-mode
                                       minimap
                                       request ; MJL20160616 because it's not loading in latest update?
+                                      imenu-list
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
