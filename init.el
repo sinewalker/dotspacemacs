@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-12-13 07:31:52 mjl>
+;;  Time-stamp: <2016-12-13 07:47:59 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -89,6 +89,7 @@
 ;;  MJL20161105 - Upgraded to spacemacs-0.200.5: new/replaced variables
 ;;  MJL20161117 - imenu-list
 ;;  MJL20161126 - Graphviz
+;;  MJL20161213 - leave `dotspacemacs-configuration-layer-path' as default
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -121,7 +122,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers")
+   ;dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    ;; List of configuration layers to load. This is not the spacemacs
    ;; config variable. Instead I'll build up my own list and copy after.
    mjl--layers
