@@ -89,6 +89,7 @@
 ;;  MJL20161105 - Upgraded to spacemacs-0.200.5: new/replaced variables
 ;;  MJL20161111 - Move spacemacs configuration into ~/lib/spacemacs
 ;;  MJL20161117 - imenu-list
+;;  MJL20161126 - Graphviz
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -187,6 +188,7 @@ values."
           mjl-bind-unix-keys nil) ; don't exist on a Mac
      (clojure :variables
               clojure-enable-fancify-symbols t)
+     graphviz
      )
    ;; Layers to be loaded only on GNU/Linux
    mjl--gnu/linux-layers
@@ -196,6 +198,7 @@ values."
           mjl-bind-unix-keys t)
      (clojure :variables
               clojure-enable-fancify-symbols t)
+     graphviz
      )
    ;; Layers to be loaded only on Work computers
    mjl--work-layers
