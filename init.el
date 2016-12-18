@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-12-13 07:47:59 mjl>
+;;  Time-stamp: <2016-12-18 21:38:55 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -493,6 +493,16 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (setq make-backup-files t
+        backup-by-copying t      ; don't clobber symlinks
+        backup-directory-alist
+        '(("." . "~/bak"))       ; don't litter filesystems
+        delete-old-versions t
+        version-control t
+        kept-old-versions 2      ; keep at least this many backups,
+        kept-new-versions 6      ; but no more than this many
+        )
 
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
