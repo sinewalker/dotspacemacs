@@ -129,9 +129,10 @@ values."
    '(
      ;; ----------------------------------------------------------------
      ;; List of useful layers to have in Spacemacs. This should only list
-     ;; layers to be loaded on every system I install Spacemacs to. If a layer
-     ;; should be loaded everywhere but configured differently, then it belongs
-     ;; in one of the other lists which follow.
+     ;; layers to be loaded on /every/ system I install Spacemacs to. If a
+     ;; layer should be loaded only on some of the systems, or loaded
+     ;; everywhere but configured differently, then it belongs in /each/ of the
+     ;; /other/ lists as appropriate, which follow.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory
@@ -168,7 +169,7 @@ values."
   ;; ----------------------------------------------------------------
   (setq
    ;; Layers to be loaded only on Microsoft Windows
-   mjl--windows-layers
+   mjl--windows-nt-layers
    '(
      (mjl :variables
           mjl-bind-osx-keys t
@@ -217,7 +218,7 @@ values."
   ;; now append the layers lists depending on what the system is
   ;; ----------------------------------------------------------------
   (cond ((eq system-type 'windows-nt)
-         (setq mjl--layers (append mjl--layers mjl--windows-layers)))
+         (setq mjl--layers (append mjl--layers mjl--windows-nt-layers)))
         ((eq system-type 'darwin)
          (setq mjl--layers (append mjl--layers mjl--darwin-layers)))
         ((eq system-type 'gnu/linux)
@@ -505,8 +506,8 @@ you should place your code here."
         deft-directory "~/net/notes"
         mouse-drag-copy-region t
         org-journal-dir "~/net/private/journal"
-        org-journal-date-format "%A, %Y-%m-%d"
-        )
+        org-journal-date-format "%A, %Y-%m-%d")
+
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
   (delete-selection-mode t)
