@@ -122,7 +122,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   ;dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
+   dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. This is not the spacemacs
    ;; config variable. Instead I'll build up my own list and copy after.
    mjl--layers
@@ -148,7 +148,7 @@ values."
      syntax-checking
      version-control
      colors
-     php
+     ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
      python
      javascript
      erc
@@ -239,7 +239,6 @@ values."
    dotspacemacs-additional-packages '(
                                       csv-mode
                                       minimap
-                                      request ; MJL20160616 because it's not loading in latest update?
                                       imenu-list
                                       )
    ;; A list of packages that cannot be updated.
