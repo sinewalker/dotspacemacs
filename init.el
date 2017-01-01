@@ -3,12 +3,12 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-12-18 21:38:55 mjl>
+;;  Time-stamp: <>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
 ;;
-;;  Rights:     Copyright © 2015, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Spacemacs configuration file
 ;;
@@ -90,6 +90,8 @@
 ;;  MJL20161117 - imenu-list
 ;;  MJL20161126 - Graphviz
 ;;  MJL20161213 - leave `dotspacemacs-configuration-layer-path' as default
+;;  MJL20161222 - smaller default face
+;;  MJL20170101 - add sql layer
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -122,7 +124,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+;   dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. This is not the spacemacs
    ;; config variable. Instead I'll build up my own list and copy after.
    mjl--layers
@@ -161,6 +163,7 @@ values."
      vagrant
      emoji
      org-journal
+     sql
      )
    )
 
@@ -327,7 +330,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
