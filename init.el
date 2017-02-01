@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <>
+;;  Time-stamp: <2017-02-01 23:02:54 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -202,7 +202,7 @@ values."
      (mjl :variables
           mjl-bind-osx-keys nil ; bound by osx layer
           mjl-bind-unix-keys nil ; don't exist on a Mac
-          mjl--work-initials "MLo") ; Squiz-style initials
+          mjl-work-initials "MLo") ; Squiz-style initials
      (clojure :variables
               clojure-enable-fancify-symbols t)
      graphviz
