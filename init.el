@@ -3,10 +3,10 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 23:02:54 mjl>
+;;  Time-stamp: <2017-02-02 08:31:35 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
-;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
+;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
 ;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;

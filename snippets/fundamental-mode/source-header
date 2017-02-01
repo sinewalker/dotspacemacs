@@ -8,7 +8,7 @@
 `comment-start`  Time-stamp: `(insert "<")``(insert ">")`
 `comment-start`  Platform:   $1
 `comment-start`  OS:         $2
-`comment-start`  Author:     [MJL] Michael J. Lockhart (`user-mail-address`)
+`comment-start`  Author:     [MJL] Michael J. Lockhart `(insert "<")`user-mail-address`(insert ">")`
 `comment-start`
 `comment-start`  Rights:     Copyright © `(format-time-string "%Y")` Michael James Lockhart, B.App.Comp(HONS)
 `comment-start`

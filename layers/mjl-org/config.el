@@ -6,7 +6,7 @@
 ;;  Time-stamp: <2016-02-03 12:54:09 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
-;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
+;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
 ;;  Rights:     Copyright © 2016 Michael James Lockhart, B.App.Comp(HONS)
 ;;

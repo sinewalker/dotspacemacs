@@ -3,10 +3,10 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 23:40:35 mjl>
+;;  Time-stamp: <2017-02-02 06:29:25 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
-;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
+;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
 ;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
