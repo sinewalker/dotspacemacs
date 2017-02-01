@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 23:31:28 mjl>
+;;  Time-stamp: <2017-02-01 23:40:35 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -61,8 +61,9 @@
 ;;  BUGS
 ;;
 ;;  MJL20170201 - I'm using `spacemacs/set-leader-keys' for toggling the Ruler
-;;  on `tR', which is not a reserved space in the Spacemacs bindings, and may
-;;  shadow a future Spacemacs update. But it makes sense to me.
+;;  on `tR', and the GUI on `Tu', which are not a reserved spaces in the
+;;  Spacemacs bindings, and may shadow a future Spacemacs update. But they
+;;  makes sense to me.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -103,7 +104,7 @@
 ;;              - `spacemacs/set-leader-keys' for date stamps (od*)
 ;;              - `spacemacs/set-leader-keys' for toggling Ruler
 ;;                (tR, which is not reserved, but available and sensible...)
-;;
+;;              - `spacemacs/set-leader-keys' for `mjl/ui-toggle-gui' (Tu)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -333,6 +334,7 @@
   ;; F10: Menu/GUI control (TEK/Mac=Mute)
   ;; (Spacemacs does things with f10, leave it for now)
   (spacemacs/set-leader-keys "tR" 'ruler-mode)
+  (spacemacs/set-leader-keys "Tu" 'mjl/ui-toggle-gui)
 
   ;; F11 date/time insertion (TEK/Mac=Quieter)
   (global-set-key [f11]                 'mjl/insert-date-stamp)

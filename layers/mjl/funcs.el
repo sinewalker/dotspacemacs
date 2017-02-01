@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 22:40:44 mjl>
+;;  Time-stamp: <2017-02-01 23:39:11 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
 ;;
-;;  Rights:     Copyright © 2000-2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2000-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    GNU Emacs functions
 ;;
@@ -87,6 +87,7 @@
 ;;   MJL20160318 - `mjl/pretty-print-xml-region' from old =tools.el=
 ;;   MJL20160811 - `split-window-prefer-horizontally'
 ;;   MJL20170201 - `mjl/insert-date-work' and `mjl/hacker-type'
+;;               - `mjl/ui-toggle-gui' also toggles scroll bars
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -224,10 +225,12 @@ menu normally)."
   (cond ((null menu-bar-mode)
          (menu-bar-mode t)
          (tool-bar-mode t)
+         (scroll-bar-mode t)
          (setq mouse-autoselect-window 1))
         (t
          (menu-bar-mode -1)
          (tool-bar-mode -1)
+         (scroll-bar-mode -1)
          (setq mouse-autoselect-window t))))
 
 (defun mjl/ui-toggle-rulers ()
