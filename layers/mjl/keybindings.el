@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-11-04 22:41:05 mjl>
+;;  Time-stamp: <2017-02-01 22:44:11 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
 ;;
-;;  Rights:     Copyright © 2015, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Keybindings for my personal layer "mjl"
 ;;
@@ -99,6 +99,10 @@
 ;;              - super-shift-O Open directory
 ;;  MJL20161014 - window split bindings like my iTerm2
 ;;  MJL20161104 - different <menu>-keys bound to M-x, for different OS
+;;  MJL20170109 - Use super up/dn for paging up/down on a Mac (same as native)
+;;  MJL20170201 - Bind the super-UP/DOWN if we're NOT binding OSX keys
+;;                ourselves (because we're relying on the `osx' layer to do Mac
+;;                keys, but that layer doesn't include extras)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -108,6 +112,8 @@
 (when (display-graphic-p)
 
   ;; Keybindings (from OS-X)
+  ;; (these are set by the `osx' layer, so if that's installed, you maybe want
+  ;; to set `mjl-bind-osx-keys' to nil and avoid binding them again here)
   (when mjl-bind-osx-keys
     (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
     (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
@@ -129,13 +135,18 @@
     (global-set-key (kbd "C-s-f") 'spacemacs/toggle-frame-fullscreen)
     )
 
+  ;; These are standard macOS/OS X bindings but are missing from the `osx'
+  ;; layer. So I always want to bind them on a Mac, but only on a Mac
+  (when (equal system-type 'darwin)
+    (global-set-key [(super down)] 'scroll-up-command) ;; Macs don't have
+    (global-set-key [(super up)] 'scroll-down-command) ;; <next> or <prev> keys!
+    )
+
   ;;;;;;;;;;;;;;;;;;;;
   ;; Mike's additions (common bindings in other programs)
-  (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in in a terminal
+  (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in a terminal
   (global-unset-key (kbd "C-v"))  ;; this binding is silly anyway, use <next>
 
-  (global-set-key (kbd "M-n") 'scroll-up-command)     ;; however, Macs don't have
-  (global-set-key (kbd "M-p") 'scroll-down-command)   ;; <next> or <prev> keys!
 
   ;don't know if this is a Mac thing or not, but <home>/<end> do beginning /
   ;end of buffer instead of line? Make them do what C-a and C-e do...
@@ -151,7 +162,7 @@
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-\\") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-]") 'spacemacs/scale-up-font)
-  (global-set-key (kbd "s-o") ;; why this is not in osx? - Do what C-x C-f does
+  (global-set-key (kbd "s-o") ;; why is this not in osx? - Do what C-x C-f does
                   (lambda ()
                     (interactive)
                     (call-interactively (key-binding "\C-x\C-f"))))
@@ -213,10 +224,10 @@
          (global-set-key (kbd "<menu>") 'helm-M-x)))
 
   ; cannot use the kbd macro for these keys?
-  (global-set-key [(super left)]        'windmove-left)
-  (global-set-key [(super right)]       'windmove-right)
-  (global-set-key [(super up)]          'windmove-up)
-  (global-set-key [(super down)]        'windmove-down)
+  ;(global-set-key [(super left)]        'windmove-left)
+  ;(global-set-key [(super right)]       'windmove-right)
+  ;(global-set-key [(super up)]          'windmove-up)
+  ;(global-set-key [(super down)]        'windmove-down)
 
   (global-set-key [(super kp-subtract)] 'spacemacs/scale-down-font)
   (global-set-key [(super kp-add)]      'spacemacs/scale-up-font)
@@ -321,8 +332,8 @@
 
   ;; F10: Menu/GUI control (TEK/Mac=Mute)
   ;; (Spacemacs does things with f10, leave it for now)
-  ;(global-set-key [(control f10)]       'mjl/toggle-rulers)
-  ;(global-set-key [(meta f10)]          'mjl/toggle-gui)
+  ;(global-set-key [(control f10)]       'mjl/ui-toggle-rulers)
+  ;(global-set-key [(meta f10)]          'mjl/ui-toggle-gui)
 
   ;; F11 date/time insertion  (these might be done better as leaders?) (TEK/Mac=Quieter)
   (global-set-key [f11]                 'mjl/insert-date-stamp)
