@@ -95,6 +95,7 @@
 ;;              - remove `org' and `org-journal' layers from `mjl--layers':
 ;;                now declared by `mjl-org', which will also configure
 ;;  MJL20170127 - add scheme and yaml layers, sicp
+;;  MJL20170201 - use Squiz style initials on a Mac, Nyan is back, 
 ;;
 ;; BUGS
 ;;
@@ -164,7 +165,9 @@ values."
      spell-checking
      syntax-checking
      version-control
-     colors
+     ;colors
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar (display-graphic-p))
      ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
      python
      javascript
@@ -198,7 +201,8 @@ values."
      osx
      (mjl :variables
           mjl-bind-osx-keys nil ; bound by osx layer
-          mjl-bind-unix-keys nil) ; don't exist on a Mac
+          mjl-bind-unix-keys nil ; don't exist on a Mac
+          mjl--work-initials "MLo") ; Squiz-style initials
      (clojure :variables
               clojure-enable-fancify-symbols t)
      graphviz

@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/config.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-06 09:09:54 mjl>
+;;  Time-stamp: <2017-02-01 22:39:17 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
 ;;
-;;  Rights:     Copyright © 2015, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Configuration variables for the layer
 ;;
@@ -30,6 +30,7 @@
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160206 - variables to switch keybinding groups off
 ;;              - remove the Mac option/meta/super switch
+;;  MJL20170201 - variable to specify Work initials
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,6 +42,9 @@
 
 (defvar mjl-bind-unix-keys t
   "If non nill, the Unix/Sun keys will be bound to useful functions")
+
+(defvar mjl-work-initials "MJL"
+  "Initials/abbreviation to use when inserting a timestap with `mjl/insert-date-work'. Can be anything, but is designed to conform with local work practices")
 
 
 ;;; Local Variables: ***

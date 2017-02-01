@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-08-15 07:35:41 mjl>
+;;  Time-stamp: <2017-02-01 22:40:44 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (sinewalker@gmail.com)
@@ -86,6 +86,7 @@
 ;;   MJL20151222 - Use Nyan Cat rainbow colours for the cyberpunk cursor
 ;;   MJL20160318 - `mjl/pretty-print-xml-region' from old =tools.el=
 ;;   MJL20160811 - `split-window-prefer-horizontally'
+;;   MJL20170201 - `mjl/insert-date-work' and `mjl/hacker-type'
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -115,6 +116,13 @@ that value instead"
   (if (not (boundp 'mjl/initials))
       (insert (format-time-string "MJL%Y%m%d"))
     (insert (format-time-string (concat mjl/initials "%Y%m%d")))))
+
+(defun mjl/insert-date-work ()
+  "Inserts the current local date in ISO 8601 format prefixed
+with Work-specific initials specified in mjl/work-initials Layer
+variable"
+  (interactive)
+  (insert (format-time-string (concat mjl-work-initials "%Y%m%d"))))
 
 (defun mjl/insert-date-dow ()
   "Inserts the current local date and the day of the week into
@@ -553,6 +561,34 @@ by using nxml's indentation rules."
       (backward-char) (insert "\n"))
     (indent-region begin end))
   (message "Ah, much better!"))
+
+;; "Hacker Type" implementation, in Emacs
+;; I'm unsure where exactly this came from?
+(defun mjl/hacker-type (arg)
+  (interactive (list (read-file-name "Filename: ")))
+  (setq mjl--fake-hacker-type-map (make-sparse-keymap))
+  (setq mjl--ht-filename arg)
+  (setq mjl--ht-start 0)
+  (setq mjl--ht-insert-by 3)
+
+  (define-key mjl--fake-hacker-type-map [remap self-insert-command]
+    'mjl//ht-inject-contents)
+  (use-local-map mjl--fake-hacker-type-map)
+  )
+
+(defun mjl//ht-inject-contents (&optional n)
+  (interactive)
+  (setq mjl--ht-end (+ mjl--ht-start mjl--ht-insert_by))
+  (insert-file-contents mjl--ht-filename nil mjl--ht-start mjl--ht-end)
+  (forward-char mjl--ht-insert_by)
+  (setq mjl--ht-start (+ mjl--ht-start mjl--ht-insert_by))
+  )
+
+(defun mjl/deactivate-hacker-type ()
+  (interactive)
+  (define-key mjl--fake-hacker-type-map [remap self-insert-command] nil)
+  )
+
 
 ;;; Local Variables: ***
 ;;; mode:Emacs-lisp ***
