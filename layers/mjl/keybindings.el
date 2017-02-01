@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 22:44:11 mjl>
+;;  Time-stamp: <2017-02-01 23:31:28 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
@@ -60,12 +60,9 @@
 ;;
 ;;  BUGS
 ;;
-;;  MJL20160104 - The "vanilla" rule is broken for some of my old personal
-;;  "tools.el" functions, which I've not yet imported into this layer.
-;;
-;;  MJL20160104 - The date functions which I bound to F11 might work better with
-;;  a leader key, rather than modifiers to F11. Jury is still out: I've been
-;;  using F11 for date stamps since 2003...
+;;  MJL20170201 - I'm using `spacemacs/set-leader-keys' for toggling the Ruler
+;;  on `tR', which is not a reserved space in the Spacemacs bindings, and may
+;;  shadow a future Spacemacs update. But it makes sense to me.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -103,6 +100,9 @@
 ;;  MJL20170201 - Bind the super-UP/DOWN if we're NOT binding OSX keys
 ;;                ourselves (because we're relying on the `osx' layer to do Mac
 ;;                keys, but that layer doesn't include extras)
+;;              - `spacemacs/set-leader-keys' for date stamps (od*)
+;;              - `spacemacs/set-leader-keys' for toggling Ruler
+;;                (tR, which is not reserved, but available and sensible...)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -332,16 +332,18 @@
 
   ;; F10: Menu/GUI control (TEK/Mac=Mute)
   ;; (Spacemacs does things with f10, leave it for now)
-  ;(global-set-key [(control f10)]       'mjl/ui-toggle-rulers)
-  ;(global-set-key [(meta f10)]          'mjl/ui-toggle-gui)
+  (spacemacs/set-leader-keys "tR" 'ruler-mode)
 
-  ;; F11 date/time insertion  (these might be done better as leaders?) (TEK/Mac=Quieter)
+  ;; F11 date/time insertion (TEK/Mac=Quieter)
   (global-set-key [f11]                 'mjl/insert-date-stamp)
-  (global-set-key [(control f11)]       'mjl/insert-timestamp-org)
   (global-set-key [(meta f11)]          'mjl/insert-date-work)
-  (global-set-key [(shift f11)]         'mjl/insert-date-iso)
-  (global-set-key [(control shift f11)] 'mjl/insert-log-entry-org)
-  (global-set-key [(super f11)]         'mjl/insert-date-dow)
+
+  (spacemacs/set-leader-keys
+    "odd" 'mjl/insert-date-stamp
+    "odw" 'mjl/insert-date-work
+    "odi" 'mjl/insert-date-iso
+    "odl" 'mjl/insert-log-entry-org
+    "odD" 'mjl/insert-date-dow)
 
   ;; F12 org capture/agenda (TEK/Mac=Louder)
   (global-set-key [f12]                 'org-capture)
