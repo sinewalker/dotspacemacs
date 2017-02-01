@@ -94,6 +94,19 @@
 ;;  MJL20170101 - add sql layer
 ;;              - remove `org' and `org-journal' layers from `mjl--layers':
 ;;                now declared by `mjl-org', which will also configure
+;;  MJL20170127 - add scheme and yaml layers, sicp
+;;
+;; BUGS
+;;
+;;  - The new Automatic layer install introduced in spacemacs 0.200 is broken
+;;    because it fails to find the `dotspacemacs-configuration-layers'
+;;    variable. Probably this because I'm not using that variable in the normal
+;;    way.
+;;
+;;  - There's probably a good argument for refactoring the `mjl--darwin-layers'
+;;    and `mjl--gnu/linux-layers' to use a common `mjl--nix-common-layers' for
+;;    the layers that these two unix flavours share, and then just
+;;    adding/configuring the differences.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -164,6 +177,7 @@ values."
      vagrant
      emoji
      sql
+     yaml
      )
    )
 
@@ -188,6 +202,7 @@ values."
      (clojure :variables
               clojure-enable-fancify-symbols t)
      graphviz
+     scheme
      )
    ;; Layers to be loaded only on GNU/Linux
    mjl--gnu/linux-layers
@@ -198,6 +213,7 @@ values."
      (clojure :variables
               clojure-enable-fancify-symbols t)
      graphviz
+     scheme
      )
    ;; Layers to be loaded only on Work computers
    mjl--work-layers
@@ -244,6 +260,7 @@ values."
                                       csv-mode
                                       minimap
                                       imenu-list
+                                      sicp
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -320,11 +337,10 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light
-                         solarized-dark
-                         solarized-light
-                         leuven
                          monokai
-                         zenburn)
+                         leuven
+                         solarized-dark
+                         solarized-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
