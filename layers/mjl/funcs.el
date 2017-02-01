@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 23:39:11 mjl>
+;;  Time-stamp: <2017-02-02 09:47:20 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -581,10 +581,10 @@ by using nxml's indentation rules."
 
 (defun mjl//ht-inject-contents (&optional n)
   (interactive)
-  (setq mjl--ht-end (+ mjl--ht-start mjl--ht-insert_by))
+  (setq mjl--ht-end (+ mjl--ht-start mjl--ht-insert-by))
   (insert-file-contents mjl--ht-filename nil mjl--ht-start mjl--ht-end)
-  (forward-char mjl--ht-insert_by)
-  (setq mjl--ht-start (+ mjl--ht-start mjl--ht-insert_by))
+  (forward-char mjl--ht-insert-by)
+  (setq mjl--ht-start (+ mjl--ht-start mjl--ht-insert-by))
   )
 
 (defun mjl/deactivate-hacker-type ()
