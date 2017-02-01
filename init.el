@@ -92,6 +92,8 @@
 ;;  MJL20161213 - leave `dotspacemacs-configuration-layer-path' as default
 ;;  MJL20161222 - smaller default face
 ;;  MJL20170101 - add sql layer
+;;              - remove `org' and `org-journal' layers from `mjl--layers':
+;;                now declared by `mjl-org', which will also configure
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -143,7 +145,6 @@ values."
      emacs-lisp
      git
      markdown
-     org
      (shell :variables
             shell-default-height 66
             shell-default-position 'top)
@@ -162,7 +163,6 @@ values."
      lua
      vagrant
      emoji
-     org-journal
      sql
      )
    )
