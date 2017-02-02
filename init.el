@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-03 07:34:48 mjl>
+;;  Time-stamp: <2017-02-03 07:38:53 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -262,10 +262,10 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
                                       csv-mode
-                                      minimap
-                                      imenu-list
-                                      sicp
                                       idle-highlight-mode
+                                      imenu-list
+                                      minimap
+                                      sicp
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
