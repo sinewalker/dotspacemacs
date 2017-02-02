@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-02 06:29:25 mjl>
+;;  Time-stamp: <2017-02-03 08:15:46 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -340,6 +340,8 @@
   (global-set-key [f11]                 'mjl/insert-date-stamp)
   (global-set-key [(meta f11)]          'mjl/insert-date-work)
 
+  (spacemacs/declare-prefix "o" "MJL user fns")
+  (spacemacs/declare-prefix "od" "date insertion")
   (spacemacs/set-leader-keys
     "odd" 'mjl/insert-date-stamp
     "odw" 'mjl/insert-date-work
