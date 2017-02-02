@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-02 09:54:22 mjl>
+;;  Time-stamp: <2017-02-03 07:34:48 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -157,30 +157,29 @@ values."
                       auto-completion-private-snippets-directory
                       "~/.spacemacs.d/snippets/")
      better-defaults
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     deft
      emacs-lisp
+     emoji
+     erc
      git
+     javascript
+     lua
      markdown
+     mjl-org
+     ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
+     puppet
+     python
      (shell :variables
             shell-default-height 66
             shell-default-position 'top)
      spell-checking
-     syntax-checking
-     version-control
-     ;colors
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
-     python
-     javascript
-     erc
-     xkcd
-     mjl-org
-     deft
-     puppet
-     lua
-     vagrant
-     emoji
      sql
+     syntax-checking
+     vagrant
+     version-control
+     xkcd
      yaml
      )
    )
