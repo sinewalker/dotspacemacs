@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-03 07:38:53 mjl>
+;;  Time-stamp: <2017-02-06 14:07:52 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -536,9 +536,10 @@ you should place your code here."
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
         powerline-default-separator 'zigzag
+        eshell-aliases-file "~/.spacemacs.d/config/eshell/alias"
+        mouse-drag-copy-region t
         org-support-shift-select t
         deft-directory "~/net/notes"
-        mouse-drag-copy-region t
         org-journal-dir "~/net/private/journal"
         org-journal-date-format "%A, %Y-%m-%d")
 
