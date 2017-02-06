@@ -1,3 +1,8 @@
+alias admin open https://$1/_admin
+alias nocache open https://$1/_nocache
+alias recache open https://$1/_recache
+alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache" $1
+alias vso curl -vso /dev/null $1
 alias view find-file-read-only $1
 alias less find-file-read-only $1
 alias revert magit-file-checkout HEAD $1
