@@ -1,3 +1,5 @@
+alias view find-file-read-only $1
+alias less find-file-read-only $1
 alias revert magit-file-checkout HEAD $1
 alias gedS magit-ediff-show-stash $1
 alias geds magit-ediff-show-staged $1
