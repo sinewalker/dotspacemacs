@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-03 08:15:46 mjl>
+;;  Time-stamp: <2017-02-15 10:48:32 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -105,6 +105,8 @@
 ;;              - `spacemacs/set-leader-keys' for toggling Ruler
 ;;                (tR, which is not reserved, but available and sensible...)
 ;;              - `spacemacs/set-leader-keys' for `mjl/ui-toggle-gui' (Tu)
+;;  MJL20170215 - `spacemacs/set-leader-keys' for `mjl/insert-timestamp-org' (odo)
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
@@ -347,7 +349,8 @@
     "odw" 'mjl/insert-date-work
     "odi" 'mjl/insert-date-iso
     "odl" 'mjl/insert-log-entry-org
-    "odD" 'mjl/insert-date-dow)
+    "odD" 'mjl/insert-date-dow
+    "odo" 'mjl/insert-timestamp-org)
 
   ;; F12 org capture/agenda (TEK/Mac=Louder)
   (global-set-key [f12]                 'org-capture)
