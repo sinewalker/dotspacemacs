@@ -1,33 +1,50 @@
-alias admin open https://$1/_admin
-alias nocache open https://$1/_nocache
-alias recache open https://$1/_recache
-alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache" $1
-alias vso curl -vso /dev/null $1
-alias view find-file-read-only $1
-alias less find-file-read-only $1
-alias revert magit-file-checkout HEAD $1
-alias gedS magit-ediff-show-stash $1
-alias geds magit-ediff-show-staged $1
-alias gedu magit-ediff-show-unstaged $1
-alias v find-file-read-only $1
-alias l ls
-alias gep magit-ediff-popup
-alias ged magit-ediff-dwim
-alias gds magit-diff-staged
-alias gdu magit-diff-unstaged
-alias gdd magit-diff-dwim
-alias gll magit-log-all
-alias glh magit-log-head
-alias gss magit-stage-modified ALL
-alias gs magit-status
-alias diff ediff $1 $2
-alias e find-file $1
-alias ed find-file $1
-alias lll ls -alh
-alias lla ls -a
-alias llh ls -lh
-alias ll ls -l
-alias diffrev ediff-revision $1
-alias d dired $1
-alias fo find-file-other-window $1
 alias ff find-file $1
+alias fo find-file-other-window $1
+alias diffrev ediff-revision $1
+alias ll ls -l
+alias llh ls -lh
+alias lla ls -a
+alias lll ls -alh
+alias ed find-file $1
+alias e find-file $1
+alias diff ediff $1 $2
+alias gs magit-status
+alias gss magit-stage-modified ALL
+alias glh magit-log-head
+alias gll magit-log-all
+alias gdd magit-diff-dwim
+alias gdu magit-diff-unstaged
+alias gds magit-diff-staged
+alias ged magit-ediff-dwim
+alias gep magit-ediff-popup
+alias l ls
+alias v find-file-read-only $1
+alias gedu magit-ediff-show-unstaged $1
+alias geds magit-ediff-show-staged $1
+alias gedS magit-ediff-show-stash $1
+alias revert magit-file-checkout HEAD $1
+alias less find-file-read-only $1
+alias view find-file-read-only $1
+alias vso curl -vso /dev/null $1
+alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache" $1
+alias recache open https://$1/_recache
+alias nocache open https://$1/_nocache
+alias admin open https://$1/_admin
+alias ... cd ../..
+alias .... cd ../../..
+alias ..... cd ../../../..
+alias ...... cd ../../../../..
+alias -- cd -
+alias lt ll -t
+alias lr ll -tr
+alias lh llh
+alias md mkdir -p $1; cd $1
+alias ....... cd ../../../../../..
+alias ........ cd ../../../../../../..
+alias ......... cd ../../../../../../../..
+alias .......... cd ../../../../../../../../..
+alias ........... cd ../../../../../../../../../..
+alias d dired
+alias dsstore find . -name '*.DS_Store' -type f -ls -delete
+alias probes find . -name 'probes.json' -type f -ls -delete
+alias df df -h
