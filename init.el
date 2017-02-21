@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-13 21:55:36 mjl>
+;;  Time-stamp: <2017-02-21 17:30:00 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -97,6 +97,7 @@
 ;;  MJL20170127 - add scheme and yaml layers, sicp
 ;;  MJL20170201 - use Squiz style initials on a Mac, Nyan is back, 
 ;;  MJL20170202 - idle-highlight-mode
+;;  MJL20170221 - default shell: emacs, window width instead of full frame
 ;;
 ;; BUGS
 ;;
@@ -172,6 +173,8 @@ values."
      puppet
      python
      (shell :variables
+            shell-default-shell 'eshell
+            shell-default-full-span nil
             shell-default-height 66
             shell-default-position 'top)
      spell-checking
