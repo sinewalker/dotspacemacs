@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-21 17:30:00 mjl>
+;;  Time-stamp: <2017-02-27 08:51:57 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -98,6 +98,7 @@
 ;;  MJL20170201 - use Squiz style initials on a Mac, Nyan is back, 
 ;;  MJL20170202 - idle-highlight-mode
 ;;  MJL20170221 - default shell: emacs, window width instead of full frame
+;;  MJL20170227 - eshell: set the config directory to load all control files
 ;;
 ;; BUGS
 ;;
@@ -541,7 +542,7 @@ you should place your code here."
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
         powerline-default-separator 'zigzag
-        eshell-aliases-file "~/.spacemacs.d/config/eshell/alias"
+        eshell-directory-name "~/.spacemacs.d/config/eshell"
         mouse-drag-copy-region t
         org-support-shift-select t
         deft-directory "~/net/notes"

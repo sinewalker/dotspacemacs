@@ -44,7 +44,6 @@ alias ........ cd ../../../../../../..
 alias ......... cd ../../../../../../../..
 alias .......... cd ../../../../../../../../..
 alias ........... cd ../../../../../../../../../..
-alias d dired
 alias dsstore find . -name '*.DS_Store' -type f -ls -delete
 alias probes find . -name 'probes.json' -type f -ls -delete
 alias df df -h
