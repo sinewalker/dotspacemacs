@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-27 08:51:57 mjl>
+;;  Time-stamp: <2017-03-06 22:42:29 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -541,7 +541,7 @@ you should place your code here."
         indicate-unused-lines t
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
-        powerline-default-separator 'zigzag
+        powerline-default-separator 'utf-8
         eshell-directory-name "~/.spacemacs.d/config/eshell"
         mouse-drag-copy-region t
         org-support-shift-select t
