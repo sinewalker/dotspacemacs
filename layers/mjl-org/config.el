@@ -3,12 +3,12 @@
 ;;  File:       conf-org.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:54:09 mjl>
+;;  Time-stamp: <2017-03-06 23:48:17 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Global Org-mode options
 ;;
@@ -27,8 +27,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20160129 - Created
-;;  MJL20160203 - Emacs metadata
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

@@ -3,12 +3,12 @@
 ;;  File:       layers/squiz/funcs.el
 ;;  Created:    2014-07-03
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-10-20 08:08:37 mjl>
+;;  Time-stamp: <2017-03-06 23:52:11 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
 ;;
-;;  Rights:     Copyright © 2014, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2014, 2016-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Functions for Squiz-specific stuff
 ;;
@@ -23,16 +23,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20140703 - Created (wiid)
-;;  MJL20140808 - put the timestamp near front of buffer name
-;;  MJL20140819 - shorter aliases
-;;  MJL20160129 - Moved into a Spacemacs Layer "squiz"
-;;              - Changed the namespace to `squiz-` from `mjl/', per Spacemacs
-;;                practice, and the naming to - | / | //
-;;  MJL20160203 - Emacs metadata
-;;  MJL20160205 - Whitespace
-;;  MJL20160805 - source the Pingdom keys before calling the script
-;;  MJL20161013 - delete other windows, since I'm always doing that manually
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

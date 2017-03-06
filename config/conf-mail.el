@@ -3,12 +3,12 @@
 ;;  File:       conf-mail.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-06-14 13:13:43 mjl>
+;;  Time-stamp: <2017-03-06 23:39:30 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015-2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Mu 4 Emacs settings
 ;;
@@ -35,18 +35,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20151210 - Created
-;;  MJL20160203 - Emacs metadata
-;;  MJL20160210 - eval after loading the mu4e package
-;;  MJL20160220 - Renamed to conf-mail
-;;              - hide the updates in minibuffer
-;;              - handle html emails better
-;;  MJL20160301 - Show thread-subject headers
-;;  MJL20160308 - ImageMagick register types
-;;              - remove INBOX.team shortcut
-;;  MJL20160316 - Mac Brew has no mbsync, use offlineimap to get mail
-;;  MJL20160415 - get mail less often, since it's so slow to clean up
-;;  MJL20160614 - Going all-google for Work. No more imap/index step
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

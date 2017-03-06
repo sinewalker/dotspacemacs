@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl-org/layers.el
 ;;  Created:    2017-01-01
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-01-01 23:57:06 mjl>
+;;  Time-stamp: <2017-03-06 23:49:10 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -33,6 +33,7 @@
 ;;
 ;; History:
 ;;
-;; MJL20170101 - Created.  Specify org and org-journal layers as requirements.
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 
 (configuration-layer/declare-layers '(org org-journal))

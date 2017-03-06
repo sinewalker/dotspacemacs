@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:05:11 mjl>
+;;  Time-stamp: <2017-03-06 23:37:14 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -27,82 +27,10 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20151215 - Created, all user config done in `dotspacemacs/user-config' to
-;;                begin with
-;;  MJL20151220 - Added personal snippets - not working
-;;              - moved mu4e config out to a `required' feature file
-;;              - load the PHP layer, but without the `php-extras' package,
-;;                which is having Quelpa compilation issues
-;;  MJL20151220 - tidy variables declarations in layers list
-;;  MJL20151221 - added my personal layer `mjl' to the layers list
-;;  MJL20160104 - source code header added, with change log
-;;              - added `time-stamp' and `copyright-update'to 'before-save-hook
-;;  MJL20160106 - use the `mu4e' layer from Spacemacs, rather than my own.
-;;  MJL20160107 - added xkcd layer
-;;  MJL20160111 - turned off display-time-mode because it doesn't always appear,
-;;                and it stops the HUD from showing on the far right.
-;;  MJL20160124 - Updated to spacemacs-0.105.9 : new variables
-;;  MJL20160125 - clojure layer
-;;  MJL20160128 - configure inferior shells, and rename mue4e-config
-;;  MJL20160129 - squiz layer (just shove it in the variable for now)
-;;              - Re-order the Layers list with host-specific stuff at the end
-;;  MJL20160130 - Put shells on top (also left/right will work...)
-;;  MJL20160201 - Fixed the ugly ~ in the fringe
-;;  MJL20160203 - moved Emacs metadata (after ^L at bottom)
-;;              - right-shift the fringe bits one bit to better space for vsplit
-;;              - set scroll-bar-mode left (but don't turn it on)
-;;  MJL20160205 - Maximize at startup
-;;  MJL20160206 - Customize `dotspacemacs-configuration-layers' by
-;;                `system-type' and `system-name'
-;;              - Group `dotspacemacs/user-config' variables logically
-;;              - only require simple config code if relevant Layer is loaded
-;;  MJL20160207 - Fix smooth-scroll (`dotspacemacs-smooth-scrolling' didn't?)
-;;              - Set `global-prettify-symbols-mode' for lambda etc.
-;;              - Load Clojure layer only on Linux and Mac
-;;  MJL20160208 - use Spacemacs naming convention for private variables
-;;  MJL20160210 - require the mu4e config for work systems, rather than test
-;;                for the layer, because my layer config is a list
-;;              - UI tweeks (emacs-leader-key, whitespace, powerline, Customize)
-;;  MJL20160212 - weirdly after I moved the `squiz' later, I have to expand the
-;;                script filename myself now for my $HOME
-;;  MJL20160220 - Org-mode configured as a Layer
-;;              - Updated to spacemacs-0.105.10: nothing new
-;;  MJL20160226 - I've got a new workstation - a MacBook Air called mutsu
-;;  MJL20160301 - mu4e location for brew on Mac. Not ideal
-;;  MJL20160313 - turn line numbers on
-;;  MJL20160319 - deft note taking
-;;  MJL20160323 - Puppet layer
-;;  MJL20160328 - Updated to spacemacs-0.105.14: template comments
-;;  MJL20160412 - default shell height 66%
-;;  MJL20160419 - Enable menu-bar-mode on a Mac
-;;  MJL20160422 - Updated to spacemacs-0.105.19: template comments
-;;              - Experimenting with M-s-Space for the leader key
-;;  MJL20160427 - csv-mode package (no layer)
-;;  MJL20160504 - automatically copy mouse selection to kill ring
-;;              - M-s-Space as leader is not good, back to s-Space
-;;              - minimap package (no layer)
-;;  MJL20160512 - Google Chrome edit-server extension code
-;;  MJL20160528 - "Squiz" directory renamed to generic "Work"
-;;  MJL20160616 - install `request' because it's not loading in latest update?
-;;  MJL20160701 - org-journal
-;;  MJL20160808 - use a random ASCII banner
-;;  MJL20161105 - Upgraded to spacemacs-0.200.5: new/replaced variables
-;;  MJL20161117 - imenu-list
-;;  MJL20161126 - Graphviz
-;;  MJL20161213 - leave `dotspacemacs-configuration-layer-path' as default
-;;  MJL20161222 - smaller default face
-;;  MJL20170101 - add sql layer
-;;              - remove `org' and `org-journal' layers from `mjl--layers':
-;;                now declared by `mjl-org', which will also configure
-;;  MJL20170127 - add scheme and yaml layers, sicp
-;;  MJL20170201 - use Squiz style initials on a Mac, Nyan is back, 
-;;  MJL20170202 - idle-highlight-mode
-;;  MJL20170221 - default shell: emacs, window width instead of full frame
-;;  MJL20170227 - eshell: set the config directory to load all control files
-;;  MJL20170306 - use chrome layer for edit-server, and add local config
-;;              - refactor layers lists (fixes issue #5)
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
-;; BUGS
+;;; BUGS
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

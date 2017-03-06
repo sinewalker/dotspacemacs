@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-02 09:47:20 mjl>
+;;  Time-stamp: <2017-03-06 23:44:20 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -41,53 +41,8 @@
 ;;  been removed/relocated/deprecated by advances in Emacs itself, or by
 ;;  Spacemacs' configurations (particularly UI and also loading mechanics)
 ;;
-;;
-;;   MJL200002?? - Created (Bash sub-shell settings and custom C modes)
-;;   MJL20030225 - Added function for inserting the ISO date
-;;               - Added function to insert a modification date prefix
-;;   MJL20030326 - New function `insert-date-dow' inserts current ISO date,
-;;                 followed by the day of week, bound to S-F12
-;;   MJL20080715 - Refactor my date-insert functions to use `format-time-string'
-;;   MJL20080904 - `mjl/shell': use emacs as the editor
-;;   MJL20081101 - `mjl/shell': fewer (comint-send-input) calls.
-;;   MJL20090907 - Adopted Emacs Starter Kit -- relocated defuns here
-;;   MJL20091009 - Remember-mode pop-up (1st attempt, from Linux ideas)
-;;   MJL20100317 - `mjl/shell' now runs cygwin/bash on Windows
-;;   MJL20100324 - `copy-line' [http://www.emacswiki.org/emacs/CopyingWholeLines]
-;;   MJL20100512 - test for Windows using symbols instead of string=
-;;   MJL20100603 - `mjl/save-to-dos' `mjl/save-to-unix' and `mjl/save-to-mac'
-;;   MJL20100625 - `mjl/shell' introduced bug on Unix, fixed by setting vars
-;;                 only on Windows
-;;   MJL20100726 - Fix bug in EDITOR var for `mjl/shell'
-;;   MJL20110705 - `mjl/calc-other-frame' for launching calc from clients
-;;   MJL20110829 - `mjl/dired-view-file' and friends to browse files in dired.
-;;   MJL20111130 - Zazra's cyberpunk cursor
-;;   MJL20111212 - changed namespace convertion to use `mjl/'
-;;   MJL20111213 - moved global key bingings to mjl/bindings.el
-;;               - relocated org functions here, from old mjl/org.old
-;;               - renamed to mjl/defuns.el
-;;               - use local vars in `mjl/calc-other-frame' and
-;;                 `mjl/remember-frame'
-;;               - `mjl/insert-date-stamp' removed unneeded decode-time call
-;;   MJL20131127 - Use a variable for mjl/insert-date-stamp function
-;;   MJL20140710 - Added `mjl/edit-current-file-as-root'
-;;   MJL20140722 - Added `mjl/diff-buffer-with-file'
-;;   MJL20140724 - include (buffer-name) in difference buffers of
-;;                 `mjl/duff-buffer-with-file'
-;;   MJL20140724 - Added `mjl/mu4e-headers-narrow-unread'
-;;   MJL20140724 - added `mjl/change-log'
-;;   MJL20140917 - added `mjl/client-save-kill-emacs'
-;;   MJL20140929 - fixed `mjl/open-org-files' to be non-hard-coded
-;;   MJL20150106 - added `mjl/titlebar' from init.el code
-;;   MJL20151221 - Renamed to layers/mjl/funcs.el (spacemacs)
-;;               - removed functions no longer required in spacemacs
-;;               - adopted Spacemacs naming convention for "private",
-;;                 non-command functions (two slashes)
-;;   MJL20151222 - Use Nyan Cat rainbow colours for the cyberpunk cursor
-;;   MJL20160318 - `mjl/pretty-print-xml-region' from old =tools.el=
-;;   MJL20160811 - `split-window-prefer-horizontally'
-;;   MJL20170201 - `mjl/insert-date-work' and `mjl/hacker-type'
-;;               - `mjl/ui-toggle-gui' also toggles scroll bars
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

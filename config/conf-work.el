@@ -3,7 +3,7 @@
 ;;  File:       conf-work.el
 ;;  Created:    2017-03-02
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-04 22:28:11 mjl>
+;;  Time-stamp: <2017-03-06 23:40:09 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         Apple Macintosh OS X
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -22,8 +22,8 @@
 ;;
 ;;; Change Log:
 ;;
-;; MJL20170302 - Created (browse-url-browser-function)
-;; MJL20170304 - edit-server (from `chrome' Layer) configuration
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

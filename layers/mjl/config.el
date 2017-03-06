@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/config.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-01 22:39:17 mjl>
+;;  Time-stamp: <2017-03-06 23:42:41 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -25,12 +25,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20151220 - Created
-;;  MJL20160104 - Added source code header with change log.
-;;  MJL20160203 - Emacs metadata
-;;  MJL20160206 - variables to switch keybinding groups off
-;;              - remove the Mac option/meta/super switch
-;;  MJL20170201 - variable to specify Work initials
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

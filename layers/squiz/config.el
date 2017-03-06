@@ -3,12 +3,12 @@
 ;;  File:       layers/squiz/config.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-08-05 17:26:58 mjl>
+;;  Time-stamp: <2017-03-06 23:51:24 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart (mlockhart@squiz.net)
 ;;
-;;  Rights:     Copyright © 2014, 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2014, 2016-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Configuration variables for the layer
 ;;
@@ -25,10 +25,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20160129 - Created, from old `squiz-funcs.el'
-;;  MJL20160203 - Emacs metadata
-;;  MJL20160805 - location of Pingdom Keys file.
-;;              - change the default directory location
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

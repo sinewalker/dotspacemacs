@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl-org/packages.el
 ;;  Created:    2016-02-01
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 13:03:06 mjl>
+;;  Time-stamp: <2017-03-06 23:49:48 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;  License:    GPLv3
 ;;  URL:        https://github.com/sinewalker/dotspacemacs
 ;;
@@ -47,7 +47,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20160201 - Created
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

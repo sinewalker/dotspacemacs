@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-02-15 10:48:32 mjl>
+;;  Time-stamp: <2017-03-06 23:45:30 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -69,43 +69,8 @@
 ;;
 ;;; Change Log:
 ;;
-;;  MJL20151220 - Created, copied from osx layer, then imported much from my own
-;;                ~/.emacs.d/mjl/boot/bindings.el
-;;  MJL20151222 - Added rest of Sun keys and my F-keys
-;;  MJL20160102 - bind font scaling to C-+/- as well (easy to type, doesn't
-;;                break much)
-;;  MJL20160104 - Swap F2 and F3 to better match physical key labels
-;;              - bind font scaling to s-\ and s-] as well (these are in roughly
-;;                traditional places on the TEK 209)
-;;  MJL20160111 - bind `helm-M-x' to the <menu>/<apps> key, it's better, now I
-;;                know how to use it.
-;;              - map s-f, s-r, <next> and <prior> within isearch-mode-map
-;;              - remove C-z binding: it causes more trouble than it's worth
-;;  MJL20160118 - C-z and C-v: make them modern bindings: I don't use the defaults
-;;  MJL20160203 - Emacs metadata
-;;  MJL20160206 - variables control whether to bind key groupings
-;;              - take out the Mac meta/option/super stuff -- osx layer can better
-;;                handle this, and now I'm not conflicting the bindings
-;;  MJL20160316 - (temporary hack) `wdired-change-to-wdired-mode' binding
-;;  MJL20160318 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Air
-;;  MJL20160319 - M-n and M-p for paging with a Mac
-;;  MJL20160420 - binding for helm-M-x on my TEK229/PC mode, plugged into a Mac Pro
-;;  MJL20160729 - bind org-toggle-checkbox in Markdown mode too, since it works.
-;;  MJL20160808 - Bind <home> and <end> to whatever C-a and C-e are bound to
-;;                (heh, almost exactly 16 years later, still fixing home/end)
-;;  MJL20160911 - super-shift-S Save-As
-;;              - super-shift-O Open directory
-;;  MJL20161014 - window split bindings like my iTerm2
-;;  MJL20161104 - different <menu>-keys bound to M-x, for different OS
-;;  MJL20170109 - Use super up/dn for paging up/down on a Mac (same as native)
-;;  MJL20170201 - Bind the super-UP/DOWN if we're NOT binding OSX keys
-;;                ourselves (because we're relying on the `osx' layer to do Mac
-;;                keys, but that layer doesn't include extras)
-;;              - `spacemacs/set-leader-keys' for date stamps (od*)
-;;              - `spacemacs/set-leader-keys' for toggling Ruler
-;;                (tR, which is not reserved, but available and sensible...)
-;;              - `spacemacs/set-leader-keys' for `mjl/ui-toggle-gui' (Tu)
-;;  MJL20170215 - `spacemacs/set-leader-keys' for `mjl/insert-timestamp-org' (odo)
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

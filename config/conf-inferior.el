@@ -3,12 +3,12 @@
 ;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2016-02-03 12:55:52 mjl>
+;;  Time-stamp: <2017-03-06 23:38:32 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2016 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Configure inferior shells for GNU environment
 ;;
@@ -17,10 +17,8 @@
 ;;
 ;;  HISTORY
 ;;
-;;  MJL20160128 - Created
-;;  MJL20160129 - Renamed: mjl not really necessary. "conf" isn't either in the
-;;                filename, except to make it match the feature name
-;;  MJL20160203 - Emacs metadata
+;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  See git log after for changes after 2017-03-06
 ;;
 
 (setq inferior-lisp-program "clisp"
