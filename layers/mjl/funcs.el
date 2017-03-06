@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:44:20 mjl>
+;;  Time-stamp: <2017-03-07 10:21:57 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -25,21 +25,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Change Log:
-;;
-;;  This file contains custom utility functions that have been carried over
-;;  from ages past. At various times the init file has been renamed. A rough
-;;  chronology of these changes is:
-;;
-;;    2000: ~/.emacsrc
-;;    2003: ~/.emacs.el
-;;    2008: ~/.emacs.d/init.el
-;;    2009: ~/.emacs.d/defuns.el
-;;    2011: ~/.emacs.d/mjl/defuns.el
-;;    2015: ~/.spacemacs.d/layers/mjl/funcs.el
-;;
-;;  What follows is the change log for all this history, minus items that have
-;;  been removed/relocated/deprecated by advances in Emacs itself, or by
-;;  Spacemacs' configurations (particularly UI and also loading mechanics)
 ;;
 ;;  Old logs up to tag 0.200 are in HISTORY.md
 ;;  See git log after for changes after 2017-03-06
@@ -156,6 +141,7 @@ set to the same value."
   (erase-buffer))
 
 ;;;; Make Emacs work better
+
 (defun mjl/copy-line (arg)
   "Copy lines (as many as prefix argument) in the kill ring"
   (interactive "p")
@@ -253,6 +239,86 @@ root. Probably only works for local files"
     (replace-match "&x2e;&x2e;&x2e;"))
   (query-replace "\"" "&quot;"))
 
+(defun mjl/isearch-other-window ()
+  "perform interactive search on other window"
+  (save-selected-window
+    (other-window 1)
+    (isearch-forward)))
+
+;; Cyberpunk cursor http://www.emacswiki.org/emacs/Zarza
+
+;(defvar blink-cursor-colors (list  "#92c48f" "#6785c5" "#be369c" "#d9ca65")
+(defvar blink-cursor-colors
+;  (list "#381d30" "#79171b" "#9c2a14" "#a95f1b" "#ae7d20" "#ac9c25" "#848b1f" "#416b16" "#328b24" "#2d904f" "#1f758a" "#265da0" "#40399c" "#3f2e89" "#202860")
+  (list "#9c2a14" "#a95f1b" "#ac9c25" "#328b24" "#1f758a" "#265da0" "#40399c")
+  "On each blink the cursor will cycle to the next color in this list.")
+
+(setq blink-cursor-count 0)
+(defun blink-cursor-timer-function ()
+  "Cyberpunk variant of timer `blink-cursor-timer'. OVERWRITES original version in `frame.el'.
+
+This one changes the cursor color on each blink. Define colors in `blink-cursor-colors'."
+  (when (not (internal-show-cursor-p))
+    (when (>= blink-cursor-count (length blink-cursor-colors))
+      (setq blink-cursor-count 0))
+    (set-cursor-color (nth blink-cursor-count blink-cursor-colors))
+    (setq blink-cursor-count (1+ blink-cursor-count)))
+  (internal-show-cursor nil (not (internal-show-cursor-p))))
+
+;;TODO prefer horizonal splitting in Spacemacs
+;; see https://www.emacswiki.org/emacs/HorizontalSplitting
+(defun mjl/split-window-prefer-horizonally (window)
+  "If there's only one window (excluding any possibly active
+         minibuffer), then split the current window horizontally."
+  (if (one-window-p t);(and (one-window-p t)
+      ;     (not (active-minibuffer-window)))
+      (let ((split-height-threshold nil))
+        (split-window-horizontally window))
+    (split-window-sensibly window)))
+
+;(setq split-window-preferred-function 'split-window-horizonally)
+
+(defun mjl/split-horizontally-for-temp-buffers ()
+  "Split the window horizontally for temp buffers."
+  (when (one-window-p t)
+    (split-window-horizontally)))
+
+;(add-hook 'temp-buffer-setup-hook 'split-window-horizontally)
+
+;;;; org stuff
+
+;; TODO these may belong in `mjl-org' Layer?
+
+(defun mjl/insert-log-entry-org ()
+  "Inserts the current local date and time (to the minute) into
+the current buffer before Point. The date is formatted to suit
+Org mode's agenda and highlighting functions.
+
+   Additionally puts 3 asterisks to indicate a 3rd-level heading
+in Org. Useful for starting log entries"
+  (interactive)
+  (insert (format-time-string (concat "*** " (org-time-stamp-format t t) " "))))
+
+(defun mjl/insert-timestamp-org ()
+  "Inserts the current local date and time (to the minute) into
+the current buffer before Point. The date is formatted to suit
+Org mode's agenda and highlighting functions. This is like
+org-time-stamp-inactive, but does not prompt for date/time."
+  (interactive)
+  (insert (format-time-string (concat (org-time-stamp-format t t) " "))))
+
+(defun mjl/open-org-files ()
+  "Opens all my ORG Agenda files in a new frame"
+  (interactive)
+  (mapc 'find-file (org-agenda-files))
+  (new-frame)
+  (switch-to-buffer (file-name-nondirectory (car (org-agenda-files)))))
+
+;; (defun mjl/remember-review-file ()
+;;   "Open `remember-data-file'."
+;;   (interactive)
+;;   (find-file-other-window remember-data-file))
+
 (defun mjl/remember-frame ()
   "Create a small popup frame for remember mode; this is meant to
    be called with emacsclient -c -e '(mjl/remember-frame)'"
@@ -296,84 +362,7 @@ root. Probably only works for local files"
     ad-do-it))
 
 
-
-(defun mjl/isearch-other-window ()
-  "perform interactive search on other window"
-  (save-selected-window
-    (other-window 1)
-    (isearch-forward)))
-
-;; Cyberpunk cursor http://www.emacswiki.org/emacs/Zarza
-
-;(defvar blink-cursor-colors (list  "#92c48f" "#6785c5" "#be369c" "#d9ca65")
-(defvar blink-cursor-colors
-;  (list "#381d30" "#79171b" "#9c2a14" "#a95f1b" "#ae7d20" "#ac9c25" "#848b1f" "#416b16" "#328b24" "#2d904f" "#1f758a" "#265da0" "#40399c" "#3f2e89" "#202860")
-  (list "#9c2a14" "#a95f1b" "#ac9c25" "#328b24" "#1f758a" "#265da0" "#40399c")
-  "On each blink the cursor will cycle to the next color in this list.")
-
-(setq blink-cursor-count 0)
-(defun blink-cursor-timer-function ()
-  "Cyberpunk variant of timer `blink-cursor-timer'. OVERWRITES original version in `frame.el'.
-
-This one changes the cursor color on each blink. Define colors in `blink-cursor-colors'."
-  (when (not (internal-show-cursor-p))
-    (when (>= blink-cursor-count (length blink-cursor-colors))
-      (setq blink-cursor-count 0))
-    (set-cursor-color (nth blink-cursor-count blink-cursor-colors))
-    (setq blink-cursor-count (1+ blink-cursor-count)))
-  (internal-show-cursor nil (not (internal-show-cursor-p))))
-
-;; see https://www.emacswiki.org/emacs/HorizontalSplitting
-(defun mjl/split-window-prefer-horizonally (window)
-  "If there's only one window (excluding any possibly active
-         minibuffer), then split the current window horizontally."
-  (if (one-window-p t);(and (one-window-p t)
-      ;     (not (active-minibuffer-window)))
-      (let ((split-height-threshold nil))
-        (split-window-horizontally window))
-    (split-window-sensibly window)))
-
-;(setq split-window-preferred-function 'split-window-horizonally)
-
-(defun mjl/split-horizontally-for-temp-buffers ()
-  "Split the window horizontally for temp buffers."
-  (when (one-window-p t)
-    (split-window-horizontally)))
-
-;(add-hook 'temp-buffer-setup-hook 'split-window-horizontally)
-
-;; org stuff
-
-(defun mjl/insert-log-entry-org ()
-  "Inserts the current local date and time (to the minute) into
-the current buffer before Point. The date is formatted to suit
-Org mode's agenda and highlighting functions.
-
-   Additionally puts 3 asterisks to indicate a 3rd-level heading
-in Org. Useful for starting log entries"
-  (interactive)
-  (insert (format-time-string (concat "*** " (org-time-stamp-format t t) " "))))
-
-(defun mjl/insert-timestamp-org ()
-  "Inserts the current local date and time (to the minute) into
-the current buffer before Point. The date is formatted to suit
-Org mode's agenda and highlighting functions. This is like
-org-time-stamp-inactive, but does not prompt for date/time."
-  (interactive)
-  (insert (format-time-string (concat (org-time-stamp-format t t) " "))))
-
-(defun mjl/open-org-files ()
-  "Opens all my ORG Agenda files in a new frame"
-  (interactive)
-  (mapc 'find-file (org-agenda-files))
-  (new-frame)
-  (switch-to-buffer (file-name-nondirectory (car (org-agenda-files)))))
-
-;; (defun mjl/remember-review-file ()
-;;   "Open `remember-data-file'."
-;;   (interactive)
-;;   (find-file-other-window remember-data-file))
-
+;;;; unsorted useful functions
 
 (defun mjl/diff-buffer-with-file ()
   "Compares current buffer with its file, using ediff. This is like ibuffer's difference function (C-=), only with ediff"
@@ -392,6 +381,7 @@ org-time-stamp-inactive, but does not prompt for date/time."
       (when (file-exists-p tempfileB)
         (delete-file tempfileB)))))
 
+;;TODO this may belong in `conf/conf-mail' configuration?
 (defun mjl/mu4e-headers-narrow-unread ()
   "Narrow the Mu4e Headers view to just unread email. I use
 this rather than having a separate 'AND flag:unread' search for

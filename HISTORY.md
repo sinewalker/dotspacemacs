@@ -136,6 +136,21 @@ was exploring Spacemacs (and git/magit)
 ## layers/mjl/funcs.el 
 
 ```elisp
+;;  This file contains custom utility functions that have been carried over
+;;  from ages past. At various times the init file has been renamed. A rough
+;;  chronology of these changes is:
+;;
+;;    2000: ~/.emacsrc
+;;    2003: ~/.emacs.el
+;;    2008: ~/.emacs.d/init.el
+;;    2009: ~/.emacs.d/defuns.el
+;;    2011: ~/.emacs.d/mjl/defuns.el
+;;    2015: ~/.spacemacs.d/layers/mjl/funcs.el
+;;
+;;  What follows is the change log for all this history, minus items that have
+;;  been removed/relocated/deprecated by advances in Emacs itself, or by
+;;  Spacemacs' configurations (particularly UI and also loading mechanics)
+;;
 ;;   MJL200002?? - Created (Bash sub-shell settings and custom C modes)
 ;;   MJL20030225 - Added function for inserting the ISO date
 ;;               - Added function to insert a modification date prefix
