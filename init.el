@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 22:49:20 mjl>
+;;  Time-stamp: <2017-03-06 23:05:11 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -100,18 +100,9 @@
 ;;  MJL20170221 - default shell: emacs, window width instead of full frame
 ;;  MJL20170227 - eshell: set the config directory to load all control files
 ;;  MJL20170306 - use chrome layer for edit-server, and add local config
+;;              - refactor layers lists (fixes issue #5)
 ;;
 ;; BUGS
-;;
-;;  - The new Automatic layer install introduced in spacemacs 0.200 is broken
-;;    because it fails to find the `dotspacemacs-configuration-layers'
-;;    variable. Probably this because I'm not using that variable in the normal
-;;    way.
-;;
-;;  - There's probably a good argument for refactoring the `mjl--darwin-layers'
-;;    and `mjl--gnu/linux-layers' to use a common `mjl--nix-common-layers' for
-;;    the layers that these two unix flavours share, and then just
-;;    adding/configuring the differences.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -145,17 +136,16 @@ values."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
 ;   dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load. This is not the spacemacs
-   ;; config variable. Instead I'll build up my own list and copy after.
-   mjl--layers
+   ;; List of configuration layers to load.
+   ;; ----------------------------------------------------------------
+   ;; List of useful layers to have in Spacemacs. This should only list
+   ;; layers to be loaded on /every/ system I install Spacemacs to. If a
+   ;; layer should be loaded only on some of the systems, or loaded
+   ;; everywhere but configured differently, then it belongs in /each/ of the
+   ;; /other/ lists as appropriate, which follow.
+   ;; ----------------------------------------------------------------
+   dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; List of useful layers to have in Spacemacs. This should only list
-     ;; layers to be loaded on /every/ system I install Spacemacs to. If a
-     ;; layer should be loaded only on some of the systems, or loaded
-     ;; everywhere but configured differently, then it belongs in /each/ of the
-     ;; /other/ lists as appropriate, which follow.
-     ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-private-snippets-directory
                       "~/.spacemacs.d/snippets/")
@@ -208,10 +198,6 @@ values."
           mjl-bind-osx-keys nil ; bound by osx layer
           mjl-bind-unix-keys nil ; don't exist on a Mac
           mjl-work-initials "MLo") ; Squiz-style initials
-     (clojure :variables
-              clojure-enable-fancify-symbols t)
-     graphviz
-     scheme
      )
    ;; Layers to be loaded only on GNU/Linux
    mjl--gnu/linux-layers
@@ -219,6 +205,10 @@ values."
      (mjl :variables
           mjl-bind-osx-keys t
           mjl-bind-unix-keys t)
+     )
+   ;; Layers common to Unix systems
+   mjl--nix-layers
+   '(
      (clojure :variables
               clojure-enable-fancify-symbols t)
      graphviz
@@ -246,6 +236,14 @@ values."
   ;; ----------------------------------------------------------------
   ;; now append the layers lists depending on what the system is
   ;; ----------------------------------------------------------------
+
+  ;; arrange layers lists first
+  (setq  mjl--layers dotspacemacs-configuration-layers)
+  (setq mjl--darwin-layers
+        (append mjl--darwin-layers mjl--nix-layers)
+        mjl--gnu/linux-layers
+        (append mjl--gnu/linux-layers mjl--nix-layers))
+
   (cond ((eq system-type 'windows-nt)
          (setq mjl--layers (append mjl--layers mjl--windows-nt-layers)))
         ((eq system-type 'darwin)
@@ -256,10 +254,8 @@ values."
     (setq mjl--layers (append mjl--layers mjl--work-layers)))
 
   (setq-default
-   ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
    ;; ----------------------------------------------------------------
-   ;; I'm just setting this to the `mjl-layers' list appended above
+   ;; Now just set the master layers list from `mjl-layers' appended above
    ;; ----------------------------------------------------------------
    dotspacemacs-configuration-layers mjl--layers
    ;; List of additional packages that will be installed without being
