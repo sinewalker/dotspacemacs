@@ -3,12 +3,12 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-07 09:29:34 mjl>
+;;  Time-stamp: <2017-03-07 10:22:01 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Spacemacs configuration file
 ;;
@@ -66,11 +66,11 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    ;; ----------------------------------------------------------------
-   ;; List of useful layers to have in Spacemacs. This should only list
-   ;; layers to be loaded on /every/ system I install Spacemacs to. If a
-   ;; layer should be loaded only on some of the systems, or loaded
-   ;; everywhere but configured differently, then it belongs in /each/ of the
-   ;; /other/ lists as appropriate, which follow.
+   ;; List of useful layers to have in Spacemacs. This should only list layers
+   ;; to be loaded on /every/ system I install Spacemacs to. If a layer should
+   ;; be loaded only on some of the systems, or loaded everywhere but
+   ;; configured differently, then it belongs in /each/ of the /other/ lists as
+   ;; appropriate, which follow.
    ;; ----------------------------------------------------------------
    dotspacemacs-configuration-layers
    '(
@@ -299,7 +299,7 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "M-s-m"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
