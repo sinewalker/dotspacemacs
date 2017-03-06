@@ -269,7 +269,7 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20161013 - delete other windows, since I'm always doing that manually
 ```
 
-## layers/suiz/keybindings.el 
+## layers/squiz/keybindings.el 
 
 ```elisp
 ;;  MJL20160129 - Created
