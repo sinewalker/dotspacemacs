@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 22:42:29 mjl>
+;;  Time-stamp: <2017-03-06 22:49:20 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -99,6 +99,7 @@
 ;;  MJL20170202 - idle-highlight-mode
 ;;  MJL20170221 - default shell: emacs, window width instead of full frame
 ;;  MJL20170227 - eshell: set the config directory to load all control files
+;;  MJL20170306 - use chrome layer for edit-server, and add local config
 ;;
 ;; BUGS
 ;;
@@ -226,6 +227,7 @@ values."
    ;; Layers to be loaded only on Work computers
    mjl--work-layers
    '(
+     chrome
      (squiz :variables
             squiz-wiid-script (expand-file-name
                                "~/Work/lab/whyisitdown/whyisitdown")
@@ -238,7 +240,7 @@ values."
    ;; A list of system-names I use at work
    ;; Whenever I install spacemacs to a new system, add it's `system-name'
    mjl--work-systems
-   '("milo.local"
+   '("milo"
      "mutsu")
    )
   ;; ----------------------------------------------------------------
@@ -250,7 +252,7 @@ values."
          (setq mjl--layers (append mjl--layers mjl--darwin-layers)))
         ((eq system-type 'gnu/linux)
          (setq mjl--layers (append mjl--layers mjl--gnu/linux-layers))))
-  (when (member system-name mjl--work-systems)
+  (when (member (car (split-string system-name "\\.")) mjl--work-systems)
     (setq mjl--layers (append mjl--layers mjl--work-layers)))
 
   (setq-default
@@ -565,8 +567,7 @@ you should place your code here."
   (push "~/.spacemacs.d/config/" load-path)
   (when (member system-name mjl--work-systems)
     (require 'conf-mail nil t)
-    (when (require 'edit-server nil t)
-      (edit-server-start))
+    (require 'conf-work nil t)
     (append yas-snippet-dirs "/Users/mjl/Work/git/fieldnotes/snippets"))
   (when (member 'python dotspacemacs-configuration-layers)
     (require 'conf-inferior nil t))
