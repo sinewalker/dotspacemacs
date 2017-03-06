@@ -12,6 +12,7 @@ was exploring Spacemacs (and git/magit)
 
 ## init.el
 
+```elisp
 ;;  MJL20151215 - Created, all user config done in `dotspacemacs/user-config' to
 ;;                begin with
 ;;  MJL20151220 - Added personal snippets - not working
@@ -86,16 +87,20 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20170227 - eshell: set the config directory to load all control files
 ;;  MJL20170306 - use chrome layer for edit-server, and add local config
 ;;              - refactor layers lists (fixes issue #5)
+```
 
 ## conig/conf-inferior.el 
 
+```elisp
 ;;  MJL20160128 - Created
 ;;  MJL20160129 - Renamed: mjl not really necessary. "conf" isn't either in the
 ;;                filename, except to make it match the feature name
 ;;  MJL20160203 - Emacs metadata
+```
 
 ## config/conf-mail.el 
 
+```elisp
 ;;  MJL20151210 - Created
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160210 - eval after loading the mu4e package
@@ -108,25 +113,29 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20160316 - Mac Brew has no mbsync, use offlineimap to get mail
 ;;  MJL20160415 - get mail less often, since it's so slow to clean up
 ;;  MJL20160614 - Going all-google for Work. No more imap/index step
+```
 
 ## config/conf-work.el 
 
+```elisp
 ;; MJL20170302 - Created (browse-url-browser-function)
 ;; MJL20170304 - edit-server (from `chrome' Layer) configuration
-
+```
 
 ## layers/mjl/config.el 
 
+```elisp
 ;;  MJL20151220 - Created
 ;;  MJL20160104 - Added source code header with change log.
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160206 - variables to switch keybinding groups off
 ;;              - remove the Mac option/meta/super switch
 ;;  MJL20170201 - variable to specify Work initials
-
+```
 
 ## layers/mjl/funcs.el 
 
+```elisp
 ;;   MJL200002?? - Created (Bash sub-shell settings and custom C modes)
 ;;   MJL20030225 - Added function for inserting the ISO date
 ;;               - Added function to insert a modification date prefix
@@ -173,9 +182,11 @@ was exploring Spacemacs (and git/magit)
 ;;   MJL20160811 - `split-window-prefer-horizontally'
 ;;   MJL20170201 - `mjl/insert-date-work' and `mjl/hacker-type'
 ;;               - `mjl/ui-toggle-gui' also toggles scroll bars
+```
 
 ## layers/mjl/keybindings.el 
 
+```elisp
 ;;  MJL20151220 - Created, copied from osx layer, then imported much from my own
 ;;                ~/.emacs.d/mjl/boot/bindings.el
 ;;  MJL20151222 - Added rest of Sun keys and my F-keys
@@ -213,29 +224,39 @@ was exploring Spacemacs (and git/magit)
 ;;                (tR, which is not reserved, but available and sensible...)
 ;;              - `spacemacs/set-leader-keys' for `mjl/ui-toggle-gui' (Tu)
 ;;  MJL20170215 - `spacemacs/set-leader-keys' for `mjl/insert-timestamp-org' (odo)
+```
 
 ## layers/mjl-org/canfig.el 
 
+```elisp
 ;;  MJL20160129 - Created
 ;;  MJL20160203 - Emacs metadata
+```
 
 ## layers/mjl-org/layers.el 
 
+```elisp
 ;; MJL20170101 - Created.  Specify org and org-journal layers as requirements.
+```
 
 ## layers/mjl-org/packages.elisp
 
+```elisp
 ;;  MJL20160201 - Created
+```
 
 ## layers/squiz/config.el 
 
+```elisp
 ;;  MJL20160129 - Created, from old `squiz-funcs.el'
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160805 - location of Pingdom Keys file.
 ;;              - change the default directory location
+```
 
 ## layers/squiz/funcs.el 
 
+```elisp
 ;;  MJL20140703 - Created (wiid)
 ;;  MJL20140808 - put the timestamp near front of buffer name
 ;;  MJL20140819 - shorter aliases
@@ -246,10 +267,11 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20160205 - Whitespace
 ;;  MJL20160805 - source the Pingdom keys before calling the script
 ;;  MJL20161013 - delete other windows, since I'm always doing that manually
+```
 
 ## layers/suiz/keybindings.el 
 
+```elisp
 ;;  MJL20160129 - Created
 ;;  MJL20160203 - Emacs metadata (still no actual code)
-
-
+```
