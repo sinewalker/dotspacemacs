@@ -3,7 +3,7 @@
 ;;  File:       conf-org.el
 ;;  Created:    2016-01-29
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:48:17 mjl>
+;;  Time-stamp: <2017-03-07 22:17:53 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -27,7 +27,7 @@
 ;;
 ;;; Change Log:
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,4 +1,4 @@
-# OLD HISTORY
+* OLD HISTORY
 
 I used to keep Change Log sections in my files, but with git (and especially
 Magit), this practice is increasingly dated.
@@ -7,12 +7,13 @@ So At this point (after Tag 0.200) I will now only maintain the DVCS log. Also
 I'm removing the Change Log section from all the files that have one, and
 keeping that history here (however incomplete it is).
 
-NO FURTHER CHANGES TO HISTORY.md ARE PLANNED. It's just for old history while I
-was exploring Spacemacs (and git/magit)
+NO FURTHER CHANGES TO HISTORY.org ARE PLANNED (except for corrections). It's
+just for recording the old history of my Emacs configuration as it made its way
+into Spacemacs.
 
-## init.el
+** init.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20151215 - Created, all user config done in `dotspacemacs/user-config' to
 ;;                begin with
 ;;  MJL20151220 - Added personal snippets - not working
@@ -87,20 +88,21 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20170227 - eshell: set the config directory to load all control files
 ;;  MJL20170306 - use chrome layer for edit-server, and add local config
 ;;              - refactor layers lists (fixes issue #5)
-```
+#+END_SRC
 
-## conig/conf-inferior.el 
+** config/
+*** conig/conf-inferior.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20160128 - Created
 ;;  MJL20160129 - Renamed: mjl not really necessary. "conf" isn't either in the
 ;;                filename, except to make it match the feature name
 ;;  MJL20160203 - Emacs metadata
-```
+#+END_SRC
 
-## config/conf-mail.el 
+*** config/conf-mail.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20151210 - Created
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160210 - eval after loading the mu4e package
@@ -113,29 +115,31 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20160316 - Mac Brew has no mbsync, use offlineimap to get mail
 ;;  MJL20160415 - get mail less often, since it's so slow to clean up
 ;;  MJL20160614 - Going all-google for Work. No more imap/index step
-```
+#+END_SRC
 
-## config/conf-work.el 
+*** config/conf-work.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;; MJL20170302 - Created (browse-url-browser-function)
 ;; MJL20170304 - edit-server (from `chrome' Layer) configuration
-```
+#+END_SRC
 
-## layers/mjl/config.el 
+** layers/
+*** layers/mjl/
+**** layers/mjl/config.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20151220 - Created
 ;;  MJL20160104 - Added source code header with change log.
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160206 - variables to switch keybinding groups off
 ;;              - remove the Mac option/meta/super switch
 ;;  MJL20170201 - variable to specify Work initials
-```
+#+END_SRC
 
-## layers/mjl/funcs.el 
+**** layers/mjl/funcs.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  This file contains custom utility functions that have been carried over
 ;;  from ages past. At various times the init file has been renamed. A rough
 ;;  chronology of these changes is:
@@ -197,11 +201,11 @@ was exploring Spacemacs (and git/magit)
 ;;   MJL20160811 - `split-window-prefer-horizontally'
 ;;   MJL20170201 - `mjl/insert-date-work' and `mjl/hacker-type'
 ;;               - `mjl/ui-toggle-gui' also toggles scroll bars
-```
+#+END_SRC
 
-## layers/mjl/keybindings.el 
+**** layers/mjl/keybindings.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20151220 - Created, copied from osx layer, then imported much from my own
 ;;                ~/.emacs.d/mjl/boot/bindings.el
 ;;  MJL20151222 - Added rest of Sun keys and my F-keys
@@ -239,39 +243,41 @@ was exploring Spacemacs (and git/magit)
 ;;                (tR, which is not reserved, but available and sensible...)
 ;;              - `spacemacs/set-leader-keys' for `mjl/ui-toggle-gui' (Tu)
 ;;  MJL20170215 - `spacemacs/set-leader-keys' for `mjl/insert-timestamp-org' (odo)
-```
+#+END_SRC
 
-## layers/mjl-org/canfig.el 
+*** layers/mjl-org/
+**** layers/mjl-org/config.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20160129 - Created
 ;;  MJL20160203 - Emacs metadata
-```
+#+END_SRC
 
-## layers/mjl-org/layers.el 
+**** layers/mjl-org/layers.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;; MJL20170101 - Created.  Specify org and org-journal layers as requirements.
-```
+#+END_SRC
 
-## layers/mjl-org/packages.elisp
+**** layers/mjl-org/packages.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20160201 - Created
-```
+#+END_SRC
 
-## layers/squiz/config.el 
+*** layers/squiz/
+**** layers/squiz/config.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20160129 - Created, from old `squiz-funcs.el'
 ;;  MJL20160203 - Emacs metadata
 ;;  MJL20160805 - location of Pingdom Keys file.
 ;;              - change the default directory location
-```
+#+END_SRC
 
-## layers/squiz/funcs.el 
+**** layers/squiz/funcs.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20140703 - Created (wiid)
 ;;  MJL20140808 - put the timestamp near front of buffer name
 ;;  MJL20140819 - shorter aliases
@@ -282,11 +288,11 @@ was exploring Spacemacs (and git/magit)
 ;;  MJL20160205 - Whitespace
 ;;  MJL20160805 - source the Pingdom keys before calling the script
 ;;  MJL20161013 - delete other windows, since I'm always doing that manually
-```
+#+END_SRC
 
-## layers/squiz/keybindings.el 
+**** layers/squiz/keybindings.el
 
-```elisp
+#+BEGIN_SRC elisp
 ;;  MJL20160129 - Created
 ;;  MJL20160203 - Emacs metadata (still no actual code)
-```
+#+END_SRC

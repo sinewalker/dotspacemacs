@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:45:30 mjl>
+;;  Time-stamp: <2017-03-07 22:17:41 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -69,7 +69,7 @@
 ;;
 ;;; Change Log:
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

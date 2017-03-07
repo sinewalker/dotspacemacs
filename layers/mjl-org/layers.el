@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl-org/layers.el
 ;;  Created:    2017-01-01
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-07 09:30:37 mjl>
+;;  Time-stamp: <2017-03-07 22:18:08 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -33,7 +33,7 @@
 ;;
 ;; History:
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 
 (configuration-layer/declare-layers '(org))

@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/config.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:42:41 mjl>
+;;  Time-stamp: <2017-03-07 22:17:03 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Configuration variables for the layer
 ;;
@@ -25,7 +25,7 @@
 ;;
 ;;; Change Log:
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

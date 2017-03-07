@@ -3,7 +3,7 @@
 ;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:38:32 mjl>
+;;  Time-stamp: <2017-03-07 22:15:37 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -17,7 +17,7 @@
 ;;
 ;;  HISTORY
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 ;;
 
