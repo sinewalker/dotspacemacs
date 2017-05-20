@@ -74,6 +74,7 @@ values."
    ;; ----------------------------------------------------------------
    dotspacemacs-configuration-layers
    '(
+     shell-scripts
      (auto-completion :variables
                       auto-completion-private-snippets-directory
                       "~/.spacemacs.d/snippets/")
@@ -94,9 +95,9 @@ values."
      python
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-full-span nil
-            shell-default-height 66
-            shell-default-position 'top)
+            shell-default-full-span t
+            shell-default-height 33
+            shell-default-position 'bottom)
      spell-checking
      sql
      syntax-checking
