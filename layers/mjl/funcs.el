@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/funcs.el
 ;;  Created:    2000-02-??
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-07 22:16:47 mjl>
+;;  Time-stamp: <2017-05-21 08:21:28 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -95,50 +95,6 @@ useful for prefixing day entries in a log book."
   (interactive)
   (c++-mode)
   (c-set-style "bsd"))
-
-(defun mjl/shell ()
-  "Inferior shell wrapper, with fixes.
-
-This function starts Emacs' inferior shell and then runs some
-elisp functions to configure the shell environment for running
-within Emacs.
-
-The first fix is to use Cygwin/bash under Windows. It assumes
-Cygwin is installed and that bash is in the system %PATH%.
-
-The second fix is for an issue with the default GNU pager less,
-which doesn't support running in an Emacs buffer. Because pagers
-are redundant in an Emacs buffer anyway, the PAGER environment
-variable is set to /usr/bin/cat, so that multi-page
-output (e.g. from the man command) is dumped directly to the
-buffer. You can use Emacs' cursor movement commands to review the
-output once it is completed.
-
-The third fix is for the EDITOR variable, to load the file using
-emacsclient so that it's edited in emacs. Also the edit alias is
-set to the same value."
-  (interactive)
-  (setq buff-name "*shell*")
-  (when (eq 'windows-nt system-type)
-    (if explicit-shell-file-name
-        (setq orig-shell-file-name explicit-shell-file-name)
-      (setq orig-shell-file-name "nill-shell"))
-    (setq buff-name "*cygwin*")
-    (setq explicit-shell-file-name "bash"))
-  (shell buff-name)
-  (when (and (eq 'windows-nt system-type)
-             (not (string-equal orig-shell-file-name "nill-shell")))
-    (setq explicit-shell-file-name orig-shell-file-name) ; no side-effects please
-    (setq orig-shell-file-name nil))
-
-  (insert "export PAGER=cat; ") ; assuming bash/sh here...
-
-; use emacsclient, shouldn't need alternate-editor...
-  (insert "export EDITOR=\"emacsclient\"; ")
-  (insert "alias edit=\"emacsclient -n \"; ")
-
-  (comint-send-input)
-  (erase-buffer))
 
 ;;;; Make Emacs work better
 
