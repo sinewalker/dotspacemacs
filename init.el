@@ -93,6 +93,7 @@ values."
      php
      puppet
      python
+     semantic
      (shell :variables
             shell-default-shell 'eshell
             shell-default-full-span t
@@ -202,6 +203,8 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
+                                    company-anaconda
+                                    anaconda-mode
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.

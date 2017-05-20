@@ -3,7 +3,7 @@
 ;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-07 22:15:37 mjl>
+;;  Time-stamp: <2017-05-21 09:12:47 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -61,6 +61,23 @@ program cannot be found, then just exit with a message."
   "Runs python2 as the inferior python shell"
   (interactive)
   (mjl//run-some-python "python2" nil t))
+
+;;;
+
+(setq mjl--anaconda-bin "~/bin/anaconda/bin")
+
+(defun sucuri ()
+  "Toggle having anaconda binaries in `exec-path'.
+
+This re-implements a similar function I have in my bash dotfiles.
+It toggles having the path to Anaconda (stored in variable
+`mjl--anaconda-bin') on the Emacs execution path list, which
+effectively turns it on or off when running Python as an inferior
+process."
+  (if (member mjl--anaconda-bin exec-path)
+      (setq exec-path (-remove-item mjl--anaconda-bin exec-path))
+    (setq exec-path (add-to-list 'exec-path mjl--anaconda-bin)))
+  )
 
 (provide 'conf-inferior)
 
