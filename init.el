@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-07 22:15:06 mjl>
+;;  Time-stamp: <2017-05-21 09:17:27 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -89,7 +89,7 @@ values."
      lua
      markdown
      mjl-org
-     ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
+     php
      puppet
      python
      (shell :variables
@@ -201,7 +201,6 @@ values."
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    php-extras ; MJL20151220 compilation errors
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
