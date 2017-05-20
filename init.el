@@ -75,6 +75,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      shell-scripts
+     html
      (auto-completion :variables
                       auto-completion-private-snippets-directory
                       "~/.spacemacs.d/snippets/")
