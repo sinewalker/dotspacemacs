@@ -1,0 +1,13 @@
+# -*- mode:emacs-lisp -*-
+# set a $CDPATH if we didn't inherrit it from Emacs' parent process environment
+(when (= 0 (length (getenv "CDPATH")))
+  (setq-local _CDPATH '())
+  (mapcar (lambda (dir) (when (file-executable-p dir) (push dir _CDPATH)))
+          '("~/Uploads" "~/Downloads" "~/dev" "~/tmp"
+            "~/Work" "~/Work/svn" "~/Work/lab" "~/Work/Projects" "~/Work/Documents"
+            "~/hax" "~/Projects" "~/Documents" "~/net" "~/Grid" "~" "."))
+  (setenv "CDPATH" (mapconcat 'identity _CDPATH path-separator))
+  (setq-local _CDPATH nil))
+
+(setenv "PAGER" "cat")
+(setenv "BROWSER" "firefox")
