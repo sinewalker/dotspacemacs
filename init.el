@@ -199,6 +199,7 @@ values."
                                       imenu-list
                                       minimap
                                       sicp
+                                      transpose-frame
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -483,7 +484,7 @@ you should place your code here."
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
         display-time-24hr-format t
-        vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
+        vi-tilde-fringe-bitmap-array [0 0 8 20 42 85 42 20 8 0 0]
         indicate-unused-lines t
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
@@ -493,7 +494,11 @@ you should place your code here."
         org-support-shift-select t
         deft-directory "~/net/notes"
         org-journal-dir "~/net/private/journal"
-        org-journal-date-format "%A, %Y-%m-%d")
+        org-journal-date-format "%A, %Y-%m-%d"
+        split-width-threshold 0
+        split-height-threshold nil
+        avy-all-windows 'all-frames
+        )
 
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
