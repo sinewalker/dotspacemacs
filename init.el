@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-05-21 16:36:18 mjl>
+;;  Time-stamp: <2017-08-24 11:59:10 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -522,6 +522,11 @@ you should place your code here."
         split-width-threshold 0
         split-height-threshold nil
         avy-all-windows 'all-frames
+        tramp-ssh-controlmaster-options
+        (concat
+         "-o ControlPath=~/.ssh/master-%%r@%%h:%%p "
+         "-o ControlMaster=auto -o ControlPersist=yes")
+        tramp-histfile-override nil
         )
 
   (blink-cursor-mode t)
