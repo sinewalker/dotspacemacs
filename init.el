@@ -201,6 +201,8 @@ values."
                                       minimap
                                       sicp
                                       transpose-frame
+                                      jq-mode
+                                      eshell-git-prompt
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
