@@ -117,6 +117,9 @@
   ;; Mike's additions (common bindings in other programs)
   (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in a terminal
   (global-unset-key (kbd "C-v"))  ;; this binding is silly anyway, use <next>
+  (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
+  (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
+  (global-set-key (kbd "s-<backspace>") 'kill-word) ;; super-backspace is like M-d
 
 
   ;don't know if this is a Mac thing or not, but <home>/<end> do beginning /
