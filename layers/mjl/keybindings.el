@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-04-11 12:38:03 mjl>
+;;  Time-stamp: <2017-09-04 06:42:08 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -129,8 +129,8 @@
   (global-set-key (kbd "<end>") (lambda () (interactive)
                                   (call-interactively (key-binding "\C-e"))))
 
-  (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
-  (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
+  (global-set-key (kbd "M-<up>") 'move-text-line-up)
+  (global-set-key (kbd "M-<down>") 'move-text-line-down)
 
   (global-set-key (kbd "C-+") 'spacemacs/scale-up-font)
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
