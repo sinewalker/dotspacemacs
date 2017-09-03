@@ -495,6 +495,10 @@ you should place your code here."
 
   (server-start)
 
+  ;; more diminutive emacs mode lighters
+  (spacemacs|diminish holy-mode " Ⓔ" " E")
+  (spacemacs|diminish hybrid-mode " ⓔ" " e")
+
   (setq make-backup-files t
         backup-by-copying t      ; don't clobber symlinks
         backup-directory-alist
