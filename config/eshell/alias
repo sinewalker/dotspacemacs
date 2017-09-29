@@ -1,7 +1,15 @@
+alias ssh-ls ssh-master
+alias ssh-master ls -so ~/.ssh/*master*
+alias keys ls ~/key
+alias vsol curl -vso /dev/null -L
+alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache"
+alias vso curl -vso /dev/null
+alias httpdump sudo tcpdump  -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
+alias dsfluch dscacheutil -flushcache
+alias showip curl http://ipecho.net/plain; echo
+alias wanip dig +short myip.opendns.com @resolver1.opendns.com
 alias squizup pushd ~/Work/svn; svn update; popd
 alias x exit
-alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache" $1
-alias vso curl -vso /dev/null $1
 alias view find-file-read-only $1
 alias v find-file-read-only $1
 alias revert magit-file-checkout HEAD $1
@@ -53,3 +61,8 @@ alias .... cd ../../..
 alias ... cd ../..
 alias .. cd ..
 alias -- cd -
+alias edit find-file
+alias ec find-file
+alias kman khelpcenter man:/$1 2> /dev/null
+alias kinfo khelpcenter info:/$1 2> /dev/null
+alias khelp khelpcenter help:/$1 2> /dev/null
