@@ -3,7 +3,7 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-09-04 06:42:08 mjl>
+;;  Time-stamp: <2017-09-05 06:43:45 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -168,7 +168,6 @@
   ;;  s-j join lines
   ;; and consider:
   ;;  s-<return> new line below
-  ;;  s-down/up bottom/top (I currently bind them to window movement below)
   ;;  s-T open term at file's directory (atom's atom-terminal plugin, non-core, spacemacs already has SPC ' )
   ;;  M-T open term at Project's root directory
 
@@ -177,6 +176,12 @@
   (global-set-key (kbd "S-s-<backspace>") 'split-window-right)
   (global-set-key (kbd "s-_") 'split-window-below)
   (global-set-key (kbd "S-s-<return>") 'spacemacs/toggle-maximize-buffer)
+
+  ;; window navigation like iTerm2
+  (global-set-key (kbd "M-s-<left>") 'evil-window-left)
+  (global-set-key (kbd "M-s-<right>") 'evil-window-right)
+  (global-set-key (kbd "M-s-<up>") 'evil-window-up)
+  (global-set-key (kbd "M-s-<down>") 'evil-window-down)
 
   ;; mode-specific mappings
   ;; TODO move these to layers, when I make them, probably...
