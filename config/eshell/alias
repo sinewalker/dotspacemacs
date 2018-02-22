@@ -1,3 +1,4 @@
+alias emacs for i in ${eshell-flatten-list $*} {find-file $i}
 alias ssh-ls ssh-master
 alias ssh-master ls -so ~/.ssh/*master*
 alias keys ls ~/key
@@ -10,8 +11,8 @@ alias showip curl http://ipecho.net/plain; echo
 alias wanip dig +short myip.opendns.com @resolver1.opendns.com
 alias squizup pushd ~/Work/svn; svn update; popd
 alias x exit
-alias view find-file-read-only $1
-alias v find-file-read-only $1
+alias v view
+alias view for i in ${eshell-flatten-list $*} {find-file-read-only $i}'
 alias revert magit-file-checkout HEAD $1
 alias recache open https://$1/_recache
 alias probes find . -name 'probes.json' -type f -ls -delete
@@ -25,7 +26,7 @@ alias llh ls -lh
 alias lla ls -a
 alias ll ls -l
 alias lh llh
-alias less find-file-read-only $1
+alias less view
 alias l ls
 alias gss magit-stage-modified ALL
 alias gs magit-status
@@ -42,9 +43,9 @@ alias gds magit-diff-staged
 alias gdd magit-diff-dwim
 alias gd magit-diff-unstaged
 alias fo find-file-other-window $1
-alias ff find-file $1
-alias ed find-file $1
-alias e find-file $1
+alias ff e
+alias ed e
+alias e 'for i in ${eshell-flatten-list $*} {find-file $i}'
 alias dsstore find . -name '*.DS_Store' -type f -ls -delete
 alias diffrev ediff-revision $1
 alias diff ediff $1 $2
@@ -61,8 +62,8 @@ alias .... cd ../../..
 alias ... cd ../..
 alias .. cd ..
 alias -- cd -
-alias edit find-file
-alias ec find-file
+alias edit e
+alias ec e
 alias kman khelpcenter man:/$1 2> /dev/null
 alias kinfo khelpcenter info:/$1 2> /dev/null
 alias khelp khelpcenter help:/$1 2> /dev/null

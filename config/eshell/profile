@@ -9,5 +9,15 @@
   (setenv "CDPATH" (mapconcat 'identity _CDPATH path-separator))
   (setq-local _CDPATH nil))
 
-(setenv "PAGER" "cat")
-(setenv "BROWSER" "firefox")
+(setenv "PAGER" "cat") > /dev/null
+(setenv "BROWSER" "firefox") > /dev/null
+
+#OS-specific initialisations
+echo OS Kernel: $system-type
+(when (eq system-type 'gnu/linux)
+  (eshell/alias $open xdg-open))
+(when (eq system-type 'windows-nt)
+  (defalias 'open 'start)) > /dev/null
+(when (eq system-type 'darwin)
+  (defalias 'open nil)
+  (defalias 'womble 'open)) > /dev/null
