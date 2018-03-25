@@ -94,7 +94,6 @@ This function should only modify configuration layer settings."
      lua
      markdown
      mjl-org
-     php
      puppet
      python
      semantic
@@ -153,6 +152,7 @@ This function should only modify configuration layer settings."
    mjl--work-layers
    '(
      chrome
+     php
      (squiz :variables
             squiz-wiid-script (expand-file-name
                                "~/Work/lab/whyisitdown/whyisitdown")
