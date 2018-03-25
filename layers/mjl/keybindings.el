@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-03-06 23:45:30 mjl>
+;;  Time-stamp: <2018-03-25 23:18:07 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2018 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Keybindings for my personal layer "mjl"
 ;;
@@ -188,7 +188,7 @@
         ((eq system-type 'darwin) ;; on Mac, <menu> key maps to different keys:
          (global-set-key (kbd "C-j")    'helm-M-x)) ;;  Railwaycat emacs-mac,
         ;(global-set-key (kbd "C-p")    'helm-M-x)) ;;  vanilla brew emacs
-        ((t)
+        (t
          (global-set-key (kbd "<menu>") 'helm-M-x)))
 
   ; cannot use the kbd macro for these keys?
