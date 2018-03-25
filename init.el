@@ -3,7 +3,7 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-02-22 22:20:23 mjl>
+;;  Time-stamp: <2018-03-26 09:02:35 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -87,10 +87,8 @@ This function should only modify configuration layer settings."
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      deft
      emacs-lisp
-     emoji
      erc
      git
-     javascript
      lua
      markdown
      mjl-org
