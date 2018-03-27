@@ -1,49 +1,69 @@
-alias ff find-file $1
-alias fo find-file-other-window $1
-alias diffrev ediff-revision $1
-alias ll ls -l
+alias emacs for i in ${eshell-flatten-list $*} {find-file $i}
+alias ssh-ls ssh-master
+alias ssh-master ls -so ~/.ssh/*master*
+alias keys ls ~/key
+alias vsol curl -vso /dev/null -L
+alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache"
+alias vso curl -vso /dev/null
+alias httpdump sudo tcpdump  -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
+alias dsfluch dscacheutil -flushcache
+alias showip curl http://ipecho.net/plain; echo
+alias wanip dig +short myip.opendns.com @resolver1.opendns.com
+alias squizup pushd ~/Work/svn; svn update; popd
+alias x exit
+alias v view
+alias view for i in ${eshell-flatten-list $*} {find-file-read-only $i}'
+alias revert magit-file-checkout HEAD $1
+alias recache open https://$1/_recache
+alias probes find . -name 'probes.json' -type f -ls -delete
+alias path echo $PATH
+alias nocache open https://$1/_nocache
+alias md mkdir -p $1; cd $1
+alias lt ll -t
+alias lr ll -tr
+alias lll ls -alh
 alias llh ls -lh
 alias lla ls -a
-alias lll ls -alh
-alias ed find-file $1
-alias e find-file $1
-alias diff ediff $1 $2
-alias gs magit-status
-alias gss magit-stage-modified ALL
-alias glh magit-log-head
-alias gll magit-log-all
-alias gdd magit-diff-dwim
-alias gdu magit-diff-unstaged
-alias gds magit-diff-staged
-alias ged magit-ediff-dwim
-alias gep magit-ediff-popup
+alias ll ls -l
+alias lh llh
+alias less view
 alias l ls
-alias v find-file-read-only $1
+alias gss magit-stage-modified ALL
+alias gs magit-status
+alias gll magit-log-all
+alias glh magit-log-head
+alias gep magit-ediff-popup
 alias gedu magit-ediff-show-unstaged $1
 alias geds magit-ediff-show-staged $1
 alias gedS magit-ediff-show-stash $1
-alias revert magit-file-checkout HEAD $1
-alias less find-file-read-only $1
-alias view find-file-read-only $1
-alias vso curl -vso /dev/null $1
-alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache" $1
-alias recache open https://$1/_recache
-alias nocache open https://$1/_nocache
-alias admin open https://$1/_admin
-alias ... cd ../..
-alias .... cd ../../..
-alias ..... cd ../../../..
-alias ...... cd ../../../../..
-alias -- cd -
-alias lt ll -t
-alias lr ll -tr
-alias lh llh
-alias md mkdir -p $1; cd $1
-alias ....... cd ../../../../../..
-alias ........ cd ../../../../../../..
-alias ......... cd ../../../../../../../..
-alias .......... cd ../../../../../../../../..
-alias ........... cd ../../../../../../../../../..
+alias gedd magit-ediff-dwim
+alias ged magit-ediff-unstaged
+alias gdu magit-diff-unstaged
+alias gds magit-diff-staged
+alias gdd magit-diff-dwim
+alias gd magit-diff-unstaged
+alias fo find-file-other-window $1
+alias ff e
+alias ed e
+alias e 'for i in ${eshell-flatten-list $*} {find-file $i}'
 alias dsstore find . -name '*.DS_Store' -type f -ls -delete
-alias probes find . -name 'probes.json' -type f -ls -delete
+alias diffrev ediff-revision $1
+alias diff ediff $1 $2
 alias df df -h
+alias admin open https://$1/_admin
+alias ........... cd ../../../../../../../../../..
+alias .......... cd ../../../../../../../../..
+alias ......... cd ../../../../../../../..
+alias ........ cd ../../../../../../..
+alias ....... cd ../../../../../..
+alias ...... cd ../../../../..
+alias ..... cd ../../../..
+alias .... cd ../../..
+alias ... cd ../..
+alias .. cd ..
+alias -- cd -
+alias edit e
+alias ec e
+alias kman khelpcenter man:/$1 2> /dev/null
+alias kinfo khelpcenter info:/$1 2> /dev/null
+alias khelp khelpcenter help:/$1 2> /dev/null
