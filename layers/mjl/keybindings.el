@@ -3,12 +3,12 @@
 ;;  File:       layers/mjl/keybindings.el
 ;;  Created:    2015-12-20
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-03-25 23:18:07 mjl>
+;;  Time-stamp: <2017-09-05 06:43:45 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015-2018 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2017 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Keybindings for my personal layer "mjl"
 ;;
@@ -69,7 +69,7 @@
 ;;
 ;;; Change Log:
 ;;
-;;  Old logs up to tag 0.200 are in HISTORY.md
+;;  Old logs up to tag 0.200 are in HISTORY.org
 ;;  See git log after for changes after 2017-03-06
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -88,6 +88,8 @@
     (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
     (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
     (global-set-key (kbd "s-v") 'yank)
+    (global-set-key (kbd "M-s-v") 'yank-pop)
+
     (global-set-key (kbd "s-c") 'evil-yank)
     (global-set-key (kbd "s-a") 'mark-whole-buffer)
     (global-set-key (kbd "s-x") 'kill-region)
@@ -108,12 +110,16 @@
   (when (equal system-type 'darwin)
     (global-set-key [(super down)] 'scroll-up-command) ;; Macs don't have
     (global-set-key [(super up)] 'scroll-down-command) ;; <next> or <prev> keys!
+    (global-set-key (kbd "M-s-√") 'yank-pop)   ;; left-Option-V makes √ char
     )
 
   ;;;;;;;;;;;;;;;;;;;;
   ;; Mike's additions (common bindings in other programs)
   (global-unset-key (kbd "C-z"))  ;; this binding only makes sense in a terminal
   (global-unset-key (kbd "C-v"))  ;; this binding is silly anyway, use <next>
+  (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
+  (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
+  (global-set-key (kbd "s-<backspace>") 'kill-word) ;; super-backspace is like M-d
 
 
   ;don't know if this is a Mac thing or not, but <home>/<end> do beginning /
@@ -123,8 +129,8 @@
   (global-set-key (kbd "<end>") (lambda () (interactive)
                                   (call-interactively (key-binding "\C-e"))))
 
-  (global-set-key (kbd "C-z") 'undo-tree-undo)  ;; might as well be normal undo
-  (global-set-key (kbd "C-v") 'yank)            ;; might as well be normal paste
+  (global-set-key (kbd "M-<up>") 'move-text-line-up)
+  (global-set-key (kbd "M-<down>") 'move-text-line-down)
 
   (global-set-key (kbd "C-+") 'spacemacs/scale-up-font)
   (global-set-key (kbd "C--") 'spacemacs/scale-down-font)
@@ -162,7 +168,6 @@
   ;;  s-j join lines
   ;; and consider:
   ;;  s-<return> new line below
-  ;;  s-down/up bottom/top (I currently bind them to window movement below)
   ;;  s-T open term at file's directory (atom's atom-terminal plugin, non-core, spacemacs already has SPC ' )
   ;;  M-T open term at Project's root directory
 
@@ -171,6 +176,12 @@
   (global-set-key (kbd "S-s-<backspace>") 'split-window-right)
   (global-set-key (kbd "s-_") 'split-window-below)
   (global-set-key (kbd "S-s-<return>") 'spacemacs/toggle-maximize-buffer)
+
+  ;; window navigation like iTerm2
+  (global-set-key (kbd "M-s-<left>") 'evil-window-left)
+  (global-set-key (kbd "M-s-<right>") 'evil-window-right)
+  (global-set-key (kbd "M-s-<up>") 'evil-window-up)
+  (global-set-key (kbd "M-s-<down>") 'evil-window-down)
 
   ;; mode-specific mappings
   ;; TODO move these to layers, when I make them, probably...
@@ -307,6 +318,10 @@
   (global-set-key [f11]                 'mjl/insert-date-stamp)
   (global-set-key [(meta f11)]          'mjl/insert-date-work)
 
+
+  ;;;;;;;;;;;;
+  ;;; Spacemacs user keyspace
+
   (spacemacs/declare-prefix "o" "MJL user fns")
   (spacemacs/declare-prefix "od" "date insertion")
   (spacemacs/set-leader-keys
@@ -316,6 +331,14 @@
     "odl" 'mjl/insert-log-entry-org
     "odD" 'mjl/insert-date-dow
     "odo" 'mjl/insert-timestamp-org)
+  (spacemacs/declare-prefix "os" "shells")
+  (spacemacs/set-leader-keys
+    "ose" 'eshell
+    "ost" 'ansi-term
+    "osp" 'run-python
+    "osi" 'run-ipython
+    "osl" 'ielm)
+
 
   ;; F12 org capture/agenda (TEK/Mac=Louder)
   (global-set-key [f12]                 'org-capture)
