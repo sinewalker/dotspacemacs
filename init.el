@@ -3,12 +3,12 @@
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-03-25 23:15:32 mjl>
+;;  Time-stamp: <2018-03-27 20:08:13 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015, 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015, 2016, 2017, 2018 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Spacemacs configuration file
 ;;
@@ -82,14 +82,11 @@ values."
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      deft
      emacs-lisp
-     emoji
      erc
      git
-     javascript
      lua
      markdown
      mjl-org
-     ;php   MJL20161218 Recursive Load issue (ACK'd on package's home page)
      puppet
      python
      (shell :variables
@@ -151,9 +148,6 @@ values."
                                "~/Work/lab/whyisitdown/whyisitdown")
             squiz-wiid-keys (expand-file-name
                              "~/Work/lab/whyisitdown/keys"))
-     (mu4e  :variables
-            mu4e-installation-path
-            "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e")
      )
    ;; A list of system-names I use at work
    ;; Whenever I install spacemacs to a new system, add it's `system-name'
