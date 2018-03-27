@@ -199,7 +199,7 @@
         ((eq system-type 'darwin) ;; on Mac, <menu> key maps to different keys:
          (global-set-key (kbd "C-j")    'helm-M-x)) ;;  Railwaycat emacs-mac,
         ;(global-set-key (kbd "C-p")    'helm-M-x)) ;;  vanilla brew emacs
-        ((t)
+        (t
          (global-set-key (kbd "<menu>") 'helm-M-x)))
 
   ; cannot use the kbd macro for these keys?
