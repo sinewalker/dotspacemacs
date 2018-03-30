@@ -1,14 +1,14 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -*- mode: emacs-lisp -*-
 ;;
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-03-27 20:08:13 mjl>
+;;  Time-stamp: <2018-03-31 07:44:14 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015, 2016, 2017, 2018 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2018 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Spacemacs configuration file
 ;;
@@ -276,8 +276,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 12
+   dotspacemacs-default-font '("Anonymous Pro"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -295,8 +295,9 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
-   dotspacemacs-major-mode-emacs-leader-key "M-s-m"
+   ;; (default "C-M-m")
+   dotspacemacs-major-mode-emacs-leader-key "s-,"
+
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -507,9 +508,8 @@ you should place your code here."
     (require 'conf-inferior nil t))
   )
 
-;; MJL20160206 - I don't remember setting these?
-;; TODO I should review it periodically and move into
-;;      `dotspacemacs/user-config' when I understand what they do
+
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
