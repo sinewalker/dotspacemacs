@@ -92,9 +92,9 @@ values."
      semantic
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-full-span nil
-            shell-default-height 66
-            shell-default-position 'top)
+            shell-default-full-span t
+            shell-default-height 33
+            shell-default-position 'bottom)
      spell-checking
      sql
      syntax-checking
