@@ -1,9 +1,9 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -*- mode: emacs-lisp -*-
 ;;
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-03-26 17:36:23 mjl>
+;;  Time-stamp: <2018-03-31 07:44:14 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
@@ -150,15 +150,11 @@ This function should only modify configuration layer settings."
    mjl--work-layers
    '(
      chrome
-     php
      (squiz :variables
             squiz-wiid-script (expand-file-name
                                "~/Work/lab/whyisitdown/whyisitdown")
             squiz-wiid-keys (expand-file-name
                              "~/Work/lab/whyisitdown/keys"))
-     (mu4e  :variables
-            mu4e-installation-path
-            "/usr/local/Cellar/mu/0.9.18/share/emacs/site-lisp/mu/mu4e")
      )
    ;; A list of system-names I use at work
    ;; Whenever I install spacemacs to a new system, add it's `system-name'
@@ -210,8 +206,6 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
-                                    company-anaconda
-                                    anaconda-mode
                                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
