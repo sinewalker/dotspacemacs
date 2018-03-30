@@ -89,6 +89,7 @@ values."
      mjl-org
      puppet
      python
+     semantic
      (shell :variables
             shell-default-shell 'eshell
             shell-default-full-span nil
