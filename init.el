@@ -1,14 +1,14 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -*- mode: emacs-lisp -*-
 ;;
 ;;  File:       ~/.spacemacs.d/init.el
 ;;  Created:    2015-12-15
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-03-27 20:08:13 mjl>
+;;  Time-stamp: <2018-03-31 07:44:14 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2015, 2016, 2017, 2018 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2015-2018 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Personal Spacemacs configuration file
 ;;
@@ -89,11 +89,12 @@ values."
      mjl-org
      puppet
      python
+     semantic
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-full-span nil
-            shell-default-height 66
-            shell-default-position 'top)
+            shell-default-full-span t
+            shell-default-height 33
+            shell-default-position 'bottom)
      spell-checking
      sql
      syntax-checking
@@ -190,6 +191,7 @@ values."
                                       imenu-list
                                       minimap
                                       sicp
+                                      transpose-frame
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -274,8 +276,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 12
+   dotspacemacs-default-font '("Anonymous Pro"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -293,8 +295,9 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
-   dotspacemacs-major-mode-emacs-leader-key "M-s-m"
+   ;; (default "C-M-m")
+   dotspacemacs-major-mode-emacs-leader-key "s-,"
+
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -467,7 +470,7 @@ you should place your code here."
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))
         mouse-autoselect-window t
         display-time-24hr-format t
-        vi-tilde-fringe-bitmap-array [8 20 42 85 42 20 8 0 0 0]
+        vi-tilde-fringe-bitmap-array [0 0 8 20 42 85 42 20 8 0 0]
         indicate-unused-lines t
         scroll-bar-mode 'left
         scroll-conservatively 10000 ; MJL20160206 not sure why not already set?
@@ -477,7 +480,11 @@ you should place your code here."
         org-support-shift-select t
         deft-directory "~/net/notes"
         org-journal-dir "~/net/private/journal"
-        org-journal-date-format "%A, %Y-%m-%d")
+        org-journal-date-format "%A, %Y-%m-%d"
+        split-width-threshold 0
+        split-height-threshold nil
+        avy-all-windows 'all-frames
+        )
 
   (blink-cursor-mode t)
   (global-prettify-symbols-mode t)
@@ -501,9 +508,8 @@ you should place your code here."
     (require 'conf-inferior nil t))
   )
 
-;; MJL20160206 - I don't remember setting these?
-;; TODO I should review it periodically and move into
-;;      `dotspacemacs/user-config' when I understand what they do
+
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
