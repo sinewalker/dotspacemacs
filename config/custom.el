@@ -1,9 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;;  File:       ~/.spacemacs.d/init.el
+;;  File:       ~/.spacemacs.d/config/custom.el
 ;;  Created:    2018-04-04
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2018-04-04 22:26:01 mjl>
+;;  Time-stamp: <2018-04-05 09:09:35 mjl>
 ;;  Platform:   Emacs (Spacemacs)
 ;;  OS:         N/A
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
