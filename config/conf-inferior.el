@@ -3,12 +3,12 @@
 ;;  File:       conf-inferior.el
 ;;  Created:    2016-01-28
 ;;  Language:   Emacs-Lisp
-;;  Time-stamp: <2017-05-21 09:12:47 mjl>
+;;  Time-stamp: <2018-04-05 07:29:31 mjl>
 ;;  Platform:   Emacs
 ;;  OS:         GNU
 ;;  Author:     [MJL] Michael J. Lockhart <sinewalker@gmail.com>
 ;;
-;;  Rights:     Copyright © 2016, 2017 Michael James Lockhart, B.App.Comp(HONS)
+;;  Rights:     Copyright © 2016, 2017, 2018 Michael James Lockhart, B.App.Comp(HONS)
 ;;
 ;;  PURPOSE:    Configure inferior shells for GNU environment
 ;;
@@ -64,7 +64,7 @@ program cannot be found, then just exit with a message."
 
 ;;;
 
-(setq mjl--anaconda-bin "~/bin/anaconda/bin")
+(setq mjl--anaconda-bin "~/lib/anaconda/bin")
 
 (defun sucuri ()
   "Toggle having anaconda binaries in `exec-path'.
