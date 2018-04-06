@@ -1,69 +1,69 @@
-alias emacs for i in ${eshell-flatten-list $*} {find-file $i}
-alias ssh-ls ssh-master
-alias ssh-master ls -so ~/.ssh/*master*
-alias keys ls ~/key
-alias vsol curl -vso /dev/null -L
-alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache"
-alias vso curl -vso /dev/null
-alias httpdump sudo tcpdump  -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
+alias -- cd -
+alias .. cd ..
+alias ... cd ../..
+alias .... cd ../../..
+alias ..... cd ../../../..
+alias ...... cd ../../../../..
+alias ....... cd ../../../../../..
+alias ........ cd ../../../../../../..
+alias ......... cd ../../../../../../../..
+alias .......... cd ../../../../../../../../..
+alias ........... cd ../../../../../../../../../..
+alias admin open https://$1/_admin
+alias df df -h
+alias diff ediff $1 $2
+alias diffrev ediff-revision $1
 alias dsfluch dscacheutil -flushcache
-alias showip curl http://ipecho.net/plain; echo
-alias wanip dig +short myip.opendns.com @resolver1.opendns.com
-alias squizup pushd ~/Work/svn; svn update; popd
-alias x exit
-alias v view
-alias view for i in ${eshell-flatten-list $*} {find-file-read-only $i}'
-alias revert magit-file-checkout HEAD $1
-alias recache open https://$1/_recache
-alias probes find . -name 'probes.json' -type f -ls -delete
-alias path echo $PATH
-alias nocache open https://$1/_nocache
-alias md mkdir -p $1; cd $1
-alias lt ll -t
-alias lr ll -tr
-alias lll ls -alh
-alias llh ls -lh
-alias lla ls -a
-alias ll ls -l
-alias lh llh
-alias less view
-alias l ls
-alias gss magit-stage-modified ALL
-alias gs magit-status
-alias gll magit-log-all
-alias glh magit-log-head
-alias gep magit-ediff-popup
-alias gedu magit-ediff-show-unstaged $1
-alias geds magit-ediff-show-staged $1
+alias dsstore find . -name '*.DS_Store' -type f -ls -delete
+alias e 'for i in ${eshell-flatten-list $*} {find-file $i}'
+alias ec e
+alias ed e
+alias edit e
+alias emacs for i in ${eshell-flatten-list $*} {find-file $i}
+alias ff e
+alias fo find-file-other-window $1
+alias gd magit-diff-unstaged
+alias gdd magit-diff-dwim
+alias gds magit-diff-staged
+alias gdu magit-diff-unstaged
+alias ged magit-ediff-unstaged
 alias gedS magit-ediff-show-stash $1
 alias gedd magit-ediff-dwim
-alias ged magit-ediff-unstaged
-alias gdu magit-diff-unstaged
-alias gds magit-diff-staged
-alias gdd magit-diff-dwim
-alias gd magit-diff-unstaged
-alias fo find-file-other-window $1
-alias ff e
-alias ed e
-alias e 'for i in ${eshell-flatten-list $*} {find-file $i}'
-alias dsstore find . -name '*.DS_Store' -type f -ls -delete
-alias diffrev ediff-revision $1
-alias diff ediff $1 $2
-alias df df -h
-alias admin open https://$1/_admin
-alias ........... cd ../../../../../../../../../..
-alias .......... cd ../../../../../../../../..
-alias ......... cd ../../../../../../../..
-alias ........ cd ../../../../../../..
-alias ....... cd ../../../../../..
-alias ...... cd ../../../../..
-alias ..... cd ../../../..
-alias .... cd ../../..
-alias ... cd ../..
-alias .. cd ..
-alias -- cd -
-alias edit e
-alias ec e
-alias kman khelpcenter man:/$1 2> /dev/null
-alias kinfo khelpcenter info:/$1 2> /dev/null
+alias geds magit-ediff-show-staged $1
+alias gedu magit-ediff-show-unstaged $1
+alias gep magit-ediff-popup
+alias glh magit-log-head
+alias gll magit-log-all
+alias gs magit-status
+alias gss magit-stage-modified ALL
+alias httpdump sudo tcpdump  -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\"
+alias keys ls ~/key
 alias khelp khelpcenter help:/$1 2> /dev/null
+alias kinfo khelpcenter info:/$1 2> /dev/null
+alias kman khelpcenter man:/$1 2> /dev/null
+alias l ls
+alias less view
+alias lh llh
+alias ll ls -l
+alias lla ls -a
+alias llh ls -lh
+alias lll ls -alh
+alias lr ll -tr
+alias lt ll -t
+alias md mkdir -p $1; cd $1
+alias nocache open https://$1/_nocache
+alias path echo $PATH
+alias probes find . -name 'probes.json' -type f -ls -delete
+alias recache open https://$1/_recache
+alias revert magit-file-checkout HEAD $1
+alias showip curl http://ipecho.net/plain; echo
+alias squizup pushd ~/Work/svn; svn update; popd
+alias ssh-ls ssh-master
+alias ssh-master ls -so ~/.ssh/*master*
+alias v view
+alias view for i in ${eshell-flatten-list $*} {find-file-read-only $i}'
+alias vso curl -vso /dev/null
+alias vsoc curl -vso /dev/null -H "Cache-Control: no-cache"
+alias vsol curl -vso /dev/null -L
+alias wanip dig +short myip.opendns.com @resolver1.opendns.com
+alias x exit

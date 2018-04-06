@@ -14,13 +14,12 @@
 
 #OS-specific initialisations
 echo OS Kernel: $system-type
+
+alias open
 (when (eq system-type 'gnu/linux)
-   (eshell/alias 'open nil)
    (eshell/alias 'open "xdg-open $*"))
 (when (eq system-type 'windows-nt)
-  (eshel/alias 'open nil)
   (eshell/alias 'open "start $*"))
-(when (eq system-type 'darwin)
-  (eshell/alias 'open nil))
 
-eshell-read-aliases-list > /dev/null
+eshell-read-aliases-list > /dev/nu
+ll
