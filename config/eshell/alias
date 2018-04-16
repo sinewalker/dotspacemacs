@@ -15,11 +15,10 @@ alias diff ediff $1 $2
 alias diffrev ediff-revision $1
 alias dsfluch dscacheutil -flushcache
 alias dsstore find . -name '*.DS_Store' -type f -ls -delete
-alias e 'for i in ${eshell-flatten-list $*} {find-file $i}'
 alias ec e
 alias ed e
 alias edit e
-alias emacs for i in ${eshell-flatten-list $*} {find-file $i}
+alias emacs e
 alias ff e
 alias fo find-file-other-window $1
 alias gd magit-diff-unstaged
