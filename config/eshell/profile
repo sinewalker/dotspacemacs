@@ -21,5 +21,3 @@ alias open
 (when (eq system-type 'windows-nt)
   (eshell/alias 'open "start $*"))
 
-eshell-read-aliases-list > /dev/nu
-ll
