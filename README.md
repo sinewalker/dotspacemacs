@@ -4,6 +4,12 @@ Personal Spacemacs configuration
 This is my [Spacemacs](http://spacemacs.org) configuration (see [Spacemacs on Github](https://github.com/syl20bnr/spacemacs)
 ).
 
+---
+
+Note:  This project is [Mastered at GitLab](https://gitlab.com/milohax/dotspacemacs) and [Pushed to Github](https://github.com/sinewalker/dotspacemacs)
+
+---
+
 I've been an [Emacs](https://www.gnu.org/software/emacs/) user since the late 1990s and I've been keeping my emacs configuration ever since February 2000 ­ when it was just a simple `.emacsrc` ­ until it evolved over time to something quite complex and hairy. In recent months it's developed a will of its own, to the point where I cannot easily maintain it: if I make a change to something, three other things will unexpectedly break.
 
 So, I have declared ***Emacs Configuration Bankruptcy***.
